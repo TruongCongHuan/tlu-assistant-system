@@ -1,0 +1,12 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /application_submissions/{batchId}/{fileName} {
+      allow read: if request.auth != null
+        && (request.auth.token.get('role', '') in ['admin', 'staff', 'super_admin']);
+      allow write: if request.auth != null
+        && request.auth.token.email.matches('.*@thanglong\\.edu\\.vn$')
+        && request.resource.size < 13 * 1024 * 1024;
+    }
+  }
+}

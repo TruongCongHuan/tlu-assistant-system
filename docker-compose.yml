@@ -1,0 +1,43 @@
+services:
+  rag-api:
+    build:
+      context: ./services/rag-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY:?Set GEMINI_API_KEY in .env}
+      GEMINI_EMBED_REST_MODEL: ${GEMINI_EMBED_REST_MODEL:-gemini-embedding-001}
+      GEMINI_EMBED_OUTPUT_DIM: ${GEMINI_EMBED_OUTPUT_DIM:-}
+      EMBED_REQUEST_DELAY_MS: ${EMBED_REQUEST_DELAY_MS:-400}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:-dev-admin-key}
+      STUDENT_API_KEY: ${STUDENT_API_KEY:-dev-student-key}
+      CHROMA_DATA_DIR: /data/chroma
+      SOURCES_DIR: /data/sources
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://127.0.0.1:3000}
+    volumes:
+      - ./data/rag/chroma:/data/chroma
+      - ./data/rag/sources:/data/sources
+
+  staff-console:
+    build:
+      context: ./apps/staff-console
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      STORAGE_BACKEND: ${STORAGE_BACKEND:-file}
+      DATA_DIR: /app/data
+      STUDENT_API_KEY: ${STUDENT_API_KEY:-dev-student-key}
+      STAFF_API_KEY: ${STAFF_API_KEY:-dev-staff-key}
+      STAFF_JWT_SECRET: ${STAFF_JWT_SECRET:-dev-staff-jwt-change}
+      RAG_API_URL: http://rag-api:8080
+      RAG_ADMIN_KEY: ${ADMIN_API_KEY:-dev-admin-key}
+      FIREBASE_SERVICE_ACCOUNT_JSON: ${FIREBASE_SERVICE_ACCOUNT_JSON:-}
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS:-}
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - rag-api

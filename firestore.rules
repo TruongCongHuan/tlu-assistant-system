@@ -1,0 +1,172 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isStudentEmail() {
+      return isSignedIn()
+        && request.auth.token.email is string
+        && request.auth.token.email.matches('.*@thanglong\\.edu\\.vn$');
+    }
+
+    /** SV ẩn danh hoặc email @thanglong.edu.vn. */
+    function isAnonymous() {
+      return isSignedIn()
+        && request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+
+    function isStudentLike() {
+      return isStudentEmail() || isAnonymous();
+    }
+
+    function isStaffOrAdmin() {
+      return isSignedIn()
+        && request.auth.token.get('role', '') in ['admin', 'staff', 'super_admin'];
+    }
+
+    function validDepartmentId(d) {
+      return d in ['co_van', 'ct_sv', 'dao_tao', 'tai_chinh', 'tam_ly'];
+    }
+
+    /** App Flutter: threadId = "{uid}_{departmentId}". */
+    function ownsThreadId(threadId) {
+      return isSignedIn()
+        && threadId.matches('^' + request.auth.uid + '_.+');
+    }
+
+    /** Danh mục phòng ban — chỉ đọc (ghi qua Admin / seed). */
+    match /departments/{id} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if false;
+    }
+
+    /** Tài khoản cán bộ (mật khẩu hash) — chỉ BFF Admin SDK. */
+    match /staff_accounts/{id} {
+      allow read, write: if false;
+    }
+
+    /** Luồng chat SV ↔ phòng ban. */
+    match /department_threads/{threadId} {
+      allow read: if isStaffOrAdmin()
+        || (isStudentLike() && ownsThreadId(threadId))
+        || (isSignedIn() && resource.data.studentUid == request.auth.uid);
+      allow create: if isStudentLike()
+        && ownsThreadId(threadId)
+        && request.resource.data.studentUid == request.auth.uid
+        && validDepartmentId(request.resource.data.departmentId)
+        && request.resource.data.keys().hasAll([
+             'studentUid',
+             'departmentId',
+             'departmentTitle',
+             'status',
+             'preview',
+             'createdAt',
+             'lastMessageAt'
+           ]);
+      allow update: if isStudentLike()
+        && ownsThreadId(threadId)
+        && resource.data.studentUid == request.auth.uid
+        && request.resource.data.studentUid == resource.data.studentUid
+        && request.resource.data.departmentId == resource.data.departmentId;
+      allow delete: if false;
+
+      match /messages/{msgId} {
+        allow read: if isStaffOrAdmin()
+          || (isStudentLike() && ownsThreadId(threadId));
+        allow create: if isStudentLike()
+          && ownsThreadId(threadId)
+          && request.resource.data.senderUid == request.auth.uid
+          && request.resource.data.senderRole == 'student'
+          && request.resource.data.text is string
+          && request.resource.data.keys().hasAll([
+               'text', 'senderUid', 'senderRole', 'createdAt'
+             ]);
+        allow update, delete: if false;
+      }
+    }
+
+    /** Hồ sơ tài khoản (SV + cán bộ). SV chỉ doc của mình, role student, không tự gán permissions. */
+    match /users/{uid} {
+      allow read: if isSignedIn()
+        && (request.auth.uid == uid || isStaffOrAdmin());
+      allow create: if isStudentLike()
+        && request.auth.uid == uid
+        && request.resource.data.get('role', 'student') == 'student';
+      allow update: if isStudentLike()
+        && request.auth.uid == uid
+        && request.resource.data.get('role', 'student') == 'student'
+        && request.resource.data.get('permissions', resource.data.get('permissions', []))
+          == resource.data.get('permissions', [])
+        && request.resource.data.get('departmentIds', resource.data.get('departmentIds', []))
+          == resource.data.get('departmentIds', []);
+      allow delete: if false;
+    }
+
+    match /school_notifications/{id} {
+      allow read: if isStudentLike() || isStaffOrAdmin();
+      allow create, update, delete: if isStaffOrAdmin();
+    }
+
+    match /application_submissions/{id} {
+      allow create: if isStudentLike()
+        && request.resource.data.studentUid == request.auth.uid
+        && request.resource.data.keys().hasAll([
+             'title',
+             'details',
+             'source',
+             'uploadBatchId',
+             'attachments',
+             'createdAt',
+             'studentUid',
+             'studentEmail'
+           ])
+        && request.resource.data.source == 'tlu_ai_app'
+        && request.resource.data.title is string
+        && request.resource.data.details is string
+        && request.resource.data.attachments is list
+        && request.resource.data.studentUid is string
+        && request.resource.data.studentEmail is string;
+      allow read: if isStaffOrAdmin();
+      allow update, delete: if isStaffOrAdmin();
+    }
+
+    match /feedback_letters/{id} {
+      allow create: if isStudentLike()
+        && request.resource.data.studentUid == request.auth.uid
+        && request.resource.data.keys().hasAll([
+             'subject',
+             'body',
+             'anonymous',
+             'studentLabel',
+             'source',
+             'createdAt',
+             'studentUid',
+             'studentEmail'
+           ])
+        && request.resource.data.source == 'tlu_ai_app'
+        && request.resource.data.anonymous is bool
+        && request.resource.data.subject is string
+        && request.resource.data.body is string
+        && request.resource.data.studentUid is string
+        && request.resource.data.studentEmail is string
+        && (
+             request.resource.data.get('anonymous', false) == true
+             || (
+                  request.resource.data.studentLabel is string
+                  && request.resource.data.studentLabel.size() > 0
+                )
+           );
+      allow read: if isStaffOrAdmin();
+      allow update, delete: if isStaffOrAdmin();
+    }
+
+    match /audit_logs/{id} {
+      allow read: if isStaffOrAdmin() && request.auth.token.get('role', '') in ['super_admin', 'admin'];
+      allow create: if isStaffOrAdmin();
+      allow update, delete: if false;
+    }
+  }
+}

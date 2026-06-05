@@ -1,0 +1,81 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Backend / admin
+.env
+services/rag-api/.env
+node_modules/
+
+# Firebase / local secrets (do not commit)
+secrets/
+config/dart_defines.json
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Python RAG API
+**/__pycache__/
+**/.venv/
+**/.pytest_cache/
+
+# Node (staff-console)
+apps/staff-console/node_modules/
+apps/staff-console/dist/
+
+# Runtime / local data
+data/
+/tmp/
+
+# Chroma / eval artifacts (regenerable)
+services/rag-api/eval/results/*.csv
+services/rag-api/eval/results/*.json
+
+# KLTN Word — scripts only, not binary docx
+document/*.docx
+plans/*.docx
+
+# IDE / OS
+.vscode/
+.cursor/
