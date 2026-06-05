@@ -100,6 +100,24 @@ git push -u origin feat/eval-ablation
 
 GitHub private **không** hỗ trợ “ai có link đều xem” như Google Drive.
 
+## Push lên GitHub (lần đầu)
+
+1. Tạo repo trên https://github.com/new (không tick README).
+2. Chạy:
+
+```bash
+chmod +x scripts/push_to_github.sh
+./scripts/push_to_github.sh <github-username> tlu-assistant-system public
+```
+
+Hoặc thủ công:
+
+```bash
+git remote add origin https://github.com/<username>/tlu-assistant-system.git
+git branch -M main
+git push -u origin main
+```
+
 ## Eval RAG (tuỳ chọn)
 
 ```bash
