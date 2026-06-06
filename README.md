@@ -1,22 +1,62 @@
 # TLU Assistant System
 
-**Full-stack AI assistant for university students** — Flutter mobile app, RAG pipeline (on-device + server), Firebase realtime chat, Staff Console (React), Docker Compose.
+**Hệ thống thông tin hỗ trợ sinh viên đại học** — tra cứu học vụ bằng AI (RAG), chat realtime với phòng ban, thông báo, đơn từ và quản trị qua Staff Console.
 
-Graduation thesis project (Thang Long University): end-to-end **AI Engineering** system, not a standalone ML model.
+Đồ án tốt nghiệp (ĐH Thăng Long): sản phẩm **full-stack end-to-end**, không chỉ một mô hình ML đơn lẻ.
 
 ---
 
-## Portfolio highlights (for reviewers)
+## Hai trụ của hệ thống
 
-| Area | Contribution |
-|------|----------------|
-| **RAG** | Semantic Markdown Chunking, abbreviation-aware query expansion, dual local (SQLite) / server (ChromaDB) architecture |
-| **Backend** | FastAPI RAG API + SSE streaming, Express.js BFF, Firebase Admin (Firestore, Storage, FCM) |
-| **Frontend** | Flutter (student app), React 18 Staff Console |
-| **Eval** | 50-question Vietnamese eval set, ablation harness (`services/rag-api/eval/`) — Context Precision, MRR, Faithfulness, Refusal Accuracy |
-| **Ops** | `docker compose up --build` runs full backend stack locally |
+| Trụ | Vai trò | Thành phần chính |
+|-----|---------|------------------|
+| **Hệ thống thông tin (MIS)** | Kênh tương tác sinh viên ↔ nhà trường | Chat phòng ban, thông báo FCM, nộp đơn/góp ý, Staff Console (RBAC, audit), Firebase Firestore |
+| **Trí tuệ nhân tạo (RAG)** | Hỏi đáp học vụ có căn cứ, giảm ảo giác LLM | Semantic chunking, query expansion, RAG on-device (Flutter) + server (FastAPI/ChromaDB), bộ eval 50 câu |
 
-### Architecture
+Hai trụ dùng chung một nền tảng: sinh viên dùng **một app Flutter**; cán bộ dùng **một web quản trị**; backend gom qua **Docker Compose**.
+
+---
+
+## Luồng nghiệp vụ tiêu biểu
+
+```mermaid
+flowchart TB
+  subgraph student [Sinh viên — Flutter App]
+    Q[Hỏi quy chế / học phí / lịch học]
+    C[Chat phòng ban]
+    N[Nhận thông báo · Nộp đơn]
+  end
+  subgraph ai [RAG Pipeline]
+    RAG[RAG API / Local RAG]
+    KB[(Corpus Sổ tay K38 + tài liệu upload)]
+  end
+  subgraph school [Nhà trường — Staff Console]
+    ST[Quản lý SV · Chat · Thông báo]
+    AD[Upload tài liệu RAG · Audit log]
+  end
+  subgraph cloud [Firebase]
+    FS[(Firestore)]
+    FCM[FCM Push]
+  end
+  Q --> RAG --> KB
+  RAG -->|Không đủ / cần con người| C
+  C --> FS
+  ST --> FS
+  ST --> FCM --> N
+  AD --> KB
+  student --> FS
+```
+
+1. Sinh viên **hỏi AI** về quy chế, học phí, CTĐT — câu trả lời bám nguồn tài liệu chính thức.
+2. Nếu cần hỗ trợ trực tiếp → **chat với phòng ban** (Đào tạo, Công tác SV, …).
+3. Cán bộ xử lý trên **Staff Console**: trả lời chat, gửi thông báo, duyệt đơn, quản lý tài liệu RAG.
+4. Cán bộ **upload tài liệu** → index vector → sinh viên hỏi ngay trên corpus mới.
+
+---
+
+## Kiến trúc kỹ thuật (monorepo)
+
+Một repository, nhiều service — chuẩn triển khai sản phẩm nhỏ, dễ demo và bảo vệ KLTN:
 
 ```mermaid
 flowchart LR
@@ -42,180 +82,114 @@ flowchart LR
   BFF --> FCM
 ```
 
-### Quick start (backend)
+| Thư mục | Stack | Vai trò |
+|---------|-------|---------|
+| `lib/` | Flutter / Dart | App sinh viên: RAG, chat, thông báo, đơn từ |
+| `apps/staff-console/` | React + Express | Web cán bộ + BFF (proxy RAG, Firebase Admin) |
+| `services/rag-api/` | Python / FastAPI | RAG server, ChromaDB, eval harness |
+| `docker-compose.yml` | Docker | Chạy `rag-api` + `staff-console` local |
+| `thesis/content_v3/` | — | Nguồn nội dung KLTN (build → `document/*.docx`, không commit) |
+
+---
+
+## Điểm nổi bật (portfolio)
+
+### Hệ thống thông tin
+- Chat sinh viên ↔ phòng ban (realtime qua Firestore / BFF)
+- Push thông báo FCM, màn hình đơn từ & góp ý
+- Staff Console: quản lý user, chat, thông báo, vector RAG, RBAC, audit log
+- Kiểm thử E2E: [docs/E2E_CHECKLIST.md](docs/E2E_CHECKLIST.md)
+
+### AI / RAG
+- Semantic Markdown Chunking + query expansion (viết tắt học vụ: HP, HK, GPA…)
+- Kiến trúc kép: RAG on-device (SQLite) và server (ChromaDB)
+- Eval harness 50 câu tiếng Việt: Context Precision, MRR, Faithfulness, Refusal Accuracy
+- Ablation 12 cấu hình — xem `services/rag-api/eval/`
+
+---
+
+## Quick start
+
+### Backend (Docker)
 
 ```bash
-git clone https://github.com/<your-username>/tlu-assistant-system.git
+git clone https://github.com/TruongCongHuan/tlu-assistant-system.git
 cd tlu-assistant-system
-cp .env.example .env          # set GEMINI_API_KEY
-mkdir -p secrets && cp /path/to/firebase-sa.json secrets/   # not in Git
+cp .env.example .env          # GEMINI_API_KEY, ...
+mkdir -p secrets && cp /path/to/firebase-sa.json secrets/   # không commit
 docker compose up --build
 ```
 
 - RAG API: http://127.0.0.1:8080  
 - Staff Console: http://127.0.0.1:3000  
 
-See [docs/GIT_SETUP.md](docs/GIT_SETUP.md) for full clone workflow and branch conventions.
+### App sinh viên (Flutter)
 
----
-
-## Tính năng
-
-| Feature | Mô tả |
-|---------|-------|
-| 📄 RAG local PDF | Upload PDF → index → hỏi đáp ngay trên máy |
-| 🎙️ STT tiếng Việt | Nói → chuyển thành câu hỏi tự động |
-| 🔊 TTS tiếng Việt | AI đọc to câu trả lời (có thể dừng/toggle) |
-| 🌊 Waveform UI | Animation waveform realtime khi đang nói |
-| 💬 Streaming response | Trả lời xuất hiện từng từ như Gemini |
-| 📱 Android 11+ / iOS | Một codebase, hai nền tảng |
-
----
-
-## 🚀 Setup nhanh (5 bước)
-
-### 1. Clone & cài dependencies
 ```bash
-git clone <repo>
-cd tlu_ai_assistant
 flutter pub get
+flutter run \
+  --dart-define=GEMINI_KEY=YOUR_KEY \
+  --dart-define=API_BASE_URL=http://10.0.2.2:8080 \
+  --dart-define=STUDENT_API_KEY=dev-student-key
 ```
 
-### 2. Thêm Gemini API Key (bắt buộc cho RAG on-device)
+Emulator Android: `10.0.2.2` = localhost máy host.
 
-Dùng `--dart-define` (không hard-code trong repo):
-
-```bash
-flutter run --dart-define=GEMINI_KEY=YOUR_GEMINI_API_KEY
-```
-
-### 2b. RAG qua server (Docker) + **một** web cán bộ
-
-1. **API + Staff Console (Docker Compose):** tạo `.env` từ `.env.example`, điền `GEMINI_API_KEY`, (tuỳ chọn) `STAFF_API_KEY`, cấu hình Firebase cho service `staff-console`, rồi:
-   ```bash
-   docker compose up --build
-   ```
-   - RAG API: `http://127.0.0.1:8080`
-   - **Cổng cán bộ (duy nhất):** `http://127.0.0.1:3000` — đăng nhập bằng **Staff API key** (màn Cài đặt), quản lý `users`, thông báo, đơn, góp ý, vector RAG, audit.
-
-2. **Dev UI riêng (không bắt buộc):** `cd apps/staff-console && npm install && npm run dev` — Vite `http://localhost:5174`, proxy `/api` → server cổng 3001 (chạy `node server/index.mjs` trong cùng lệnh `npm run dev`).
-
-3. **Flutter:** bật *RAG qua server* trong drawer, kèm:
-   ```bash
-   flutter run \
-     --dart-define=GEMINI_KEY=YOUR_KEY \
-     --dart-define=API_BASE_URL=http://10.0.2.2:8080 \
-     --dart-define=STUDENT_API_KEY=dev-student-key
-   ```
-   (Emulator Android: `10.0.2.2` = localhost máy host.)
-
-Checklist E2E: [docs/E2E_CHECKLIST.md](docs/E2E_CHECKLIST.md).
-
-### 3. Chạy trên Android
-```bash
-flutter run --dart-define=GEMINI_KEY=YOUR_GEMINI_API_KEY
-```
-
-### 4. Build APK release
-```bash
-flutter build apk --release
-# APK ở: build/app/outputs/flutter-apk/app-release.apk
-```
-
-### 5. Build iOS (cần Mac + Xcode 15+)
-```bash
-flutter build ios --release
-# Mở Xcode → Product → Archive → Distribute
-```
+Chi tiết clone, nhánh, secret: [docs/GIT_SETUP.md](docs/GIT_SETUP.md).
 
 ---
 
-## 📁 Cấu trúc Project
+## Tính năng app sinh viên
+
+| Tính năng | Mô tả |
+|-----------|-------|
+| RAG học vụ | Hỏi đáp trên Sổ tay / PDF — local hoặc qua server |
+| Chat phòng ban | Liên hệ Đào tạo, Công tác SV, … |
+| Thông báo | Nhận push từ phòng ban |
+| Đơn từ & góp ý | Nộp và theo dõi trạng thái |
+| STT / TTS tiếng Việt | Nói câu hỏi, nghe câu trả lời |
+| Streaming | Phản hồi AI hiển thị từng token (SSE) |
+
+---
+
+## Cấu trúc mã nguồn
 
 ```
-lib/
-├── config/api_config.dart       ← API_BASE_URL, STUDENT_API_KEY (--dart-define)
-├── main.dart
+lib/                          # Flutter — app sinh viên
 ├── services/
-│   ├── local_rag_service.dart   ← RAG on-device
-│   ├── remote_rag_service.dart  ← RAG backend (SSE)
-│   └── ...
-services/rag-api/                ← FastAPI + Chroma (Docker, Cloud Run)
-apps/staff-console/              ← Web cán bộ duy nhất (Vite + BFF Node + Docker)
+│   ├── local_rag_service.dart
+│   ├── remote_rag_service.dart
+│   └── local_department_chat_repository.dart
+apps/staff-console/           # React + BFF Node
+services/rag-api/             # FastAPI + Chroma + eval/
+├── app/rag.py
+└── eval/run_eval.py
 docker-compose.yml
-docs/DEPLOY_CLOUD_RUN.md
-docs/E2E_CHECKLIST.md
+docs/
+├── E2E_CHECKLIST.md
+├── GIT_SETUP.md
+└── BAO_CAO_KY_THUAT_RAG.md
 ```
 
 ---
 
-## 🏗️ Flow hoạt động
+## File không commit
 
-```
-User upload PDF
-    │
-    ▼
-PdfService.extractText()        ← syncfusion_flutter_pdf
-    │  Map<trang, text>
-    ▼
-PdfService.chunk()              ← sliding window 450 chars, overlap 80
-    │  List<DocumentChunk>
-    ▼
-EmbeddingService.embedBatch()   ← Gemini text-embedding-004 (768 dims)
-    │  List<List<double>>
-    ▼
-VectorStore.insertChunks()      ← SQLite on-device
-    │
-    ▼  (khi user hỏi)
-EmbeddingService.embed(query)   ← Embed câu hỏi
-    │
-    ▼
-VectorStore.search()            ← Cosine similarity top-5
-    │  List<DocumentChunk>
-    ▼
-LocalRagService.queryStream()   ← Build prompt + Gemini Flash stream
-    │
-    ▼
-ChatScreen                      ← Stream text → typing animation
-    │
-    ▼ (nút loa)
-TtsService.speak()              ← flutter_tts vi-VN
-```
+| Path | Lý do |
+|------|-------|
+| `.env` | API keys |
+| `secrets/` | Firebase service account |
+| `document/*.docx` | Khóa luận Word (local / Drive) |
+| `data/`, `node_modules/`, `build/` | Runtime & artifacts |
 
 ---
 
-## ⚠️ Giới hạn cần biết
+## Tài liệu thêm
 
-| Giới hạn | Chi tiết | Cách xử lý |
-|----------|----------|-----------|
-| Gemini Free: 60 RPM | Embedding rate limit | Đã có delay 120ms/request |
-| PDF scan (ảnh) | Không extract được text | Báo lỗi rõ ràng cho user |
-| PDF > 300 trang | Index mất ~15 phút | Progress bar + background isolate |
-| STT tiếng Việt | Cần cài TTS engine vi-VN trên máy | Kiểm tra `isVietnameseAvailable()` |
-| Cosine search | O(n) với n chunks | Ổn đến ~20.000 chunks (~500 trang) |
+- [E2E checklist](docs/E2E_CHECKLIST.md) — luồng demo bảo vệ
+- [Báo cáo kỹ thuật RAG](docs/BAO_CAO_KY_THUAT_RAG.md) — chi tiết pipeline & eval
+- [Git workflow](docs/GIT_SETUP.md)
 
 ---
 
-## 🔧 Tùy chỉnh thêm
-
-**Đổi chunk size** (tăng nếu tài liệu kỹ thuật, giảm nếu hỏi rất cụ thể):
-```dart
-// lib/services/pdf_service.dart
-static const int _chunkSize = 450; // thử 300-700
-static const int _overlap   = 80;  // ~18% overlap là chuẩn
-```
-
-**Thêm System Prompt riêng cho từng khoa:**
-```dart
-// lib/services/local_rag_service.dart → systemInstruction
-'Bạn là trợ lý chuyên ngành Kỹ thuật Thủy lợi...'
-```
-
-**Scale lên backend** khi cần phục vụ 10K sinh viên:
-- Thay `VectorStore` (SQLite) → HTTP calls đến ChromaDB trên Cloud Run
-- Thay `EmbeddingService` local → endpoint `/embed` trên backend
-- Logic RAG không đổi gì cả — đây là lý do tách service rõ ràng
-
----
-
-*Built with ❤️ by TLU Students — Flutter + Gemini + On-device RAG*
+*Đồ án tốt nghiệp — Trương Công Huấn, ĐH Thăng Long · Flutter + Firebase + RAG + Docker*
