@@ -17,6 +17,7 @@ import asyncio
 import json
 import os
 import re
+import ssl
 import time
 import urllib.error
 import urllib.request
@@ -105,6 +106,15 @@ def configure_genai() -> None:
 
 # ── Embedding via REST (avoids legacy SDK 404 on new models) ─────────────────
 
+def _ssl_context() -> ssl.SSLContext:
+    """Use certifi CA bundle — fixes CERTIFICATE_VERIFY_FAILED on macOS Homebrew Python."""
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        return ssl.create_default_context()
+
+
 def _parse_embed_response(payload: dict[str, Any]) -> list[float]:
     emb = payload.get("embedding")
     if isinstance(emb, dict) and "values" in emb:
@@ -145,7 +155,7 @@ def _embed_via_rest(text: str, model: str | None = None) -> list[float]:
             },
         )
         try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            with urllib.request.urlopen(req, timeout=120, context=_ssl_context()) as resp:
                 payload = json.load(resp)
             return _parse_embed_response(payload)
         except urllib.error.HTTPError as e:

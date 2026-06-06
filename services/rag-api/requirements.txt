@@ -5,6 +5,7 @@ chromadb==0.5.23
 google-generativeai==0.8.4
 pymupdf==1.25.2
 python-dotenv==1.0.1
+certifi>=2024.0.0
 numpy==1.26.4
 # Eval / ablation dependencies
 matplotlib==3.9.2
