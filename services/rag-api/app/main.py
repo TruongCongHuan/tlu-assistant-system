@@ -107,11 +107,46 @@ def admin_delete_document(doc_id: str) -> dict[str, Any]:
     return {"deleted": True, "doc_id": doc_id}
 
 
+def _build_retrieval_meta(raw_chunks: list[dict[str, Any]], sources: str) -> dict[str, Any]:
+    contexts: list[dict[str, Any]] = []
+    for c in raw_chunks:
+        meta = c.get("meta") or {}
+        text = str(c.get("text") or "")
+        contexts.append(
+            {
+                "chunk_id": c.get("id"),
+                "doc_name": meta.get("doc_name"),
+                "score": c.get("score"),
+                "preview": text[:280],
+            }
+        )
+    return {
+        "type": "meta",
+        "sources": sources,
+        "retrieval_mode": rag.RETRIEVAL_MODE,
+        "retrieved_contexts": contexts,
+    }
+
+
 @app.post("/v1/chat/stream", dependencies=[Depends(require_student)])
 def student_chat_stream(body: ChatBody) -> StreamingResponse:
     def gen():
         try:
-            for piece in rag.stream_answer(body.question, body.doc_id):
+            context, sources, raw_chunks = rag.retrieve_context(
+                body.question, body.doc_id
+            )
+            meta_payload = json.dumps(
+                _build_retrieval_meta(raw_chunks, sources),
+                ensure_ascii=False,
+            )
+            yield f"data: {meta_payload}\n\n"
+
+            for piece in rag.stream_answer(
+                body.question,
+                body.doc_id,
+                context=context,
+                sources=sources,
+            ):
                 payload = json.dumps({"text": piece}, ensure_ascii=False)
                 yield f"data: {payload}\n\n"
             yield "data: [DONE]\n\n"

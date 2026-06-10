@@ -47,6 +47,7 @@ export function createFileStore(dataDir) {
       "submissions",
       "uploads",
       "feedback",
+      "rag_feedback",
       "users",
       "audit",
       "departments",
@@ -264,6 +265,30 @@ export function createFileStore(dataDir) {
     items.push({ id, ...entry, createdAt: nowIso() });
     await writeJson("feedback/items.json", items);
     return id;
+  }
+
+  async function appendRagFeedback(entry) {
+    const dir = path.join(root, "rag_feedback");
+    await fs.mkdir(dir, { recursive: true });
+    const p = path.join(dir, "ratings.jsonl");
+    const row = { id: randomUUID(), at: nowIso(), ...entry };
+    await fs.appendFile(p, `${JSON.stringify(row)}\n`, "utf8");
+    return row.id;
+  }
+
+  async function listRagFeedback({ limit = 200 } = {}) {
+    const p = path.join(root, "rag_feedback", "ratings.jsonl");
+    try {
+      const raw = await fs.readFile(p, "utf8");
+      const lines = raw.split("\n").filter(Boolean);
+      return lines
+        .slice(-limit)
+        .map((line) => JSON.parse(line))
+        .reverse();
+    } catch (e) {
+      if (e.code === "ENOENT") return [];
+      throw e;
+    }
   }
 
   async function appendAudit(entry) {
@@ -504,6 +529,8 @@ export function createFileStore(dataDir) {
     uploadAbsPath,
     listFeedback,
     createFeedback,
+    appendRagFeedback,
+    listRagFeedback,
     appendAudit,
     listAuditLogs,
     getThreadMeta,

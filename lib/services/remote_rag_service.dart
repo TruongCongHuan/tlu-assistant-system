@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import '../config/api_config.dart';
+import '../models/rag_stream.dart';
 
 /// Calls server-side RAG (`POST /v1/chat/stream`, SSE `data: {...}`).
 class RemoteRagService {
@@ -14,9 +15,14 @@ class RemoteRagService {
   /// Khoảng lặng tối đa giữa hai phần dữ liệu từ server (chờ token đầu / giữa stream).
   static const _idleTimeout = Duration(seconds: 300);
 
-  Stream<String> queryStream(String question, {String? docId}) async* {
+  Stream<RagStreamEvent> queryStreamEvents(
+    String question, {
+    String? docId,
+  }) async* {
     if (!ApiConfig.isRemoteConfigured) {
-      yield 'Chưa cấu hình backend: thêm --dart-define=API_BASE_URL=... và STUDENT_API_KEY=...';
+      yield RagStreamEvent.error(
+        'Chưa cấu hình backend: thêm --dart-define=API_BASE_URL=... và STUDENT_API_KEY=...',
+      );
       return;
     }
 
@@ -41,15 +47,19 @@ class RemoteRagService {
     try {
       streamed = await _client.send(req).timeout(_connectTimeout);
     } on TimeoutException {
-      yield 'Hết thời gian chờ kết nối (45 giây). Kiểm tra:\n'
-          '• API_BASE_URL đúng IP máy Mac + :8080 (ví dụ http://192.168.1.42:8080)\n'
-          '• Điện thoại và Mac cùng Wi‑Fi; tắt VPN trên điện thoại\n'
-          '• Docker đang chạy: trên Mac gõ curl http://127.0.0.1:8080/health\n'
-          '• Trên điện thoại mở Chrome thử http://<IP-Mac>:8080/health';
+      yield RagStreamEvent.error(
+        'Hết thời gian chờ kết nối (45 giây). Kiểm tra:\n'
+        '• API_BASE_URL đúng IP máy Mac + :8080 (ví dụ http://192.168.1.42:8080)\n'
+        '• Điện thoại và Mac cùng Wi‑Fi; tắt VPN trên điện thoại\n'
+        '• Docker đang chạy: trên Mac gõ curl http://127.0.0.1:8080/health\n'
+        '• Trên điện thoại mở Chrome thử http://<IP-Mac>:8080/health',
+      );
       return;
     } catch (e, st) {
       debugPrint('[RemoteRag] send error: $e\n$st');
-      yield 'Không kết nối được tới server. Kiểm tra API_BASE_URL và mạng.\n$e';
+      yield RagStreamEvent.error(
+        'Không kết nối được tới server. Kiểm tra API_BASE_URL và mạng.\n$e',
+      );
       return;
     }
 
@@ -59,7 +69,7 @@ class RemoteRagService {
 
     if (streamed.statusCode != 200) {
       final r = await http.Response.fromStream(streamed);
-      yield 'Lỗi HTTP ${streamed.statusCode}: ${r.body}';
+      yield RagStreamEvent.error('Lỗi HTTP ${streamed.statusCode}: ${r.body}');
       return;
     }
 
@@ -75,48 +85,67 @@ class RemoteRagService {
         lineBuf.clear();
         lineBuf.write(parts.removeLast());
         for (final rawLine in parts) {
-          for (final out in _decodeSseLine(rawLine)) {
-            if (out == _doneSentinel) return;
-            yield out;
+          for (final ev in _decodeSseLine(rawLine)) {
+            if (ev.kind == RagStreamEventKind.done) return;
+            yield ev;
           }
         }
       }
     } on TimeoutException {
-      yield '\n\n[Hết thời gian chờ dữ liệu từ server (5 phút). Có thể Gemini trên Docker đang chậm hoặc bị rate limit.]';
+      yield RagStreamEvent.text(
+        '\n\n[Hết thời gian chờ dữ liệu từ server (5 phút). Có thể Gemini trên Docker đang chậm hoặc bị rate limit.]',
+      );
       return;
     }
 
     final tail = lineBuf.toString();
     for (final rawLine in tail.split('\n')) {
-      for (final out in _decodeSseLine(rawLine)) {
-        if (out == _doneSentinel) return;
-        yield out;
+      for (final ev in _decodeSseLine(rawLine)) {
+        if (ev.kind == RagStreamEventKind.done) return;
+        yield ev;
       }
     }
   }
 
-  static const String _doneSentinel = '\x00[DONE]\x00';
+  /// Backward-compatible text-only stream.
+  Stream<String> queryStream(String question, {String? docId}) async* {
+    await for (final ev in queryStreamEvents(question, docId: docId)) {
+      switch (ev.kind) {
+        case RagStreamEventKind.text:
+          if (ev.text != null && ev.text!.isNotEmpty) yield ev.text!;
+        case RagStreamEventKind.error:
+          if (ev.text != null) yield ev.text!;
+          return;
+        case RagStreamEventKind.meta:
+        case RagStreamEventKind.done:
+          break;
+      }
+    }
+  }
 
-  /// Một dòng SSE; trả về các đoạn text hoặc [_doneSentinel] khi `[DONE]`.
-  static Iterable<String> _decodeSseLine(String rawLine) sync* {
+  static Iterable<RagStreamEvent> _decodeSseLine(String rawLine) sync* {
     final line = rawLine.trim();
     if (line.isEmpty) return;
     if (!line.startsWith('data:')) return;
     final payload = line.substring(5).trim();
     if (payload == '[DONE]') {
-      yield _doneSentinel;
+      yield const RagStreamEvent.done();
       return;
     }
     try {
       final map = jsonDecode(payload) as Map<String, dynamic>;
       if (map.containsKey('error')) {
-        yield 'Lỗi server: ${map['error']}';
-        yield _doneSentinel;
+        yield RagStreamEvent.error('Lỗi server: ${map['error']}');
+        yield const RagStreamEvent.done();
+        return;
+      }
+      if (map['type'] == 'meta') {
+        yield RagStreamEvent.meta(RagStreamMeta.fromJson(map));
         return;
       }
       final text = map['text'] as String?;
       if (text != null && text.isNotEmpty) {
-        yield text;
+        yield RagStreamEvent.text(text);
       }
     } catch (e) {
       debugPrint('[RemoteRag] bad SSE line: $payload → $e');

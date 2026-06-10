@@ -44,7 +44,11 @@ void main() async {
     await prefs.setBool('use_remote_rag', true);
     await StudentAlertService.instance.init();
   }
-  final useRemoteRag = prefs.getBool('use_remote_rag') ?? false;
+  // Mặc định RAG qua server; LocalRagService chỉ còn legacy (không hiển thị trong UI).
+  final useRemoteRag = prefs.getBool('use_remote_rag') ?? true;
+  if (!prefs.containsKey('use_remote_rag')) {
+    await prefs.setBool('use_remote_rag', true);
+  }
 
   // Full screen immersive — giống Gemini
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -67,9 +71,9 @@ void main() async {
         ChangeNotifierProvider(create: (_) => SttService()),
         ChangeNotifierProvider(
           create: (_) => ChatProvider(
-            initialUseRemoteRag: AppRuntimeConfig.useLocalApi
-                ? true
-                : (DemoReportConfig.enabled ? false : useRemoteRag),
+            initialUseRemoteRag: DemoReportConfig.enabled
+                ? false
+                : (AppRuntimeConfig.useLocalApi ? true : useRemoteRag),
           ),
         ),
       ],

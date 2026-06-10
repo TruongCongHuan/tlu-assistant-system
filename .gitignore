@@ -76,6 +76,27 @@ services/rag-api/eval/results/*.json
 document/*.docx
 plans/*.docx
 
+# Thesis drafts / local exports (do not commit)
+docs/KLTN_*
+docs/*.docx
+docs/~$*
+docs/assets/
+document/kltn_v*/
+document/ai_eng_chapters/
+document/thesis_v15_expansions/
+document/generator/
+document/*.pdf
+document/*.md
+!document/README.md
+
+# Eval caches / run artifacts (regenerable)
+services/rag-api/eval/.chroma_eval/
+services/rag-api/eval/.chroma_test_write/
+services/rag-api/eval/.sources/
+services/rag-api/eval/logs/
+services/rag-api/eval/results/*.jsonl
+services/rag-api/eval/results/*.md
+
 # IDE / OS
 .vscode/
 .cursor/

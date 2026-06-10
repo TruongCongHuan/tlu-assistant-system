@@ -7,7 +7,6 @@ import '../config/app_runtime_config.dart';
 import '../config/department_catalog.dart';
 import '../config/demo_report_config.dart';
 import '../theme/app_theme.dart';
-import '../providers/chat_provider.dart';
 import '../services/student_alert_service.dart';
 import '../services/school_auth_service.dart';
 import '../config/school_web_config.dart';
@@ -310,47 +309,6 @@ class _AppDrawerState extends State<AppDrawer> {
                   );
                 },
               ),
-
-              if (!DemoReportConfig.enabled)
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.cloud_outlined,
-                          color: AppTheme.textPrimary, size: 20),
-                      const SizedBox(width: 12),
-                      const Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'RAG qua server (Cloud Run)',
-                              style: TextStyle(
-                                  color: AppTheme.textPrimary, fontSize: 15),
-                            ),
-                            Text(
-                              'Cần API_BASE_URL + STUDENT_API_KEY',
-                              style: TextStyle(
-                                  color: AppTheme.textTertiary, fontSize: 11),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Selector<ChatProvider, bool>(
-                        selector: (_, p) => p.useRemoteRag,
-                        builder: (_, useRemote, __) {
-                          return Switch(
-                            value: useRemote,
-                            onChanged: (v) {
-                              context.read<ChatProvider>().setUseRemoteRag(v);
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
 
               if (!DemoReportConfig.enabled && Firebase.apps.isNotEmpty)
                 Builder(

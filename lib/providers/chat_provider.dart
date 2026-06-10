@@ -6,7 +6,9 @@ import '../config/api_config.dart';
 import '../config/app_runtime_config.dart';
 import '../config/demo_report_config.dart';
 import '../models/conversation.dart';
+import '../models/rag_stream.dart';
 import '../services/local_rag_service.dart';
+import '../services/rag_feedback_service.dart';
 import '../services/remote_rag_service.dart';
 
 const _kUseRemoteRag = 'use_remote_rag';
@@ -39,9 +41,8 @@ class ChatProvider extends ChangeNotifier {
   String? _activeDocId;
   String? get activeDocId => _activeDocId;
 
-  /// [initialUseRemoteRag] đọc từ `main()` (SharedPreferences) để tránh race:
-  /// `_loadRemotePref` async trong constructor từng ghi đè lại `false` sau khi user bật công tắc.
-  ChatProvider({bool initialUseRemoteRag = false}) : _useRemoteRag = initialUseRemoteRag {
+  /// [initialUseRemoteRag] đọc từ `main()` (SharedPreferences) để tránh race.
+  ChatProvider({bool initialUseRemoteRag = true}) : _useRemoteRag = initialUseRemoteRag {
     if (DemoReportConfig.enabled && AppRuntimeConfig.useStaticDemo) {
       _seedDemoAiChat();
     }
@@ -129,9 +130,10 @@ class ChatProvider extends ChangeNotifier {
       return;
     }
 
+    final userText = text.trim();
     _messages.add(ChatMessage(
       id: _uuid.v4(),
-      text: text.trim(),
+      text: userText,
       role: MessageRole.user,
       createdAt: DateTime.now(),
     ));
@@ -145,11 +147,14 @@ class ChatProvider extends ChangeNotifier {
       role: MessageRole.assistant,
       status: MessageStatus.sending,
       createdAt: DateTime.now(),
+      userQuestion: userText,
     ));
     notifyListeners();
 
     try {
       final buffer = StringBuffer();
+      List<RetrievedContextPreview> contexts = const [];
+      String? retrievalMode;
       final useRemote = _useRemoteRag && ApiConfig.isRemoteConfigured;
       if (kDebugMode) {
         debugPrint(
@@ -157,16 +162,59 @@ class ChatProvider extends ChangeNotifier {
           'apiConfigured=${ApiConfig.isRemoteConfigured} → stream=${useRemote ? "remote" : "local"}',
         );
       }
-      final stream = useRemote
-          ? _remoteRag.queryStream(text, docId: _activeDocId)
-          : _localRag.queryStream(text, docId: _activeDocId);
 
-      await for (final chunk in stream) {
-        buffer.write(chunk);
-        _updateAiMessage(aiMsgId, buffer.toString(), MessageStatus.sending);
+      if (useRemote) {
+        await for (final ev in _remoteRag.queryStreamEvents(
+          userText,
+          docId: _activeDocId,
+        )) {
+          switch (ev.kind) {
+            case RagStreamEventKind.meta:
+              contexts = ev.meta?.contexts ?? const [];
+              retrievalMode = ev.meta?.retrievalMode;
+              _updateAiMessage(
+                aiMsgId,
+                buffer.toString(),
+                MessageStatus.sending,
+                retrievedContexts: contexts,
+                retrievalMode: retrievalMode,
+              );
+            case RagStreamEventKind.text:
+              buffer.write(ev.text ?? '');
+              _updateAiMessage(
+                aiMsgId,
+                buffer.toString(),
+                MessageStatus.sending,
+                retrievedContexts: contexts,
+                retrievalMode: retrievalMode,
+              );
+            case RagStreamEventKind.error:
+              _updateAiMessage(
+                aiMsgId,
+                ev.text ?? 'Lỗi không xác định',
+                MessageStatus.error,
+              );
+              _isThinking = false;
+              notifyListeners();
+              return;
+            case RagStreamEventKind.done:
+              break;
+          }
+        }
+      } else {
+        await for (final chunk in _localRag.queryStream(userText, docId: _activeDocId)) {
+          buffer.write(chunk);
+          _updateAiMessage(aiMsgId, buffer.toString(), MessageStatus.sending);
+        }
       }
 
-      _updateAiMessage(aiMsgId, buffer.toString(), MessageStatus.done);
+      _updateAiMessage(
+        aiMsgId,
+        buffer.toString(),
+        MessageStatus.done,
+        retrievedContexts: contexts,
+        retrievalMode: retrievalMode,
+      );
     } catch (e) {
       _updateAiMessage(
         aiMsgId,
@@ -179,11 +227,44 @@ class ChatProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _updateAiMessage(String id, String text, MessageStatus status) {
+  void _updateAiMessage(
+    String id,
+    String text,
+    MessageStatus status, {
+    List<RetrievedContextPreview>? retrievedContexts,
+    String? retrievalMode,
+  }) {
     final idx = _messages.indexWhere((m) => m.id == id);
     if (idx < 0) return;
-    _messages[idx] = _messages[idx].copyWith(text: text, status: status);
+    _messages[idx] = _messages[idx].copyWith(
+      text: text,
+      status: status,
+      retrievedContexts: retrievedContexts,
+      retrievalMode: retrievalMode,
+    );
     notifyListeners();
+  }
+
+  Future<void> rateRagMessage(String messageId, RagMessageRating rating) async {
+    final idx = _messages.indexWhere((m) => m.id == messageId);
+    if (idx < 0) return;
+    final msg = _messages[idx];
+    if (!msg.isAI || msg.status != MessageStatus.done) return;
+
+    _messages[idx] = msg.copyWith(ragRating: rating);
+    notifyListeners();
+
+    final ok = await RagFeedbackService.instance.submit(
+      messageId: msg.id,
+      question: msg.userQuestion ?? '',
+      answer: msg.text,
+      rating: rating,
+      contexts: msg.retrievedContexts,
+      retrievalMode: msg.retrievalMode,
+    );
+    if (!ok && kDebugMode) {
+      debugPrint('[ChatProvider] rag feedback not persisted');
+    }
   }
 
   void clearMessages() {

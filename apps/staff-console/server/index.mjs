@@ -1290,6 +1290,44 @@ app.post(
   },
 );
 
+app.post("/api/student/rag-feedback", requireStudentAuth, async (req, res) => {
+  if (!fileStore) {
+    return res.status(503).json({ error: "Student API requires STORAGE_BACKEND=file" });
+  }
+  const {
+    messageId,
+    question,
+    answer,
+    rating,
+    retrievedContexts,
+    retrievalMode,
+    source,
+  } = req.body || {};
+  if (!messageId || !question || !answer || !rating) {
+    return res.status(400).json({ error: "messageId, question, answer, rating required" });
+  }
+  if (rating !== "up" && rating !== "down") {
+    return res.status(400).json({ error: "rating must be up or down" });
+  }
+  try {
+    const profile = (await fileStore.getStudentProfile(req.studentUid)) || {};
+    const id = await fileStore.appendRagFeedback({
+      messageId: String(messageId),
+      question: String(question).trim(),
+      answer: String(answer).trim(),
+      rating,
+      retrievedContexts: Array.isArray(retrievedContexts) ? retrievedContexts : [],
+      retrievalMode: retrievalMode ? String(retrievalMode) : null,
+      studentUid: req.studentUid,
+      studentEmail: profile.email || null,
+      source: source || "flutter_app",
+    });
+    res.json({ id });
+  } catch (e) {
+    res.status(500).json({ error: String(e.message || e) });
+  }
+});
+
 app.post("/api/student/feedback", requireStudentAuth, async (req, res) => {
   if (!fileStore) return res.status(503).json({ error: "Student API requires STORAGE_BACKEND=file" });
   const { subject, body, anonymous, studentLabel } = req.body || {};

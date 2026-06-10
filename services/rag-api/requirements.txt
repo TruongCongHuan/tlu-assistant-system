@@ -10,3 +10,5 @@ numpy==1.26.4
 # Eval / ablation dependencies
 matplotlib==3.9.2
 pandas==2.2.3
+# Cursor SDK — judge + generation backend (tuỳ chọn)
+cursor-sdk>=0.1.7

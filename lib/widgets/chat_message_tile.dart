@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import '../models/conversation.dart';
+import '../models/rag_stream.dart';
+import '../providers/chat_provider.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 
@@ -190,6 +192,12 @@ class _AiBubble extends StatelessWidget {
                     message: message,
                     tts: tts,
                     isPlaying: isThisMsgPlaying,
+                    onRate: (rating) {
+                      context.read<ChatProvider>().rateRagMessage(
+                            message.id,
+                            rating,
+                          );
+                    },
                   ),
               ],
             ),
@@ -246,11 +254,13 @@ class _ActionRow extends StatelessWidget {
   final ChatMessage message;
   final TtsService tts;
   final bool isPlaying;
+  final void Function(RagMessageRating rating)? onRate;
 
   const _ActionRow({
     required this.message,
     required this.tts,
     required this.isPlaying,
+    this.onRate,
   });
 
   @override
@@ -259,6 +269,22 @@ class _ActionRow extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8),
       child: Row(
         children: [
+          if (onRate != null) ...[
+            _SmallBtn(
+              icon: Icons.thumb_up_outlined,
+              tooltip: 'Hữu ích',
+              active: message.ragRating == RagMessageRating.up,
+              onTap: () => onRate!(RagMessageRating.up),
+            ),
+            const SizedBox(width: 4),
+            _SmallBtn(
+              icon: Icons.thumb_down_outlined,
+              tooltip: 'Chưa hữu ích',
+              active: message.ragRating == RagMessageRating.down,
+              onTap: () => onRate!(RagMessageRating.down),
+            ),
+            const SizedBox(width: 8),
+          ],
           // Copy
           _SmallBtn(
             icon: Icons.copy_rounded,

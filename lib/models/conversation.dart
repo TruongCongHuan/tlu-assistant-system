@@ -1,5 +1,6 @@
 // lib/models/conversation.dart
-import 'package:flutter/material.dart';
+
+import 'rag_stream.dart';
 
 enum MessageRole { user, assistant }
 enum MessageStatus { sending, done, error }
@@ -11,6 +12,11 @@ class ChatMessage {
   final MessageStatus status;
   final DateTime createdAt;
   final List<String> sourcePages; // Trang tài liệu nguồn
+  /// Câu hỏi sinh viên tương ứng (assistant message).
+  final String? userQuestion;
+  final List<RetrievedContextPreview> retrievedContexts;
+  final RagMessageRating ragRating;
+  final String? retrievalMode;
 
   const ChatMessage({
     required this.id,
@@ -19,12 +25,20 @@ class ChatMessage {
     this.status = MessageStatus.done,
     required this.createdAt,
     this.sourcePages = const [],
+    this.userQuestion,
+    this.retrievedContexts = const [],
+    this.ragRating = RagMessageRating.none,
+    this.retrievalMode,
   });
 
   ChatMessage copyWith({
     String? text,
     MessageStatus? status,
     List<String>? sourcePages,
+    String? userQuestion,
+    List<RetrievedContextPreview>? retrievedContexts,
+    RagMessageRating? ragRating,
+    String? retrievalMode,
   }) =>
       ChatMessage(
         id: id,
@@ -33,6 +47,10 @@ class ChatMessage {
         status: status ?? this.status,
         createdAt: createdAt,
         sourcePages: sourcePages ?? this.sourcePages,
+        userQuestion: userQuestion ?? this.userQuestion,
+        retrievedContexts: retrievedContexts ?? this.retrievedContexts,
+        ragRating: ragRating ?? this.ragRating,
+        retrievalMode: retrievalMode ?? this.retrievalMode,
       );
 
   bool get isUser => role == MessageRole.user;
