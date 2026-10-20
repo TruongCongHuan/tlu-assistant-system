@@ -117,6 +117,11 @@ def _build_retrieval_meta(raw_chunks: list[dict[str, Any]], sources: str) -> dic
                 "chunk_id": c.get("id"),
                 "doc_name": meta.get("doc_name"),
                 "score": c.get("score"),
+                "score_type": c.get("score_type"),
+                "retrieval_score": c.get("retrieval_score"),
+                "rerank_score": c.get("rerank_score"),
+                "retrieval_rank": c.get("retrieval_rank"),
+                "rerank_rank": c.get("rerank_rank"),
                 "preview": text[:280],
             }
         )
@@ -124,6 +129,7 @@ def _build_retrieval_meta(raw_chunks: list[dict[str, Any]], sources: str) -> dic
         "type": "meta",
         "sources": sources,
         "retrieval_mode": rag.RETRIEVAL_MODE,
+        "retrieval_info": raw_chunks[0].get("retrieval_info", {}) if raw_chunks else {},
         "retrieved_contexts": contexts,
     }
 

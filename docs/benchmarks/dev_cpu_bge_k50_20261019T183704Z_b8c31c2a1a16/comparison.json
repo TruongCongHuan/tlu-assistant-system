@@ -1,0 +1,29 @@
+{
+  "C-A": {
+    "n_paired": 43,
+    "gained_hit": [],
+    "lost_hit": [],
+    "mcnemar_exact_p": 1.0,
+    "caution": "McNemar treats queries independently; cluster bootstrap below handles shared intent groups",
+    "ndcg": {
+      "n": 43,
+      "intent_groups": 36,
+      "mean_delta": -0.0023777643145832294,
+      "ci_low": -0.047656139595680984,
+      "ci_high": 0.04077646635854011,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    },
+    "mrr": {
+      "n": 43,
+      "intent_groups": 36,
+      "mean_delta": 0.0038759689922480637,
+      "ci_low": -0.04825898587933248,
+      "ci_high": 0.05691056910569106,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    }
+  }
+}

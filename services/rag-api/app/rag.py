@@ -33,6 +33,7 @@ import chromadb
 import fitz  # PyMuPDF
 import google.generativeai as genai
 from app import bm25_index
+from app.retrieval import deduplicate_best, rrf_fuse
 
 # ── Ablation / tuning config ─────────────────────────────────────────────────
 CHUNK_MODE:     str  = os.environ.get("CHUNK_MODE", "semantic").lower()   # "semantic" | "fixed"
@@ -46,7 +47,10 @@ BM25_WEIGHT:    float = float(os.environ.get("BM25_WEIGHT", "0.3"))       # RRF 
 CHUNK_SIZE    = int(os.environ.get("CHUNK_SIZE", "1200"))
 CHUNK_OVERLAP = int(os.environ.get("CHUNK_OVERLAP", "150"))
 
-COLLECTION_NAME = "tlu_docs"
+COLLECTION_NAME = os.environ.get("CHROMA_COLLECTION", "tlu_docs")
+CANDIDATE_K = int(os.environ.get("CANDIDATE_K", "0"))
+FINAL_K = int(os.environ.get("FINAL_K", "5"))
+RERANK_MODE = os.environ.get("RERANK_MODE", "none").lower()
 
 # Embedding REST (avoids legacy SDK 404)
 GEMINI_EMBED_REST_MODEL = os.environ.get("GEMINI_EMBED_REST_MODEL", "gemini-embedding-2-preview")
@@ -300,151 +304,14 @@ def extract_text_from_bytes(data: bytes, filename: str) -> str:
 #      - Context overlap = last 3 lines of previous sub-chunk (mirrors 3-line overlap).
 #   4. Each chunk carries heading_path metadata for traceability.
 
-def _split_by_headings(text: str) -> list[dict[str, str]]:
-    """Split text into sections on ## or # markers."""
-    sections: list[dict[str, str]] = []
-    lines = text.split("\n")
-    current_heading = ""
-    current_lines: list[str] = []
-
-    for line in lines:
-        stripped = line.strip()
-        if stripped.startswith("##") or (stripped.startswith("#") and not stripped.startswith("##")):
-            # Save previous section
-            if current_lines or current_heading:
-                sections.append({
-                    "heading": current_heading,
-                    "content": "\n".join(current_lines).strip(),
-                })
-            current_heading = stripped
-            current_lines = []
-        else:
-            current_lines.append(line)
-
-    # Last section
-    if current_lines or current_heading:
-        sections.append({
-            "heading": current_heading,
-            "content": "\n".join(current_lines).strip(),
-        })
-
-    return sections
-
-
-def _split_sub_section(content: str, heading: str) -> list[str]:
-    """Break an oversized section into sub-chunks, preserving tables and overlapping 3 lines."""
-    sub_chunks: list[str] = []
-    lines = content.split("\n")
-    buffer: list[str] = []
-    in_table = False
-
-    for line in lines:
-        is_table_line = line.strip().startswith("|")
-
-        # Flush buffer if it would exceed CHUNK_SIZE, but not mid-table
-        buffer_text = "\n".join(buffer)
-        if len(buffer_text) + len(line) > CHUNK_SIZE and (not is_table_line or not in_table):
-            prefix = f"{heading} (Tiếp theo)\n" if heading else ""
-            sub_chunks.append(f"{prefix}{buffer_text.strip()}")
-
-            # 3-line overlap for context continuity
-            overlap_lines = buffer[-3:] if len(buffer) > 3 else buffer[:]
-            buffer = overlap_lines[:]
-
-        buffer.append(line)
-        in_table = is_table_line
-
-    if buffer:
-        remaining = "\n".join(buffer).strip()
-        if remaining:
-            prefix = f"{heading} (Tiếp theo)\n" if heading else ""
-            sub_chunks.append(f"{prefix}{remaining}")
-
-    return sub_chunks if sub_chunks else [content]
-
-
 def chunk_text_semantic(text: str, doc_id: str, doc_name: str) -> list[dict[str, Any]]:
-    """Semantic Markdown Chunking — canonical strategy."""
-    text = re.sub(r"\r\n", "\n", text).strip()
-    if not text:
-        return []
-
-    chunks: list[dict[str, Any]] = []
-    sections = _split_by_headings(text)
-    idx = 0
-
-    for section in sections:
-        heading = section["heading"]
-        content = section["content"]
-
-        if not content.strip() and not heading.strip():
-            continue
-
-        if len(content) > CHUNK_SIZE:
-            sub_list = _split_sub_section(content, heading)
-            for sub in sub_list:
-                if len(sub.strip()) > 20:
-                    chunks.append({
-                        "id": f"{doc_id}_{idx}",
-                        "text": sub.strip(),
-                        "meta": {
-                            "doc_id": doc_id,
-                            "doc_name": doc_name,
-                            "chunk_index": idx,
-                            "heading_path": heading,
-                            "chunk_type": "sub",
-                        },
-                    })
-                    idx += 1
-        else:
-            combined = f"{heading}\n{content}".strip() if heading else content.strip()
-            if len(combined) > 20:
-                chunks.append({
-                    "id": f"{doc_id}_{idx}",
-                    "text": combined,
-                    "meta": {
-                        "doc_id": doc_id,
-                        "doc_name": doc_name,
-                        "chunk_index": idx,
-                        "heading_path": heading,
-                        "chunk_type": "section",
-                    },
-                })
-                idx += 1
-
-    return chunks
+    from app.chunking import chunk_text_semantic as semantic
+    return semantic(text, doc_id, doc_name, CHUNK_SIZE)
 
 
 def chunk_text_fixed(text: str, doc_id: str, doc_name: str) -> list[dict[str, Any]]:
-    """Fixed-size sliding-window chunking (baseline for ablation)."""
-    text = re.sub(r"\r\n", "\n", text).strip()
-    if not text:
-        return []
-    chunks: list[dict[str, Any]] = []
-    start = 0
-    n = len(text)
-    idx = 0
-    while start < n:
-        end = min(start + CHUNK_SIZE, n)
-        piece = text[start:end]
-        chunks.append({
-            "id": f"{doc_id}_{idx}",
-            "text": piece,
-            "meta": {
-                "doc_id": doc_id,
-                "doc_name": doc_name,
-                "chunk_index": idx,
-                "heading_path": "",
-                "chunk_type": "fixed",
-            },
-        })
-        idx += 1
-        if end >= n:
-            break
-        start = end - CHUNK_OVERLAP
-        if start < 0:
-            start = 0
-    return chunks
+    from app.chunking import chunk_text_fixed as fixed
+    return fixed(text, doc_id, doc_name, CHUNK_SIZE, CHUNK_OVERLAP)
 
 
 def chunk_text(text: str, doc_id: str, doc_name: str) -> list[dict[str, Any]]:
@@ -558,25 +425,9 @@ def _rrf_fuse(
     RRF score(d) = Σ w_i / (k + rank_i(d))
     k=60 is the standard constant that dampens the impact of high ranks.
     """
-    scores: dict[str, float] = {}
-    meta_map: dict[str, dict[str, Any]] = {}
+    return rrf_fuse(dense_hits, sparse_hits, k=k,
+                    dense_weight=dense_weight, sparse_weight=sparse_weight)
 
-    for rank, hit in enumerate(dense_hits, start=1):
-        doc_id_key = hit.get("id") or hit["text"][:80]
-        scores[doc_id_key] = scores.get(doc_id_key, 0.0) + dense_weight / (k + rank)
-        meta_map[doc_id_key] = hit
-
-    for rank, hit in enumerate(sparse_hits, start=1):
-        doc_id_key = hit.get("id") or hit["text"][:80]
-        scores[doc_id_key] = scores.get(doc_id_key, 0.0) + sparse_weight / (k + rank)
-        if doc_id_key not in meta_map:
-            meta_map[doc_id_key] = hit
-
-    fused = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    return [
-        {**meta_map[key], "score": round(score, 6)}
-        for key, score in fused
-    ]
 
 
 # ── Retrieval: multi-query + dense|hybrid (mirrors queryStream in local_rag_service) ─
@@ -594,65 +445,82 @@ def retrieve_context(
     """
     k = top_k if top_k is not None else TOP_K
     mc = max_context if max_context is not None else MAX_CONTEXT
-
-    queries = expand_query(question)
-    coll = get_collection()
-    where = {"doc_id": doc_id} if doc_id else None
-
-    # ── Dense retrieval (always) ───────────────────────────────────────────────
-    seen_texts: set[str] = set()
+    if RETRIEVAL_MODE not in {"dense", "bm25", "hybrid"}:
+        raise ValueError("RETRIEVAL_MODE must be dense, bm25 or hybrid")
+    if RERANK_MODE not in {"none", "cross_encoder"}:
+        raise ValueError("RERANK_MODE must be none or cross_encoder")
+    two_stage = CANDIDATE_K > 0 or RERANK_MODE == "cross_encoder"
+    candidate_k = (CANDIDATE_K or max(20, k)) if two_stage else k
+    final_k = min(FINAL_K, mc) if two_stage else mc
+    if min(k, mc, candidate_k, final_k) <= 0 or (two_stage and final_k > candidate_k):
+        raise ValueError("Require 0 < final_k <= candidate_k and positive context limits")
+    if not 0 <= BM25_WEIGHT <= 1:
+        raise ValueError("BM25_WEIGHT must be in [0, 1]")
+    t0 = time.perf_counter()
+    queries = expand_query(question) if RETRIEVAL_MODE != "bm25" else [question]
+    timings = {"expansion_ms": (time.perf_counter() - t0) * 1000}
     dense_results: list[dict[str, Any]] = []
-
-    for q in queries:
-        qvec = _embed_via_rest(q)
-        res  = coll.query(
-            query_embeddings=[qvec],
-            n_results=k,
-            where=where,
-            include=["documents", "metadatas", "distances"],
-        )
-        docs   = (res.get("documents") or [[]])[0]
-        metas  = (res.get("metadatas")  or [[]])[0]
-        dists  = (res.get("distances")  or [[]])[0]
-        ids    = (res.get("ids")        or [[]])[0]  # ids returned by default, not in include
-
-        for chunk_id, doc_text, meta, dist in zip(ids, docs, metas, dists):
-            if doc_text not in seen_texts:
-                seen_texts.add(doc_text)
-                dense_results.append({
-                    "id":    chunk_id,
-                    "text":  doc_text,
-                    "meta":  meta or {},
-                    "score": 1.0 - float(dist),
-                })
-
-    dense_results.sort(key=lambda r: r["score"], reverse=True)
-
-    # ── Hybrid: fuse with BM25 via RRF ────────────────────────────────────────
-    if RETRIEVAL_MODE == "hybrid":
-        bm25_hits = bm25_index.search(question, _data_dir(), top_k=k * 2, doc_id=doc_id)
-        top_results = _rrf_fuse(
-            dense_results,
-            bm25_hits,
-            dense_weight=1.0 - BM25_WEIGHT,
-            sparse_weight=BM25_WEIGHT,
-        )[:mc]
+    embed_ms = search_ms = 0.0
+    if RETRIEVAL_MODE != "bm25":
+        coll = get_collection()
+        where = {"doc_id": doc_id} if doc_id else None
+        for q in queries:
+            ts = time.perf_counter()
+            qvec = _embed_via_rest(q)
+            embed_ms += (time.perf_counter() - ts) * 1000
+            ts = time.perf_counter()
+            count = coll.count()
+            if not count:
+                continue
+            res = coll.query(query_embeddings=[qvec], n_results=min(candidate_k, count),
+                             where=where, include=["documents", "metadatas", "distances"])
+            search_ms += (time.perf_counter() - ts) * 1000
+            for cid, text, meta, dist in zip((res.get("ids") or [[]])[0],
+                                           (res.get("documents") or [[]])[0],
+                                           (res.get("metadatas") or [[]])[0],
+                                           (res.get("distances") or [[]])[0]):
+                dense_results.append({"id": cid, "text": text, "meta": meta or {},
+                                      "score": 1.0 - float(dist), "score_type": "cosine"})
+        dense_results = deduplicate_best(dense_results)
+        if two_stage:
+            dense_results = dense_results[:candidate_k]
+    timings.update(embedding_ms=embed_ms, search_ms=search_ms)
+    ts = time.perf_counter()
+    if RETRIEVAL_MODE in {"hybrid", "bm25"}:
+        sparse = bm25_index.search(question, _data_dir(),
+                                  top_k=candidate_k if two_stage else k * 2, doc_id=doc_id)
+        if RETRIEVAL_MODE == "hybrid":
+            results = _rrf_fuse(dense_results, sparse, dense_weight=1.0 - BM25_WEIGHT,
+                                sparse_weight=BM25_WEIGHT)
+        else:
+            results = [{**c, "score_type": "bm25"} for c in sparse]
     else:
-        top_results = dense_results[:mc]
-
-    if not top_results:
-        return "", "", []
-
+        results = dense_results
+    timings["sparse_fusion_ms"] = (time.perf_counter() - ts) * 1000
+    candidates = results[:candidate_k] if two_stage else results
+    status = "disabled"
+    if RERANK_MODE == "cross_encoder":
+        from app.reranker import RerankerConfig, get_reranker
+        try:
+            candidates, rerank_info = get_reranker(RerankerConfig.from_env()).rerank(question, candidates)
+            timings.update(rerank_info)
+            status = "ok"
+        except Exception:
+            if os.environ.get("RERANK_FAIL_OPEN", "0") != "1":
+                raise
+            status = "fallback_error"
+    top_results = candidates[:final_k]
+    timings["total_retrieval_ms"] = (time.perf_counter() - t0) * 1000
     parts: list[str] = []
-    names: set[str]  = set()
+    names: list[str] = []
     for i, r in enumerate(top_results):
-        name = r["meta"].get("doc_name", "unknown")
-        names.add(str(name))
+        name = str(r["meta"].get("doc_name", "unknown"))
+        if name not in names:
+            names.append(name)
+        r["retrieval_info"] = {"candidate_count": len(candidates), "final_k": final_k,
+                               "rerank_status": status, **timings}
         parts.append(f"[Đoạn {i + 1} - {name}]\n{r['text']}")
-
-    context = "\n\n---\n\n".join(parts)
-    sources = ", ".join(sorted(list(names)[:3]))
-    return context, sources, top_results
+    return "\n\n---\n\n".join(parts), ", ".join(names[:3]), top_results
 
 
 # ── Generation: streaming answer ──────────────────────────────────────────────

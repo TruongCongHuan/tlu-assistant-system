@@ -15,7 +15,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 cd "$ROOT"
-PY="${ROOT}/.venv/bin/python"
+PY="${PYTHON_BIN:-${ROOT}/services/rag-api/.venv/bin/python}"
 export CHUNK_MODE="${CHUNK_MODE:-semantic}"
 export EXPAND_ON="${EXPAND_ON:-1}"
 export TOP_K="${TOP_K:-8}"
@@ -39,7 +39,9 @@ else
   echo "[INFO] CURSOR_API_KEY chưa đặt — dùng Gemini cho judge và generation"
 fi
 
-CHROMA="${ROOT}/services/rag-api/eval/.chroma_eval"
+CHROMA="${CHROMA_DATA_DIR:-${ROOT}/services/rag-api/eval/.chroma_eval}"
+export CHROMA_DATA_DIR="$CHROMA"
+export SOURCES_DIR="${SOURCES_DIR:-${ROOT}/services/rag-api/eval/.sources}"
 if [[ ! -d "$CHROMA" ]] || [[ -z "$(ls -A "$CHROMA" 2>/dev/null || true)" ]]; then
   echo "[INFO] Chưa có corpus trong Chroma → ingest K38 …"
   "$PY" services/rag-api/eval/ingest_k38.py

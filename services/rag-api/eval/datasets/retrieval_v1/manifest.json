@@ -1,0 +1,22 @@
+{
+  "version": "retrieval_v1",
+  "corpus_sha256": "be6715bb602deb35360f1bf6f28ac39cffd4d5bf9d00636a3d3b15cc0ece51dd",
+  "chunk_count": 321,
+  "source": "output_md/guide_book_k38_pymupdf.md",
+  "chunking": "shared_semantic_v1",
+  "chunk_size": 1200,
+  "seed": 42,
+  "qrels_complete": false,
+  "annotation_status": "agent_authored_source_checked_pilot; human_review_pending",
+  "unjudged_policy": "Metrics use known positive evidence; recall is known-gold recall, not exhaustive corpus recall",
+  "shared_positive_chunks_between_splits": [],
+  "queries": {
+    "dev": 50,
+    "test": 100
+  },
+  "evidence_queries.jsonl_sha256": "174fbfd136f75e650b61f0a5a5549cf18b12bee50da063aa7b26163961a7e4ed",
+  "chunks.jsonl_sha256": "80e31fccf4b9aaf69358c465fb99a7222ae04b17f17993661b15b3f9bea97362",
+  "qrels.jsonl_sha256": "b830c35b79b74c23bea22b1defdee173f119358412a69e638188ff4155d69288",
+  "queries_dev.jsonl_sha256": "c6cb1db953de0a64df0dd18f4ab515e2bf02958f0f57e681ee7df4b17c045a58",
+  "queries_test.jsonl_sha256": "e93a8c5b69a0142d18617122a94c61c26c4d513003c46559611f6f2e557bd06d"
+}

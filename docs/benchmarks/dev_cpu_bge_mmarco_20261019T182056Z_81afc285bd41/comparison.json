@@ -1,0 +1,87 @@
+{
+  "D-A": {
+    "n_paired": 10,
+    "gained_hit": [],
+    "lost_hit": [
+      "Q19"
+    ],
+    "mcnemar_exact_p": 1.0,
+    "caution": "McNemar treats queries independently; cluster bootstrap below handles shared intent groups",
+    "ndcg": {
+      "n": 10,
+      "intent_groups": 9,
+      "mean_delta": -0.18819470521065135,
+      "ci_low": -0.42693841499121393,
+      "ci_high": 0.0,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    },
+    "mrr": {
+      "n": 10,
+      "intent_groups": 9,
+      "mean_delta": -0.225,
+      "ci_low": -0.5,
+      "ci_high": 0.0,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    }
+  },
+  "E-C": {
+    "n_paired": 10,
+    "gained_hit": [],
+    "lost_hit": [],
+    "mcnemar_exact_p": 1.0,
+    "caution": "McNemar treats queries independently; cluster bootstrap below handles shared intent groups",
+    "ndcg": {
+      "n": 10,
+      "intent_groups": 9,
+      "mean_delta": -0.0982217439194001,
+      "ci_low": -0.257758207115346,
+      "ci_high": 0.0,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    },
+    "mrr": {
+      "n": 10,
+      "intent_groups": 9,
+      "mean_delta": -0.125,
+      "ci_low": -0.325,
+      "ci_high": 0.0,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    }
+  },
+  "C-A": {
+    "n_paired": 10,
+    "gained_hit": [],
+    "lost_hit": [
+      "Q19"
+    ],
+    "mcnemar_exact_p": 1.0,
+    "caution": "McNemar treats queries independently; cluster bootstrap below handles shared intent groups",
+    "ndcg": {
+      "n": 10,
+      "intent_groups": 9,
+      "mean_delta": -0.08997296129125124,
+      "ci_low": -0.3221921792125014,
+      "ci_high": 0.08201561031745391,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    },
+    "mrr": {
+      "n": 10,
+      "intent_groups": 9,
+      "mean_delta": -0.1,
+      "ci_low": -0.35,
+      "ci_high": 0.1,
+      "method": "paired intent-group percentile bootstrap",
+      "resamples": 2000,
+      "seed": 42
+    }
+  }
+}

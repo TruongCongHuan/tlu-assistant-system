@@ -1,0 +1,17 @@
+{
+  "n": 100,
+  "n_answerable": 80,
+  "metrics": {
+    "hit@1": 0.925,
+    "hit@3": 0.975,
+    "hit@5": 0.975,
+    "mrr@5": 0.9479166666666666,
+    "ndcg@5": 0.9505008783841922,
+    "precision@5": 0.2225,
+    "recall@5": 0.975,
+    "evidence_coverage": 0.975,
+    "all_evidence": 0.975,
+    "candidate_hit": 1.0,
+    "candidate_recall": 1.0
+  }
+}

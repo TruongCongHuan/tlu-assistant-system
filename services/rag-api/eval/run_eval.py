@@ -35,6 +35,8 @@ Results are written to services/rag-api/eval/results/
 from __future__ import annotations
 
 import argparse
+import hashlib
+from functools import lru_cache
 import concurrent.futures
 import csv
 import json
@@ -139,9 +141,19 @@ def make_run_id(top_k: int) -> str:
     rm_suffix = "_rmde" if rm == "dense" else f"_rm{rm[:2]}"
     mc = int(os.environ.get("MAX_CONTEXT", str(rag.MAX_CONTEXT)))
     mot = int(os.environ.get("MAX_OUTPUT_TOKENS", str(rag.MAX_OUTPUT_TOKENS)))
+    from eval.build_retrieval_dataset import CORPUS, DATASET
+    identity = {"eval": hashlib.sha256(get_eval_set_path().read_bytes()).hexdigest(),
+                "corpus": hashlib.sha256(CORPUS.read_bytes()).hexdigest(),
+                "qrels": hashlib.sha256((DATASET / "qrels.jsonl").read_bytes()).hexdigest(),
+                "embedding": rag.GEMINI_EMBED_REST_MODEL, "llm": rag.LLM_MODEL,
+                "collection": rag.COLLECTION_NAME, "bm25_weight": rag.BM25_WEIGHT,
+                "rerank": rag.RERANK_MODE, "candidate_k": rag.CANDIDATE_K, "final_k": rag.FINAL_K,
+                "rerank_revision": os.getenv("RERANK_REVISION", "default"),
+                "source": hashlib.sha256(Path(rag.__file__).read_bytes()).hexdigest()}
+    suffix = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:12]
     return (
         f"cm{rag.CHUNK_MODE}_exp{int(rag.EXPAND_ON)}_k{top_k}"
-        f"_mc{mc}_mot{mot}{rm_suffix}"
+        f"_mc{mc}_mot{mot}{rm_suffix}_{suffix}"
     )
 
 
@@ -210,72 +222,30 @@ def load_eval_set() -> list[dict[str, Any]]:
 
 # ── Retrieval metrics ─────────────────────────────────────────────────────────
 
-def is_relevant_chunk(chunk_text: str, relevant_heading: str) -> bool:
-    """Heuristic: chunk is relevant if it contains the heading keyword or ground-truth heading."""
+@lru_cache(maxsize=1)
+def _gold_snapshot():
+    from eval.build_retrieval_dataset import DATASET, read_jsonl, normalize, validate
+    validate()
+    chunks = read_jsonl(DATASET / "chunks.jsonl")
+    text_ids = {normalize(c["text"]): c["id"] for c in chunks}
+    qrels = read_jsonl(DATASET / "qrels.jsonl")
+    return text_ids, qrels
+
+
+def compute_retrieval_metrics(retrieved_chunks, relevant_heading, k, *, query_id=None):
+    """Known-gold source judgments; OOS is excluded, never scored by heading words."""
+    from eval.retrieval_metrics import retrieval_metrics
+    from eval.build_retrieval_dataset import normalize
     if relevant_heading == "N/A":
-        return False
-    # Normalize: drop markdown markers, compare case-insensitive keywords
-    heading_clean = relevant_heading.replace("##", "").replace("**", "").strip().lower()
-    # Extract up to 6 words from heading as keywords
-    keywords = [w for w in heading_clean.split() if len(w) > 3][:6]
-    chunk_lower = chunk_text.lower()
-    return any(kw in chunk_lower for kw in keywords) if keywords else False
-
-
-def compute_retrieval_metrics(
-    retrieved_chunks: list[dict[str, Any]],
-    relevant_heading: str,
-    k: int,
-) -> dict[str, float]:
-    """
-    context_precision : among retrieved top-k, fraction that are relevant.
-    hit_rate_at_k     : 1 if any top-k chunk is relevant, else 0.
-    MRR               : 1/rank of first relevant chunk; 0 if none.
-    NDCG              : normalized discounted cumulative gain at k.
-    """
-    if relevant_heading == "N/A":
-        # Out-of-scope: no relevant chunks exist → retrieval naturally returns non-relevant
-        # We still measure whether the system retrieved anything (it shouldn't for refusal)
-        return {
-            "context_precision": 0.0,
-            "hit_rate_at_k": 0.0,
-            "mrr": 0.0,
-            "ndcg": 0.0,
-        }
-
-    relevances: list[int] = [
-        1 if is_relevant_chunk(c["text"], relevant_heading) else 0
-        for c in retrieved_chunks[:k]
-    ]
-    n = len(relevances)
-    if n == 0:
-        return {"context_precision": 0.0, "hit_rate_at_k": 0.0, "mrr": 0.0, "ndcg": 0.0}
-
-    # Context Precision = TP / (TP + FP)
-    context_precision = sum(relevances) / n
-
-    # Hit Rate@k
-    hit_rate = 1.0 if any(relevances) else 0.0
-
-    # MRR
-    mrr = 0.0
-    for rank, rel in enumerate(relevances, start=1):
-        if rel == 1:
-            mrr = 1.0 / rank
-            break
-
-    # NDCG@k (binary relevance)
-    dcg  = sum(rel / math.log2(rank + 1) for rank, rel in enumerate(relevances, start=1))
-    ideal = [1] + [0] * (n - 1)  # best case: first chunk is relevant
-    idcg = sum(r / math.log2(rank + 1) for rank, r in enumerate(ideal, start=1))
-    ndcg = dcg / idcg if idcg > 0 else 0.0
-
-    return {
-        "context_precision": round(context_precision, 4),
-        "hit_rate_at_k": hit_rate,
-        "mrr": round(mrr, 4),
-        "ndcg": round(ndcg, 4),
-    }
+        return dict.fromkeys(["context_precision", "context_recall", "hit_rate_at_k", "mrr", "ndcg"])
+    if query_id is None:
+        raise ValueError("query_id is required for source-judged retrieval evaluation")
+    text_ids, qrels = _gold_snapshot()
+    grades = {r["chunk_id"]: r["relevance"] for r in qrels if r["query_id"] == query_id}
+    ids = [text_ids.get(normalize(c["text"]), "unjudged:" + str(c["id"])) for c in retrieved_chunks]
+    result = retrieval_metrics(ids, grades, k=k)
+    return {"context_precision": result[f"precision@{k}"], "context_recall": result[f"recall@{k}"],
+            "hit_rate_at_k": result[f"hit@{k}"], "mrr": result[f"mrr@{k}"], "ndcg": result[f"ndcg@{k}"]}
 
 
 # ── Judge prompt (shared by both backends) ────────────────────────────────────
@@ -317,7 +287,7 @@ def _cursor_ai_judge(
 ) -> dict[str, float]:
     """Judge bằng Cursor model qua cursor_sdk.Agent.prompt()."""
     prompt = _JUDGE_COMBINED_PROMPT.format(
-        context=context[:3000],
+        context=context,
         question=question,
         ground_truth=ground_truth[:1000],
         answer=answer[:1500],
@@ -363,7 +333,7 @@ def _gemini_ai_judge(
         single_call = os.environ.get("JUDGE_SINGLE_CALL", "1").lower() not in ("0", "false", "no")
         if single_call:
             prompt = _JUDGE_COMBINED_PROMPT.format(
-                context=context[:3000],
+                context=context,
                 question=question,
                 ground_truth=ground_truth[:1000],
                 answer=answer[:1500],
@@ -384,7 +354,7 @@ def _gemini_ai_judge(
 
         faithfulness_prompt = f"""You are an evaluator assessing RAG system faithfulness.
 CONTEXT (retrieved documents):
-{context[:3000]}
+{context}
 
 ANSWER (generated by the system):
 {answer[:1500]}
@@ -543,7 +513,7 @@ def evaluate_one(item: dict[str, Any], top_k: int) -> dict[str, Any]:
     else:
         try:
             rag.configure_genai()
-            for piece in rag.stream_answer(question, doc_id=None):
+            for piece in rag.stream_answer(question, doc_id=None, context=context, sources=sources):
                 if ttft_ms is None:
                     ttft_ms = (time.perf_counter() - t_gen_start) * 1000
                 full_answer += piece
@@ -558,10 +528,10 @@ def evaluate_one(item: dict[str, Any], top_k: int) -> dict[str, Any]:
     context_chars  = len(context)
     pipeline_latency_ms = retrieval_latency_ms + total_latency_ms
     # Gemini embedding cost estimate: $0.0000004 per character (approximate free-tier equiv)
-    embed_cost_usd = len(question) * 0.0000004
+    embed_cost_usd = None  # usage accounting is unavailable in this legacy harness
 
     # ── Retrieval metrics ─────────────────────────────────────────────────────
-    ret_metrics = compute_retrieval_metrics(raw_chunks, relevant_heading, top_k)
+    ret_metrics = compute_retrieval_metrics(raw_chunks, relevant_heading, top_k, query_id=item["id"])
 
     # ── Refusal accuracy ──────────────────────────────────────────────────────
     refused = check_refusal(full_answer)
@@ -588,9 +558,13 @@ def evaluate_one(item: dict[str, Any], top_k: int) -> dict[str, Any]:
         "ground_truth":         ground_truth[:600],
         "answer":               full_answer,          # không cắt
         "sources":              sources,
-        "retrieved_context":    context[:2000],        # top chunks (tóm tắt)
+        "retrieved_context":    context,              # preserve exact generation context
         # ── Chỉ số retrieval ───────────────────────────────────────────────
         "context_precision":    ret_metrics["context_precision"],
+        "context_recall":       ret_metrics["context_recall"],
+        "ranked_chunks":        raw_chunks,
+        "metric_cutoff":        top_k,
+        "relevance_protocol":   "source_checked_known_gold_v1",
         "hit_rate_at_k":        ret_metrics["hit_rate_at_k"],
         "mrr":                  ret_metrics["mrr"],
         "ndcg":                 ret_metrics["ndcg"],
@@ -605,7 +579,7 @@ def evaluate_one(item: dict[str, Any], top_k: int) -> dict[str, Any]:
         "pipeline_latency_ms":  round(pipeline_latency_ms, 1),
         "context_chars":        context_chars,
         "output_tokens_approx": output_tokens,
-        "embed_cost_usd":       round(embed_cost_usd, 8),
+        "embed_cost_usd":       embed_cost_usd,
         # ── Config ─────────────────────────────────────────────────────────
         "chunk_mode":           rag.CHUNK_MODE,
         "expand_on":            int(rag.EXPAND_ON),
@@ -619,9 +593,9 @@ def evaluate_one(item: dict[str, Any], top_k: int) -> dict[str, Any]:
 # ── Aggregate stats ───────────────────────────────────────────────────────────
 
 def aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    def avg(key: str) -> float:
-        vals = [r[key] for r in rows if isinstance(r[key], (int, float)) and r[key] >= 0]
-        return round(sum(vals) / len(vals), 4) if vals else 0.0
+    def avg(key: str, pool=None):
+        vals = [r[key] for r in (rows if pool is None else pool) if isinstance(r.get(key), (int, float)) and r[key] >= 0]
+        return round(sum(vals) / len(vals), 4) if vals else None
 
     oos_rows  = [r for r in rows if r["category"] == "out_of_scope"]
     non_oos   = [r for r in rows if r["category"] != "out_of_scope"]
@@ -629,20 +603,22 @@ def aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "n_total":                len(rows),
         "n_oos":                  len(oos_rows),
-        "avg_context_precision":  avg("context_precision"),
-        "avg_hit_rate_at_k":      avg("hit_rate_at_k"),
-        "avg_mrr":                avg("mrr"),
-        "avg_ndcg":               avg("ndcg"),
+        "avg_context_precision":  avg("context_precision", non_oos),
+        "avg_hit_rate_at_k":      avg("hit_rate_at_k", non_oos),
+        "avg_mrr":                avg("mrr", non_oos),
+        "avg_ndcg":               avg("ndcg", non_oos),
         "avg_faithfulness":       avg("faithfulness"),
         "avg_answer_relevance":   avg("answer_relevance"),
         "refusal_accuracy":       avg("refusal_correct"),
+        "oos_refusal_rate":        avg("refusal_correct", oos_rows),
+        "in_scope_acceptance":     avg("refusal_correct", non_oos),
         "avg_ttft_ms":              avg("ttft_ms"),
         "avg_total_latency_ms":     avg("total_latency_ms"),
         "avg_retrieval_latency_ms": avg("retrieval_latency_ms"),
         "avg_pipeline_latency_ms":  avg("pipeline_latency_ms"),
         "avg_context_chars":        avg("context_chars"),
         "avg_output_tokens":        avg("output_tokens_approx"),
-        "total_embed_cost_usd":     round(sum(r["embed_cost_usd"] for r in rows), 6),
+        "total_embed_cost_usd":     None,
         "chunk_mode":               rows[0]["chunk_mode"] if rows else "",
         "expand_on":                rows[0]["expand_on"] if rows else 0,
         "top_k":                    rows[0]["top_k"] if rows else 0,
@@ -730,6 +706,9 @@ def run_single(
     workers: int = 1,
 ) -> list[dict[str, Any]]:
     items = load_eval_set()
+    if rag.CHUNK_MODE != "semantic":
+        raise ValueError("Fixed chunking needs a separately built source-judged dataset/index; do not reuse semantic qrels")
+    _gold_snapshot()
     k = top_k or rag.TOP_K
     run_id = make_run_id(k)
 
@@ -823,6 +802,8 @@ def run_ablation(workers: int = 1) -> None:
     retrieval_mode = os.environ.get("RETRIEVAL_MODE", "dense").lower()
     os.environ["RETRIEVAL_MODE"] = retrieval_mode
     rag.RETRIEVAL_MODE = retrieval_mode
+    configs = [cfg for cfg in configs if cfg["CHUNK_MODE"] == "semantic"]
+    print("[NOTE] Fixed chunking omitted until separately indexed and judged.")
     for cfg in configs:
         os.environ["CHUNK_MODE"] = cfg["CHUNK_MODE"]
         os.environ["EXPAND_ON"]  = cfg["EXPAND_ON"]

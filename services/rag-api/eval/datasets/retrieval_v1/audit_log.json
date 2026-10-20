@@ -1,0 +1,1121 @@
+{
+  "status": "source checked by agent; human adjudication outstanding",
+  "items": [
+    {
+      "query_id": "Q01",
+      "original": {
+        "id": "Q01",
+        "category": "direct",
+        "question": "Phòng Đào tạo giải quyết những vấn đề gì cho sinh viên?",
+        "ground_truth": "Phòng Đào tạo giải quyết các vấn đề liên quan đến đăng ký học; xét điều kiện chuyển ngành, học ngành hai, nghỉ học tạm thời, bảo lưu; quy đổi chứng chỉ ngoại ngữ; thôi học, chuyển trường; cảnh báo học tập; cấp chứng nhận kết quả học tập, nhận đăng ký xét tốt nghiệp, cấp phát văn bằng.",
+        "relevant_heading": "## **3. PHÒNG ĐÀO TẠO**"
+      },
+      "corrected": {
+        "id": "Q01",
+        "category": "direct",
+        "question": "Phòng Đào tạo giải quyết những vấn đề gì cho sinh viên?",
+        "ground_truth": "- Giải quyết các vấn đề có liên quan đến việc đăng ký học;\n\n- Xét điều kiện: chuyển ngành, học ngành hai; nghỉ học tạm thời và bảo lưu kết quả học tập; quy đổi chứng chỉ ngoại ngữ quốc tế;\n\n- Cấp bảng điểm, giấy chứng nhận kết quả học tập.",
+        "relevant_heading": "## **3. PHÒNG ĐÀO TẠO**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        29,
+        31,
+        37
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q02",
+      "original": {
+        "id": "Q02",
+        "category": "direct",
+        "question": "Học kỳ 1 năm học 2025-2026 bắt đầu và kết thúc vào ngày nào?",
+        "ground_truth": "Học kỳ 1 năm học 2025-2026 bắt đầu từ ngày 08/09/2025 và kết thúc ngày 11/01/2026 (theo kế hoạch đào tạo ban hành kèm Quyết định số 25071106/QĐ-ĐHTL).",
+        "relevant_heading": "## **KẾ HOẠCH ĐÀO TẠO NĂM HỌC 2025 – 2026**"
+      },
+      "corrected": {
+        "id": "Q02",
+        "category": "direct",
+        "question": "Theo kế hoạch K38 năm 2025–2026, tuần học đầu tiên và tuần thi cuối cùng học kỳ I diễn ra ngày nào?",
+        "ground_truth": "|15/09/2025|20/09/2025|1|Học|Nhận môn mở thi lại HK I (2025 - 2026)||\n\n|19/01/2026|24/01/2026|19|Thi + Chấm thi|||",
+        "relevant_heading": "## **KẾ HOẠCH ĐÀO TẠO NĂM HỌC 2025 – 2026**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        71,
+        94
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q03",
+      "original": {
+        "id": "Q03",
+        "category": "direct",
+        "question": "Điều kiện để sinh viên được xét tốt nghiệp đại học là gì?",
+        "ground_truth": "Sinh viên được xét tốt nghiệp khi tích lũy đủ số tín chỉ theo chương trình đào tạo, không bị truy cứu trách nhiệm hình sự, điểm rèn luyện toàn khóa không dưới 50 điểm, hoàn thành nghĩa vụ tài chính và các nghĩa vụ khác với nhà trường.",
+        "relevant_heading": "## **Điều 22. Điều kiện xét và công nhận tốt nghiệp**"
+      },
+      "corrected": {
+        "id": "Q03",
+        "category": "direct",
+        "question": "Điều kiện để sinh viên được xét tốt nghiệp đại học là gì?",
+        "ground_truth": "a) Tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự và không đang trong thời gian bị kỷ luật ở mức đình chỉ học tập;\n\nb) Tích lũy đủ học phần, số tín chỉ và hoàn thành các nội dung bắt buộc khác theo quy định của CTĐT đang theo học và thỏa mãn các yêu cầu về kết quả học tập đối với một số tín chỉ theo quy định của Trường (nếu có);\n\nc) Điểm trung bình tích lũy của toàn khóa học đạt từ trung bình trở lên;\n\nd) Đạt yêu cầu các môn học Giáo dục thể chất và Giáo dục quốc phòng và an ninh;\n\nđ) Đạt yêu cầu về chuẩn đầu ra ngoại ngữ, tin học theo quy định của CTĐT theo học.",
+        "relevant_heading": "Điều 22. Công nhận tốt nghiệp và cấp bằng tốt nghiệp",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1045,
+        1047,
+        1049,
+        1051,
+        1053
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q04",
+      "original": {
+        "id": "Q04",
+        "category": "direct",
+        "question": "Sinh viên bị cảnh báo học tập khi nào?",
+        "ground_truth": "Sinh viên bị cảnh báo học tập khi điểm trung bình tích lũy (GPA) đạt dưới mức quy định theo số tín chỉ đã tích lũy, cụ thể: dưới 0,8 sau học kỳ 1; dưới 1,0 sau học kỳ 2; dưới 1,2 sau học kỳ 3; dưới 1,4 cho các học kỳ tiếp theo.",
+        "relevant_heading": "## **Điều 18. Đánh giá kết quả học tập theo học kỳ, năm học**"
+      },
+      "corrected": {
+        "id": "Q04",
+        "category": "direct",
+        "question": "Sinh viên bị cảnh báo học tập khi nào?",
+        "ground_truth": "a) Tổng số tín chỉ không đạt trong học kỳ vượt quá 50% khối lượng đã đăng ký học trong học kỳ, hoặc tổng số tín chỉ nợ đọng từ đầu khóa học vượt quá 24;\n\nb) Điểm trung bình học kỳ đạt dưới 0,8 đối với học kỳ đầu của khóa học, dưới 1,0 đối với các học kỳ tiếp theo (theo thang điểm 4);\n\nc) Điểm trung bình tích lũy đạt dưới 1,2 đối với sinh viên trình độ năm thứ nhất, dưới 1,4 đối với sinh viên trình độ năm thứ hai, dưới 1,6 đối với sinh viên trình độ năm thứ ba, dưới",
+        "relevant_heading": "Điều 19. Xử lý kết quả học tập theo tín chỉ",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        973,
+        975,
+        977
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q05",
+      "original": {
+        "id": "Q05",
+        "category": "direct",
+        "question": "Sinh viên đăng ký học tối thiểu bao nhiêu tín chỉ mỗi học kỳ?",
+        "ground_truth": "Sinh viên cần đăng ký tối thiểu 10 tín chỉ mỗi học kỳ (trừ học kỳ cuối khóa). Sinh viên bị cảnh báo học tập chỉ được đăng ký tối đa 14 tín chỉ.",
+        "relevant_heading": "## **Điều 9. Tổ chức đăng ký học**"
+      },
+      "corrected": {
+        "id": "Q05",
+        "category": "direct",
+        "question": "Sinh viên đăng ký học tối thiểu bao nhiêu tín chỉ mỗi học kỳ?",
+        "ground_truth": "a) Học kỳ chính tối thiểu là 15 tín chỉ và tối đa là 24 tín chỉ (không hạn chế việc đăng ký số tín chỉ ở năm cuối nhưng phải phù hợp với thời gian học còn lại). Trường hợp khác do Hiệu trưởng quyết định;",
+        "relevant_heading": "## **Điều 9. Tổ chức đăng ký học**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        547
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q06",
+      "original": {
+        "id": "Q06",
+        "category": "direct",
+        "question": "Hình thức kỷ luật cao nhất đối với sinh viên vi phạm là gì?",
+        "ground_truth": "Hình thức kỷ luật cao nhất là buộc thôi học, áp dụng khi sinh viên vi phạm nghiêm trọng quy chế hoặc tái phạm sau khi đã bị đình chỉ học tập.",
+        "relevant_heading": "## **Điều 9. Hình thức kỷ luật và nội dung vi phạm**"
+      },
+      "corrected": {
+        "id": "Q06",
+        "category": "direct",
+        "question": "Hình thức kỷ luật cao nhất đối với sinh viên vi phạm là gì?",
+        "ground_truth": "d) Buộc thôi học: Áp dụng đối với sinh viên đang trong thời gian bị đình chỉ học tập mà vẫn tiếp tục vi phạm kỷ luật hoặc vi phạm lần đầu nhưng có tính chất và mức độ vi phạm đặc biệt nghiêm trọng, gây ảnh hưởng xấu đến nhà trường và xã hội; vi phạm pháp luật bị xử phạt tù giam.",
+        "relevant_heading": "## **Điều 9. Hình thức kỷ luật và nội dung vi phạm**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4010
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q07",
+      "original": {
+        "id": "Q07",
+        "category": "direct",
+        "question": "Điểm F trong hệ thống điểm của TLU tương đương điểm số bao nhiêu?",
+        "ground_truth": "Điểm F (Không đạt) tương đương với thang điểm 10 từ 0 đến dưới 4,0 và thang điểm chữ D hoặc F tùy quy định học phần.",
+        "relevant_heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**"
+      },
+      "corrected": {
+        "id": "Q07",
+        "category": "direct",
+        "question": "Điểm F trong hệ thống điểm của TLU tương đương điểm số bao nhiêu?",
+        "ground_truth": "- Loại không đạt (F):  F: dưới 4,0;",
+        "relevant_heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        775
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q08",
+      "original": {
+        "id": "Q08",
+        "category": "direct",
+        "question": "Chương trình đào tạo ngành Công nghệ thông tin tại TLU gồm bao nhiêu tín chỉ?",
+        "ground_truth": "Chương trình đào tạo ngành Công nghệ thông tin (CNTT) tại TLU yêu cầu tối thiểu 125 tín chỉ (không kể Giáo dục quốc phòng, thể chất).",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH CÔNG NGHỆ THÔNG TIN**"
+      },
+      "corrected": {
+        "id": "Q08",
+        "category": "direct",
+        "question": "Chương trình đào tạo ngành Công nghệ thông tin tại TLU gồm bao nhiêu tín chỉ?",
+        "ground_truth": "||**Tổng số tín chỉ**||**137**|||||",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH CÔNG NGHỆ THÔNG TIN**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        2282
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q09",
+      "original": {
+        "id": "Q09",
+        "category": "direct",
+        "question": "Phòng Công tác Chính trị - Sinh viên có chức năng gì?",
+        "ground_truth": "Phòng Công tác Chính trị - Sinh viên đánh giá điểm rèn luyện, xét khen thưởng, kỷ luật; cấp giấy giới thiệu; xét học bổng; cấp lại thẻ sinh viên; cấp giấy xác nhận là sinh viên; tiếp sinh viên và phụ huynh.",
+        "relevant_heading": "## **2. PHÒNG CÔNG TÁC CHÍNH TRỊ - SINH VIÊN**"
+      },
+      "corrected": {
+        "id": "Q09",
+        "category": "direct",
+        "question": "Phòng Công tác Chính trị - Sinh viên có chức năng gì?",
+        "ground_truth": "- Đánh giá điểm rèn luyện của sinh viên, xét khen thưởng, kỷ luật;\n\n- Xét cấp học bổng cho sinh viên;\n\n- Cấp lại thẻ sinh viên;",
+        "relevant_heading": "## **2. PHÒNG CÔNG TÁC CHÍNH TRỊ - SINH VIÊN**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        15,
+        19,
+        23
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q10",
+      "original": {
+        "id": "Q10",
+        "category": "direct",
+        "question": "Sinh viên có thể học cùng lúc hai chương trình đào tạo không? Điều kiện là gì?",
+        "ground_truth": "Có. Sinh viên có thể đăng ký học chương trình thứ hai nếu: đang học từ học kỳ 2 trở lên tại TLU, GPA tích lũy đạt từ 2,0 trở lên, và không bị cảnh báo học tập. Điểm tốt nghiệp chương trình thứ hai phải đạt từ 2,0 trở lên.",
+        "relevant_heading": "## **Điều 26. Học cùng lúc hai chương trình**"
+      },
+      "corrected": {
+        "id": "Q10",
+        "category": "direct",
+        "question": "Sinh viên có thể học cùng lúc hai chương trình đào tạo không? Điều kiện là gì?",
+        "ground_truth": "2. Sinh viên được đăng ký học chương trình thứ hai sớm nhất khi đã được xếp trình độ năm thứ hai của chương trình thứ nhất và còn thời gian học chương trình thứ hai và tuân thủ quy định tại khoản 1 Điều này. Tại thời điểm đăng ký, sinh viên phải đáp ứng 01 trong các điều kiện sau:\n\na) Học lực tính theo điểm trung bình tích lũy của chương trình thứ nhất xếp loại khá trở lên và đáp ứng ngưỡng bảo đảm chất lượng của chương trình thứ hai trong cùng năm tuyển sinh;\n\nb) Học lực tính theo điểm trung bình tích lũy của chương trình thứ nhất xếp loại trung bình và đáp ứng điều kiện trúng tuyển của chương trình thứ hai trong cùng năm tuyển sinh;\n\nc) Được sự đồng ý của Trưởng Khoa/Bộ môn phụ trách chương trình thứ hai.",
+        "relevant_heading": "## **Điều 26. Học cùng lúc hai chương trình**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1157,
+        1159,
+        1161,
+        1163
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q11",
+      "original": {
+        "id": "Q11",
+        "category": "reasoning",
+        "question": "Nếu sinh viên học kỳ 1 đạt GPA 1,5 và học kỳ 2 đạt GPA tích lũy 0,9, học kỳ nào sẽ bị cảnh báo?",
+        "ground_truth": "Học kỳ 2. Theo quy chế, sinh viên bị cảnh báo khi GPA tích lũy dưới 1,0 sau học kỳ 2. GPA tích lũy 0,9 < 1,0 nên học kỳ 2 bị cảnh báo. Học kỳ 1 không bị cảnh báo vì ngưỡng sau HK1 là dưới 0,8.",
+        "relevant_heading": "## **Điều 18. Đánh giá kết quả học tập theo học kỳ, năm học**"
+      },
+      "corrected": {
+        "id": "Q11",
+        "category": "reasoning",
+        "question": "Nếu điểm trung bình học kỳ đầu là 1,5 và học kỳ tiếp theo là 0,9, kỳ nào thuộc ngưỡng cảnh báo theo điểm trung bình học kỳ?",
+        "ground_truth": "b) Điểm trung bình học kỳ đạt dưới 0,8 đối với học kỳ đầu của khóa học, dưới 1,0 đối với các học kỳ tiếp theo (theo thang điểm 4);",
+        "relevant_heading": "Điều 19. Xử lý kết quả học tập theo tín chỉ",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        975
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q12",
+      "original": {
+        "id": "Q12",
+        "category": "reasoning",
+        "question": "Sinh viên bảo lưu kết quả học tập sau đó quay lại học thì điều gì có thể thay đổi?",
+        "ground_truth": "Khi sinh viên quay lại sau bảo lưu, chương trình đào tạo có thể đã thay đổi. Sinh viên phải học theo chương trình hiện hành, có thể cần học bổ sung hoặc chuyển đổi một số học phần. Kết quả các học phần đã tích lũy vẫn được công nhận nhưng cần rà soát với Phòng Đào tạo.",
+        "relevant_heading": "## **Điều 24. Nghỉ học tạm thời, thôi học**"
+      },
+      "corrected": {
+        "id": "Q12",
+        "category": "reasoning",
+        "question": "Sau thời gian nghỉ học tạm thời, sinh viên cần làm thủ tục trở lại trước đăng ký học bao lâu và tại đâu?",
+        "ground_truth": "3. Sinh viên nghỉ học tạm thời, khi muốn trở lại học tiếp phải đến Phòng Tiếp sinh viên để làm thủ tục xét quay lại học ít nhất 01 tuần trước khi bắt đầu đăng ký học của học kỳ mới và nộp lệ phí theo quy định. Thủ tục xét nghỉ học tạm thời và cho sinh viên quay trở lại học tiếp được quy định tại Phụ lục số 16 (kèm theo).",
+        "relevant_heading": "## **Điều 24. Nghỉ học tạm thời, thôi học**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1115
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q13",
+      "original": {
+        "id": "Q13",
+        "category": "reasoning",
+        "question": "Sinh viên muốn cải thiện điểm môn học đã qua thì cần làm gì và điểm nào được giữ lại?",
+        "ground_truth": "Sinh viên đăng ký học cải thiện điểm qua Phòng Đào tạo. Kết quả học lại (cải thiện) sẽ được ghi nhận, và điểm cao nhất trong tất cả lần học môn đó sẽ được sử dụng để tính GPA tích lũy.",
+        "relevant_heading": "## **Điều 17. Thi lại, học lại, học cải thiện điểm**"
+      },
+      "corrected": {
+        "id": "Q13",
+        "category": "reasoning",
+        "question": "Học cải thiện có phải đóng học phí không và điểm chính thức của học phần là điểm lần học nào?",
+        "ground_truth": "Điểm lần học cuối là điểm chính thức của học phần.\n\n3. Sinh viên thi lại phải nộp lệ phí; học lại, học cải thiện điểm phải nộp học phí theo quy định của Trường.",
+        "relevant_heading": "## **Điều 17. Thi lại, học lại, học cải thiện điểm**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        921,
+        923
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q14",
+      "original": {
+        "id": "Q14",
+        "category": "reasoning",
+        "question": "Tại sao sinh viên nên đăng ký đủ 10 tín chỉ mỗi học kỳ dù không bắt buộc học nhiều?",
+        "ground_truth": "Đây là mức tối thiểu để được coi là sinh viên chính quy và tránh nguy cơ bị cảnh báo học tập. Đăng ký dưới 10 tín chỉ (trừ học kỳ cuối) không đáp ứng quy định tiến độ học tập và có thể ảnh hưởng đến xét học bổng, hỗ trợ sinh viên.",
+        "relevant_heading": "## **Điều 9. Tổ chức đăng ký học**"
+      },
+      "corrected": {
+        "id": "Q14",
+        "category": "reasoning",
+        "question": "Sinh viên đăng ký 10 tín chỉ trong học kỳ chính thông thường có đáp ứng khối lượng tối thiểu không?",
+        "ground_truth": "a) Học kỳ chính tối thiểu là 15 tín chỉ và tối đa là 24 tín chỉ (không hạn chế việc đăng ký số tín chỉ ở năm cuối nhưng phải phù hợp với thời gian học còn lại). Trường hợp khác do Hiệu trưởng quyết định;",
+        "relevant_heading": "## **Điều 9. Tổ chức đăng ký học**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        547
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q15",
+      "original": {
+        "id": "Q15",
+        "category": "reasoning",
+        "question": "Điểm rèn luyện ảnh hưởng như thế nào đến xét tốt nghiệp?",
+        "ground_truth": "Điểm rèn luyện toàn khóa phải đạt tối thiểu 50 điểm (xếp loại Trung bình). Nếu điểm rèn luyện dưới 50, sinh viên không đủ điều kiện tốt nghiệp dù đã tích lũy đủ tín chỉ.",
+        "relevant_heading": "## **Điều 22. Điều kiện xét và công nhận tốt nghiệp**"
+      },
+      "corrected": {
+        "id": "Q15",
+        "category": "reasoning",
+        "question": "Kết quả rèn luyện được lưu ở đâu và được dùng làm căn cứ xét những chế độ nào?",
+        "ground_truth": "1. Kết quả đánh giá rèn luyện từng năm học và toàn khóa học được lưu trong hồ sơ quản lý sinh viên tại Phòng Công tác Chính trị - Sinh viên, làm căn cứ để xét khen thưởng, xét duyệt học bổng.",
+        "relevant_heading": "Điều 13. Sử dụng kết quả (đánh giá rèn luyện)",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4441
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q16",
+      "original": {
+        "id": "Q16",
+        "category": "reasoning",
+        "question": "Sinh viên K38 ngành IT bắt đầu năm học 2023-2024 thì dự kiến tốt nghiệp năm nào?",
+        "ground_truth": "Chương trình đại học hệ chính quy tại TLU thông thường 4 năm. Sinh viên K38 nhập học 2023-2024 dự kiến tốt nghiệp năm học 2026-2027, tức hoàn thành vào cuối năm 2027 nếu học đúng tiến độ.",
+        "relevant_heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**"
+      },
+      "corrected": {
+        "id": "Q16",
+        "category": "reasoning",
+        "question": "Thời gian học theo kế hoạch chuẩn của chương trình đại học chính quy TLU là bao nhiêu năm?",
+        "ground_truth": "Thời gian học tập theo kế hoạch học tập chuẩn toàn khóa đối với tất cả các CTĐT trình độ đại học của Trường là 04 năm.",
+        "relevant_heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        401
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q17",
+      "original": {
+        "id": "Q17",
+        "category": "abbreviation",
+        "question": "HP trong học vụ TLU là gì? Tôi cần đăng ký bao nhiêu HP mỗi HK?",
+        "ground_truth": "HP là Học phần (môn học). HK là Học kỳ. Sinh viên cần đăng ký tối thiểu 10 HP (tín chỉ) mỗi học kỳ và tối đa 25 tín chỉ (học lực khá, giỏi) hoặc 22 tín chỉ (học lực trung bình).",
+        "relevant_heading": "## **Điều 9. Tổ chức đăng ký học**"
+      },
+      "corrected": {
+        "id": "Q17",
+        "category": "abbreviation",
+        "question": "HP có phải chính là TC không? Mỗi HK chính cần đăng ký tối thiểu và tối đa bao nhiêu TC?",
+        "ground_truth": "a) Học kỳ chính tối thiểu là 15 tín chỉ và tối đa là 24 tín chỉ (không hạn chế việc đăng ký số tín chỉ ở năm cuối nhưng phải phù hợp với thời gian học còn lại). Trường hợp khác do Hiệu trưởng quyết định;\n\na) Môn học, học phần (sau đây gọi chung là học phần) là một tập hợp hoạt động giảng dạy và học tập được thiết kế nhằm thực hiện một số mục tiêu học tập cụ thể, trang bị cho người học những kiến thức và kỹ năng thuộc một phạm vi chuyên môn hẹp trong CTĐT. Một học phần được tổ chức giảng dạy, học tập trong một học kỳ, có đề cương chi tiết và mã học phần riêng theo quy định;\n\n- Tín chỉ là đại lượng dùng để đo lường khối lượng học tập của sinh viên;",
+        "relevant_heading": "## **Điều 9. Tổ chức đăng ký học**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        547,
+        339,
+        363
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q18",
+      "original": {
+        "id": "Q18",
+        "category": "abbreviation",
+        "question": "GPA là gì? GPA bao nhiêu thì tốt nghiệp loại giỏi?",
+        "ground_truth": "GPA (Grade Point Average) là điểm trung bình tích lũy theo thang điểm 4. Tốt nghiệp loại Giỏi khi GPA toàn khóa đạt từ 3,20 đến dưới 3,60.",
+        "relevant_heading": "## **Điều 23. Xếp hạng tốt nghiệp**"
+      },
+      "corrected": {
+        "id": "Q18",
+        "category": "abbreviation",
+        "question": "Theo thang điểm trung bình tích lũy, GPA loại giỏi nằm trong khoảng nào?",
+        "ground_truth": "|Từ|3,2|đến|cận|3,6:|Giỏi;|",
+        "relevant_heading": "## **Điều 23. Xếp hạng tốt nghiệp**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1083
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q19",
+      "original": {
+        "id": "Q19",
+        "category": "abbreviation",
+        "question": "CTĐT ngành Khoa học máy tính có những môn học bắt buộc nào trong năm 1?",
+        "ground_truth": "CTĐT (Chương trình đào tạo) ngành Khoa học máy tính gồm các môn bắt buộc năm 1 như: Nhập môn lập trình, Toán rời rạc, Giải tích, Đại số tuyến tính, Vật lý và một số môn đại cương theo danh mục trong Sổ tay K38.",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH KHOA HỌC MÁY TÍNH**"
+      },
+      "corrected": {
+        "id": "Q19",
+        "category": "abbreviation",
+        "question": "CTĐT Khoa học máy tính có học phần lập trình cơ sở nào và mỗi học phần bao nhiêu tín chỉ?",
+        "ground_truth": "|16|Lậptrình cơ sở 1|FIT1201|3|15||60|75|\n\n|17|Lậptrình cơ sở 2|FIT1202|3|30||30|60|",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH KHOA HỌC MÁY TÍNH**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        2087,
+        2088
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q20",
+      "original": {
+        "id": "Q20",
+        "category": "abbreviation",
+        "question": "CB học vụ có nghĩa là gì? Tôi cần gặp CB khi nào?",
+        "ground_truth": "CB học vụ là Cố vấn học tập (Cán bộ hướng dẫn học tập). Sinh viên cần gặp Cố vấn học tập khi: lập kế hoạch học tập, đăng ký học phần, gặp khó khăn học vụ, hoặc khi nhận thông báo từ nhà trường yêu cầu gặp cố vấn.",
+        "relevant_heading": "## **Điều 10. Tổ chức hoạt động giảng dạy và học tập**"
+      },
+      "corrected": {
+        "id": "Q20",
+        "category": "abbreviation",
+        "question": "CVHT là ai và có vai trò gì đối với sinh viên?",
+        "ground_truth": "7. Cố vấn học tập là giảng viên hoặc cán bộ cơ hữu của Trường, được phân công phụ trách một lớp hoặc một số lớp nhập học. Cố vấn học tập đóng vai trò là cầu nối giữa Nhà trường và sinh viên, hướng dẫn và hỗ trợ sinh viên trong suốt quá trình học tập và rèn luyện tại Trường Đại học Thăng Long.",
+        "relevant_heading": "Điều 2. Giải thích từ ngữ; mục 7. Cố vấn học tập",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        377
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q21",
+      "original": {
+        "id": "Q21",
+        "category": "abbreviation",
+        "question": "ĐRL là gì? ĐRL tối thiểu để được xét học bổng là bao nhiêu?",
+        "ground_truth": "ĐRL là Điểm Rèn Luyện. Để xét học bổng khuyến khích học tập, sinh viên thường cần ĐRL từ 65 điểm trở lên (loại Khá), ngoài điều kiện về học lực. Chi tiết tham khảo quy định học bổng hiện hành của Phòng Công tác Chính trị - Sinh viên.",
+        "relevant_heading": "## **Điều 7. Nội dung, hình thức khen thưởng**"
+      },
+      "corrected": {
+        "id": "Q21",
+        "category": "abbreviation",
+        "question": "ĐRL được dùng làm căn cứ xét khen thưởng và học bổng như thế nào trong Sổ tay K38?",
+        "ground_truth": "1. Kết quả đánh giá rèn luyện từng năm học và toàn khóa học được lưu trong hồ sơ quản lý sinh viên tại Phòng Công tác Chính trị - Sinh viên, làm căn cứ để xét khen thưởng, xét duyệt học bổng.",
+        "relevant_heading": "Điều 13. Sử dụng kết quả (đánh giá rèn luyện)",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4441
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q22",
+      "original": {
+        "id": "Q22",
+        "category": "abbreviation",
+        "question": "SV cần làm gì khi muốn xin BLLHP vì lý do sức khỏe?",
+        "ground_truth": "SV (Sinh viên) muốn xin Bảo lưu Lịch sử Học phần (BLLHP - thường gọi là bảo lưu hoặc nghỉ học tạm thời) vì lý do sức khỏe cần: nộp đơn xin nghỉ học tạm thời kèm giấy tờ y tế xác nhận, nộp tại Phòng Đào tạo trong thời hạn quy định.",
+        "relevant_heading": "## **Điều 24. Nghỉ học tạm thời, thôi học**"
+      },
+      "corrected": {
+        "id": "Q22",
+        "category": "abbreviation",
+        "question": "SV nghỉ học tạm thời vì ốm hoặc tai nạn điều trị dài ngày cần chứng nhận gì?",
+        "ground_truth": "c) Bị ốm, thai sản hoặc tai nạn phải điều trị thời gian dài có chứng nhận của cơ sở khám bệnh, chữa bệnh có thẩm quyền theo quy định của Bộ Y tế;",
+        "relevant_heading": "## **Điều 24. Nghỉ học tạm thời, thôi học**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1109
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q23",
+      "original": {
+        "id": "Q23",
+        "category": "out_of_scope",
+        "question": "Hôm nay giá vàng thế giới là bao nhiêu?",
+        "ground_truth": "OUT_OF_SCOPE: Câu hỏi này không liên quan đến học vụ hay quy chế của Trường Đại học Thăng Long. Hệ thống RAG không có thông tin về giá vàng và nên từ chối, gợi ý tra cứu nguồn tài chính chính thức.",
+        "relevant_heading": "N/A"
+      },
+      "corrected": {
+        "id": "Q23",
+        "category": "out_of_scope",
+        "question": "Hôm nay giá vàng thế giới là bao nhiêu?",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q24",
+      "original": {
+        "id": "Q24",
+        "category": "out_of_scope",
+        "question": "Cho tôi công thức nấu phở gà?",
+        "ground_truth": "OUT_OF_SCOPE: Đây là câu hỏi nằm ngoài phạm vi tài liệu học vụ TLU. Hệ thống RAG nên từ chối lịch sự và không bịa câu trả lời.",
+        "relevant_heading": "N/A"
+      },
+      "corrected": {
+        "id": "Q24",
+        "category": "out_of_scope",
+        "question": "Cho tôi công thức nấu phở gà?",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q25",
+      "original": {
+        "id": "Q25",
+        "category": "out_of_scope",
+        "question": "Giáo sư nào là tốt nhất ở TLU để học môn Toán?",
+        "ground_truth": "OUT_OF_SCOPE: Sổ tay sinh viên K38 không xếp hạng hay đánh giá giảng viên. Hệ thống RAG không có thông tin này và cần từ chối, gợi ý sinh viên hỏi trực tiếp Phòng Đào tạo hoặc cộng đồng sinh viên.",
+        "relevant_heading": "N/A"
+      },
+      "corrected": {
+        "id": "Q25",
+        "category": "out_of_scope",
+        "question": "Giáo sư nào là tốt nhất ở TLU để học môn Toán?",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q26",
+      "original": {
+        "id": "Q26",
+        "category": "out_of_scope",
+        "question": "Lập trình Python bắt đầu từ đâu cho người mới?",
+        "ground_truth": "OUT_OF_SCOPE: Câu hỏi về kỹ thuật lập trình nằm ngoài phạm vi tài liệu học vụ TLU. Hệ thống nên từ chối và gợi ý sinh viên tìm tài liệu học lập trình từ giảng viên hoặc trang web chuyên ngành.",
+        "relevant_heading": "N/A"
+      },
+      "corrected": {
+        "id": "Q26",
+        "category": "out_of_scope",
+        "question": "Lập trình Python bắt đầu từ đâu cho người mới?",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q27",
+      "original": {
+        "id": "Q27",
+        "category": "direct",
+        "question": "Sinh viên TLU được nghỉ bao nhiêu ngày trong dịp Tết Nguyên Đán 2026?",
+        "ground_truth": "Theo Kế hoạch đào tạo năm học 2025-2026, sinh viên được nghỉ Tết Nguyên Đán Bính Ngọ 2026 khoảng 2 tuần (từ khoảng 26/1/2026 đến 8/2/2026, tùy quyết định chính thức của Ban Giám hiệu).",
+        "relevant_heading": "## **KẾ HOẠCH ĐÀO TẠO NĂM HỌC 2025 – 2026**"
+      },
+      "corrected": {
+        "id": "Q27",
+        "category": "direct",
+        "question": "Trong kế hoạch K38 năm 2025–2026, giai đoạn nào được ghi nghỉ Tết Nguyên đán?",
+        "ground_truth": "|12/02/2026|25/02/2026||Nghỉ<br>Tết Nguyên đán|||\n\n|02/03/2026|07/03/2026|4|Nghỉ<br>Tết Nguyên đán|- Thi lại HKI (_bắt buộc đối với SV thuộc diện thi lại/hoãn thi và SV đã đăng ký_<br>_thi lại tại HKI, năm học 2025 - 2026_)<br>- Trả điểm phúc tra bài thi HKI, năm học 2025 - 2026<br>- Thôngbáo DSSV cảnh báo học tập/buộc thôi học(nếu có)HKI,năm học 2025 - 2026||",
+        "relevant_heading": "## **KẾ HOẠCH ĐÀO TẠO NĂM HỌC 2025 – 2026**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        99,
+        101
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q28",
+      "original": {
+        "id": "Q28",
+        "category": "direct",
+        "question": "Thời gian học buổi sáng và buổi chiều tại TLU quy định như thế nào?",
+        "ground_truth": "Buổi sáng: tiết 1 bắt đầu 7h00; buổi chiều: tiết 7 bắt đầu 12h30. Mỗi tiết học 50 phút, nghỉ giải lao giữa các tiết. Giờ học cụ thể theo Quy định thời gian học hàng ngày của nhà trường.",
+        "relevant_heading": "## **QUY ĐỊNH THỜI GIAN HỌC HÀNG NGÀY**"
+      },
+      "corrected": {
+        "id": "Q28",
+        "category": "direct",
+        "question": "Thời gian học buổi sáng và buổi chiều tại TLU quy định như thế nào?",
+        "ground_truth": "|Ca Sáng|1|07h00|07h50|\n\n|Ca Chiều|7|13h30|14h20|",
+        "relevant_heading": "## **QUY ĐỊNH THỜI GIAN HỌC HÀNG NGÀY**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        143,
+        149
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q29",
+      "original": {
+        "id": "Q29",
+        "category": "direct",
+        "question": "Sinh viên TLU có được học trực tuyến hoàn toàn không?",
+        "ground_truth": "Theo Điều 11, TLU tổ chức dạy và học trực tuyến một phần hoặc kết hợp (blended learning). Tỷ lệ học trực tuyến không vượt quá mức quy định của Bộ GD&ĐT. Không có hình thức đào tạo hoàn toàn trực tuyến cho bậc đại học chính quy.",
+        "relevant_heading": "## **Điều 11. Dạy và học trực tuyến**"
+      },
+      "corrected": {
+        "id": "Q29",
+        "category": "direct",
+        "question": "Sinh viên TLU có được học trực tuyến hoàn toàn không?",
+        "ground_truth": "Việc tổ chức các lớp học theo phương thức trực tuyến đảm bảo chất lượng tổ chức lớp học phương thức trực tuyến không thấp hơn chất lượng lớp học phương thức trực tiếp và tổng thời lượng dạy học trực tuyến không quá 30% tổng khối lượng của CTĐT. Một số nội dung dạy và học trực tuyến cụ thể như sau:",
+        "relevant_heading": "## **Điều 11. Dạy và học trực tuyến**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        615
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q30",
+      "original": {
+        "id": "Q30",
+        "category": "direct",
+        "question": "Quy trình đánh giá điểm rèn luyện diễn ra mấy lần trong năm?",
+        "ground_truth": "Điểm rèn luyện được đánh giá 2 lần mỗi năm, tương ứng với 2 học kỳ chính (HK1 và HK2). Kết quả đánh giá từng học kỳ được tổng hợp để tính điểm rèn luyện toàn khóa.",
+        "relevant_heading": "## **Điều 12. Thời gian đánh giá**"
+      },
+      "corrected": {
+        "id": "Q30",
+        "category": "direct",
+        "question": "Quy trình đánh giá điểm rèn luyện diễn ra mấy lần trong năm?",
+        "ground_truth": "1. Việc đánh giá kết quả rèn luyện của sinh viên được tiến hành định kỳ theo từng năm học.",
+        "relevant_heading": "## **Điều 12. Thời gian đánh giá**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4433
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q31",
+      "original": {
+        "id": "Q31",
+        "category": "direct",
+        "question": "Câu lạc bộ Công nghệ thông tin của TLU tên là gì và hoạt động trong lĩnh vực nào?",
+        "ground_truth": "Câu lạc bộ Công nghệ thông tin TLU có tên TLIT (Thang Long IT). Câu lạc bộ hoạt động trong lĩnh vực công nghệ thông tin, lập trình, và phát triển kỹ năng kỹ thuật số cho sinh viên.",
+        "relevant_heading": "## **7. Câu lạc bộ Công nghệ thông tin (TLIT)**"
+      },
+      "corrected": {
+        "id": "Q31",
+        "category": "direct",
+        "question": "Câu lạc bộ Công nghệ thông tin của TLU tên là gì và hoạt động trong lĩnh vực nào?",
+        "ground_truth": "## **7. Câu lạc bộ Công nghệ thông tin (TLIT)**",
+        "relevant_heading": "## **7. Câu lạc bộ Công nghệ thông tin (TLIT)**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4697
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q32",
+      "original": {
+        "id": "Q32",
+        "category": "direct",
+        "question": "Phòng Tài chính - Kế toán hỗ trợ sinh viên những gì?",
+        "ground_truth": "Phòng Tài chính - Kế toán hỗ trợ sinh viên về: đóng học phí, xác nhận nộp học phí, giải quyết các vấn đề về miễn giảm học phí, hỗ trợ tài chính, và cấp biên lai thu tiền.",
+        "relevant_heading": "## **4. PHÒNG TÀI CHÍNH – KẾ TOÁN**"
+      },
+      "corrected": {
+        "id": "Q32",
+        "category": "direct",
+        "question": "Phòng Tài chính - Kế toán hỗ trợ sinh viên những gì?",
+        "ground_truth": "- Giải quyết các vấn đề về học phí, đóng học phí, hóa đơn của sinh viên;",
+        "relevant_heading": "## **4. PHÒNG TÀI CHÍNH – KẾ TOÁN**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        41
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q33",
+      "original": {
+        "id": "Q33",
+        "category": "reasoning",
+        "question": "Sinh viên bị đình chỉ học 1 học kỳ thì có bị tính vào thời gian đào tạo tối đa không?",
+        "ground_truth": "Có. Thời gian đình chỉ học tập vẫn được tính vào thời gian đào tạo tối đa (thông thường 6 năm cho chương trình 4 năm). Sinh viên cần lưu ý để không vượt thời gian tối đa cho phép, dẫn đến buộc thôi học.",
+        "relevant_heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**"
+      },
+      "corrected": {
+        "id": "Q33",
+        "category": "reasoning",
+        "question": "Sinh viên đại học chính quy thông thường có tối đa bao nhiêu năm để hoàn thành khóa học?",
+        "ground_truth": "- Đối với hình thức đào tạo đại học chính quy (không tính hệ liên thông chính quy):  thời gian tối đa để sinh viên hoàn thành khóa học không chậm quá 2 năm so với kế hoạch học tập chuẩn toàn khóa (tối đa là 06 năm);",
+        "relevant_heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        411
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q34",
+      "original": {
+        "id": "Q34",
+        "category": "reasoning",
+        "question": "Nếu sinh viên đã học xong 3 năm rồi chuyển ngành, điều gì xảy ra với các tín chỉ đã tích lũy?",
+        "ground_truth": "Khi chuyển ngành, hội đồng Phòng Đào tạo sẽ rà soát và công nhận các học phần có nội dung tương đương với chương trình đào tạo mới. Các học phần không tương đương không được tính, sinh viên phải học bù. Thời gian đào tạo được tính lại từ thời điểm chuyển ngành nhưng tổng thời gian không được vượt quá quy định tối đa.",
+        "relevant_heading": "## **Điều 25. Chuyển chương trình đào tạo/ngành đào tạo**"
+      },
+      "corrected": {
+        "id": "Q34",
+        "category": "reasoning",
+        "question": "Khi chuyển ngành, ai xem xét công nhận tín chỉ và các học phần được chuyển đổi phải đáp ứng những điều kiện gì?",
+        "ground_truth": "2. Hội đồng chuyên môn của Trường được thành lập để xem xét công nhận, chuyển đổi tín chỉ đối với sinh viên chuyển từ cơ sở đào tạo khác đến; khoa/bộ môn xem xét công nhận, chuyển đổi tín chỉ đối với sinh viên chuyển ngành, học 2 chương trình/ngành cùng một lúc, trên cơ sở đối sánh chuẩn đầu ra, nội dung và khối lượng học tập, cách thức đánh giá học phần và các điều kiện bảo đảm chất lượng thực hiện chương trình theo các cấp độ:\n\n3. Các học phần được công nhận, chuyển đổi phải đáp ứng các điều kiện sau:",
+        "relevant_heading": "Điều 21. Công nhận kết quả học tập và chuyển đổi tín chỉ",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1017,
+        1025
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q35",
+      "original": {
+        "id": "Q35",
+        "category": "reasoning",
+        "question": "Điểm thi lại tối đa có thể đạt được bằng bao nhiêu?",
+        "ground_truth": "Điểm thi lại (thi kết thúc học phần lần 2) được ghi nhận theo điểm thực tế đạt được, không bị giới hạn ở mức D hay C như một số trường khác. Tuy nhiên, điểm thi lại được dùng để thay thế điểm thi lần 1 trong tính GPA.",
+        "relevant_heading": "## **Điều 17. Thi lại, học lại, học cải thiện điểm**"
+      },
+      "corrected": {
+        "id": "Q35",
+        "category": "reasoning",
+        "question": "Điểm thi lại tối đa có thể đạt được bằng bao nhiêu?",
+        "ground_truth": "Điểm học phần sau khi thi lại, đánh giá lại không vượt quá 6,9 điểm (theo thang điểm 10) hoặc điểm C+ (thang điểm chữ).",
+        "relevant_heading": "## **Điều 17. Thi lại, học lại, học cải thiện điểm**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        907
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q36",
+      "original": {
+        "id": "Q36",
+        "category": "direct",
+        "question": "Khoa Công nghệ thông tin có những chuyên ngành nào?",
+        "ground_truth": "Khoa Công nghệ thông tin đào tạo các ngành: Công nghệ thông tin, Khoa học máy tính, Kỹ thuật phần mềm, An toàn thông tin, Trí tuệ nhân tạo (tùy năm tuyển sinh).",
+        "relevant_heading": "## **Khoa Công nghệ thông tin**"
+      },
+      "corrected": {
+        "id": "Q36",
+        "category": "direct",
+        "question": "Khoa Công nghệ thông tin có những chuyên ngành nào?",
+        "ground_truth": "- Khoa học máy tính (Mã số: 7480101)\n\n- Công nghệ thông tin (Mã số: 7480201)\n\n- Trí tuệ nhân tạo (Mã số: 7480207)\n\n- Hệ thống thông tin (Mã số: 7480104)\n\n- Mạng máy tính và truyền thông dữ liệu (Mã số: 7480102)",
+        "relevant_heading": "## **Khoa Công nghệ thông tin**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        241,
+        243,
+        245,
+        247,
+        249
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q37",
+      "original": {
+        "id": "Q37",
+        "category": "direct",
+        "question": "Điều kiện để sinh viên được làm khóa luận tốt nghiệp thay vì thi các môn thay thế?",
+        "ground_truth": "Sinh viên được làm khóa luận tốt nghiệp khi: tích lũy đủ số tín chỉ quy định (thường ≥ 80% chương trình), GPA tích lũy đạt từ 2,0 trở lên, không bị kỷ luật từ mức cảnh cáo trở lên và đăng ký trong thời hạn Phòng Đào tạo quy định.",
+        "relevant_heading": "## **Điều 13. Tổ chức và quản lý thực tập tốt nghiệp, khóa luận tốt nghiệp**"
+      },
+      "corrected": {
+        "id": "Q37",
+        "category": "direct",
+        "question": "Điều kiện để sinh viên được làm khóa luận tốt nghiệp thay vì thi các môn thay thế?",
+        "ground_truth": "b) Để được đăng ký làm khóa luận tốt nghiệp, sinh viên phải đạt điểm trung bình tích lũy đến thời điểm đăng ký ≥ 7,5 (theo thang điểm 10); đã hoàn thành thực tập tốt nghiệp với điểm ≥ 4. Từng khóa học và từng ngành học có thể có thêm những yêu cầu khác về điều kiện được làm khóa luận tốt nghiệp. Các trường hợp khác do Hiệu trưởng quyết định theo đề xuất của khoa/bộ môn và Phòng Đào tạo;",
+        "relevant_heading": "## **Điều 13. Tổ chức và quản lý thực tập tốt nghiệp, khóa luận tốt nghiệp**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        681
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q38",
+      "original": {
+        "id": "Q38",
+        "category": "direct",
+        "question": "Tham vấn tâm lý tại TLU hoạt động như thế nào? Sinh viên có phải trả phí không?",
+        "ground_truth": "TLU có chương trình tham vấn tâm lý miễn phí cho sinh viên, cung cấp hỗ trợ tâm lý cá nhân, nhóm và hội thảo kỹ năng. Sinh viên có thể đặt lịch gặp chuyên viên tâm lý qua Phòng Tham vấn tâm lý của trường, không tính phí.",
+        "relevant_heading": "## **GIỚI THIỆU VỀ CHƯƠNG TRÌNH THAM VẤN TÂM LÝ TẠI TRƯỜNG ĐẠI HỌC THĂNG LONG**"
+      },
+      "corrected": {
+        "id": "Q38",
+        "category": "direct",
+        "question": "Tham vấn tâm lý tại TLU hoạt động như thế nào? Sinh viên có phải trả phí không?",
+        "ground_truth": "Địa điểm: Phòng Tham vấn tâm lý – Tầng 1 nhà B, cạnh lễ tân trường Thời gian làm việc: 8:00 – 17:00 từ thứ 2 đến thứ 6 hàng tuần Cách thức liên hệ:\n\nCác hoạt động tham vấn tâm lý cá nhân và trên nhóm đều miễn phí đối với sinh viên Thăng Long.",
+        "relevant_heading": "## **GIỚI THIỆU VỀ CHƯƠNG TRÌNH THAM VẤN TÂM LÝ TẠI TRƯỜNG ĐẠI HỌC THĂNG LONG**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4533,
+        4553
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q39",
+      "original": {
+        "id": "Q39",
+        "category": "abbreviation",
+        "question": "Ngành TMĐT tại TLU là gì? Có bao nhiêu tín chỉ?",
+        "ground_truth": "TMĐT là Thương mại Điện tử. Ngành Thương mại Điện tử tại TLU có chương trình đào tạo khoảng 125-130 tín chỉ theo danh mục học phần trong Sổ tay K38.",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH THƯƠNG MẠI ĐIỆN TỬ**"
+      },
+      "corrected": {
+        "id": "Q39",
+        "category": "abbreviation",
+        "question": "Ngành TMĐT tại TLU là gì? Có bao nhiêu tín chỉ?",
+        "ground_truth": "||**Tổng số tín chỉ**||**128**|||||",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH THƯƠNG MẠI ĐIỆN TỬ**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        2057
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q40",
+      "original": {
+        "id": "Q40",
+        "category": "abbreviation",
+        "question": "TCN và TCNT trong bảng điểm học phần là gì?",
+        "ground_truth": "TCN là Tín chỉ Không đạt (Fail Credit), TCNT là Tín chỉ Không tính (Not Transferred - học phần không tương đương khi chuyển ngành). Tuy nhiên, các ký hiệu này cần xác nhận với Phòng Đào tạo vì có thể thay đổi theo phiên bản phần mềm quản lý đào tạo.",
+        "relevant_heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**"
+      },
+      "corrected": {
+        "id": "Q40",
+        "category": "out_of_scope",
+        "question": "Sổ tay K38 có giải thích chính thức các ký hiệu TCN và TCNT trong bảng điểm cá nhân không?",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q41",
+      "original": {
+        "id": "Q41",
+        "category": "direct",
+        "question": "Sinh viên vi phạm quy tắc ứng xử trên mạng xã hội có thể bị kỷ luật không?",
+        "ground_truth": "Có. Sinh viên vi phạm Quy tắc ứng xử trên mạng xã hội của TLU (đăng thông tin sai sự thật, nội dung xúc phạm nhà trường, giảng viên...) có thể bị xử lý kỷ luật từ nhắc nhở, cảnh cáo đến đình chỉ học tập tùy mức độ vi phạm.",
+        "relevant_heading": "## **QUY TẮC ỨNG XỬ SINH VIÊN TRƯỜNG ĐẠI HỌC THĂNG LONG TRÊN MẠNG XÃ HỘI**"
+      },
+      "corrected": {
+        "id": "Q41",
+        "category": "direct",
+        "question": "Sinh viên vi phạm quy tắc ứng xử trên mạng xã hội có thể bị kỷ luật không?",
+        "ground_truth": "- Nhà trường sẽ lập danh sách sinh viên có hành vi vi phạm ảnh hưởng đến các cá nhân, tổ chức, Nhà trường; gửi lên Ban Giám Hiệu để xử lý. Tùy theo thiệt hại nặng nhẹ mà Nhà trường có thể có những hình thức xử lý khác nhau, từ cảnh cáo đến Buộc thôi học.",
+        "relevant_heading": "## **QUY TẮC ỨNG XỬ SINH VIÊN TRƯỜNG ĐẠI HỌC THĂNG LONG TRÊN MẠNG XÃ HỘI**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4631
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q42",
+      "original": {
+        "id": "Q42",
+        "category": "direct",
+        "question": "Hội Tân sinh viên TLU diễn ra vào thời gian nào trong năm?",
+        "ground_truth": "Chào Tân sinh viên TLU thường diễn ra vào đầu năm học mới, khoảng tháng 9 hàng năm, nằm trong chuỗi hoạt động thường niên của nhà trường.",
+        "relevant_heading": "## **2. Chào Tân sinh viên**"
+      },
+      "corrected": {
+        "id": "Q42",
+        "category": "direct",
+        "question": "Chương trình Chào Tân sinh viên giúp tân sinh viên hòa nhập với trường như thế nào?",
+        "ground_truth": "Qua chuỗi sự kiện này, Nhà trường mong muốn các bạn tân sinh viên có thêm nhiều cơ hội để hiểu hơn về ngôi trường mình sẽ theo học, nhanh chóng thích nghi, hòa nhập với môi trường mới. Chào tân sinh viên luôn được mong đợi bởi đây còn là một sự kiện đánh dấu một năm học mới đầy hứng khởi với nhiều dự định của tập thể cán bộ giảng viên và sinh viên Trường Đại học Thăng Long.",
+        "relevant_heading": "## **2. Chào Tân sinh viên**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4577
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q43",
+      "original": {
+        "id": "Q43",
+        "category": "reasoning",
+        "question": "Sinh viên ngành Kế toán muốn tham gia câu lạc bộ nào liên quan đến chuyên ngành?",
+        "ground_truth": "Sinh viên ngành Kế toán phù hợp tham gia Câu lạc bộ Kế toán - Kiểm toán (AAC) hoặc Câu lạc bộ Ngân hàng và Nguồn nhân lực Thăng Long (UBTL) để phát triển kỹ năng chuyên môn và mạng lưới nghề nghiệp.",
+        "relevant_heading": "## **27. Câu lạc bộ Kế toán - Kiểm toán (AAC)**"
+      },
+      "corrected": {
+        "id": "Q43",
+        "category": "reasoning",
+        "question": "Sinh viên ngành Kế toán muốn tham gia câu lạc bộ nào liên quan đến chuyên ngành?",
+        "ground_truth": "- Mục đích hoạt động: Câu lạc bộ là nơi để các bạn sinh viên Thăng Long cùng nhau trao đổi kiến thức liên quan đến ngành Kế toán - Kiểm toán. Bên cạnh đó còn tạo nên môi trường học tập phát triển lành mạnh để các bạn trẻ giao lưu kết nối với nhau và là nơi hỗ trợ sinh viên chuyên ngành Kế toán - Kiểm toán có thể định hướng bản thân và phát triển nghề nghiệp trong tương lai.",
+        "relevant_heading": "## **27. Câu lạc bộ Kế toán - Kiểm toán (AAC)**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4913
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q44",
+      "original": {
+        "id": "Q44",
+        "category": "reasoning",
+        "question": "Sinh viên muốn học liên thông lên đại học tại TLU cần chuẩn bị gì?",
+        "ground_truth": "Để học liên thông đại học tại TLU, sinh viên cần: có bằng tốt nghiệp cao đẳng hoặc trung cấp đúng chuyên ngành hoặc ngành gần, đáp ứng yêu cầu đầu vào (điểm xét hoặc thi liên thông), và làm hồ sơ đăng ký theo đợt tuyển sinh. Chi tiết theo Điều 28 Quy chế đào tạo.",
+        "relevant_heading": "## **Điều 28. Học liên thông đối với người có văn bằng khác**"
+      },
+      "corrected": {
+        "id": "Q44",
+        "category": "reasoning",
+        "question": "Người đã có văn bằng muốn học liên thông tại TLU cần đối chiếu quy định nào về điều kiện và thủ tục?",
+        "ground_truth": "1. Người đã tốt nghiệp trình độ đào tạo của giáo dục nghề nghiệp được dự tuyển và học liên thông lên trình độ đại học theo quy định hiện hành của Chính phủ, Thủ tướng Chính phủ và quy định đào tạo liên thông của Trường.\n\n4. Hiệu trưởng quy định cụ thể về tuyển sinh đào tạo liên thông trình độ đào tạo của giáo dục nghề nghiệp và liên thông đối với người đã có bằng đại học ngành khác tại một văn bản khác. Trong đó, quy định chi tiết điều kiện, thủ tục tiếp nhận học liên thông; tổ chức đào tạo, xét tốt nghiệp và cấp bằng tốt nghiệp.",
+        "relevant_heading": "## **Điều 28. Học liên thông đối với người có văn bằng khác**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1191,
+        1197
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q45",
+      "original": {
+        "id": "Q45",
+        "category": "direct",
+        "question": "Ngày hội việc làm Thang Long Job Fair tổ chức hàng năm vào thời điểm nào?",
+        "ground_truth": "Thang Long Job Fair thường được tổ chức vào học kỳ 2 (khoảng tháng 3-4 hàng năm) là một trong các hoạt động thường niên của TLU, tạo cơ hội kết nối sinh viên với doanh nghiệp tuyển dụng.",
+        "relevant_heading": "## **4. Ngày hội việc làm Thang Long Job Fair**"
+      },
+      "corrected": {
+        "id": "Q45",
+        "category": "direct",
+        "question": "Job Fair TLU hỗ trợ sinh viên chuẩn bị hồ sơ và phỏng vấn tìm việc qua các hoạt động nào?",
+        "ground_truth": "Không chỉ dừng lại ở một ngày hội tuyển dụng việc làm, Thang Long University Job Fair còn mang đến chuỗi hoạt động đa dạng và ý nghĩa, giúp sinh viên mở rộng góc nhìn về nghề nghiệp và xu hướng thị trường việc làm. Các talkshow lần lượt được tổ chức trong khuôn khổ chuỗi sự kiện giúp sinh viên Thăng Long được kết nối, giao tiếp và học hỏi với nhiều chuyên gia nhiều năm kinh nghiệm trong ngành. Chưa dừng lại ở đó, trong khuôn khổ ngày hội, sinh viên Thăng Long còn được gặp gỡ và nâng cao kỹ năng thực tế từ các chuyên gia đến từ các đơn vị bảo trợ chuyên môn... thông qua các hoạt động từ sửa CV cá nhân đến phỏng vấn mô phỏng và định hướng tư vấn nghề nghiệp 1:1. Từ đây, sinh viên sẽ nắm bắt yêu cầu tuyển dụng thực tế của doanh nghiệp, không ngừng hoàn thiện hồ sơ, tăng khả năng thành công khi ứng tuyển các vị trí nghề nghiệp mong muốn.",
+        "relevant_heading": "## **4. Ngày hội việc làm Thang Long Job Fair**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        4591
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q46",
+      "original": {
+        "id": "Q46",
+        "category": "out_of_scope",
+        "question": "Cách xin việc làm tại Google như thế nào?",
+        "ground_truth": "OUT_OF_SCOPE: Câu hỏi về quy trình tuyển dụng của Google nằm ngoài phạm vi tài liệu học vụ TLU. Hệ thống RAG nên từ chối và gợi ý sinh viên tham khảo website tuyển dụng của Google hoặc tham dự Job Fair của TLU.",
+        "relevant_heading": "N/A"
+      },
+      "corrected": {
+        "id": "Q46",
+        "category": "out_of_scope",
+        "question": "Cách xin việc làm tại Google như thế nào?",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q47",
+      "original": {
+        "id": "Q47",
+        "category": "out_of_scope",
+        "question": "Cho tôi biết điểm thi của tôi học kỳ vừa rồi.",
+        "ground_truth": "OUT_OF_SCOPE: Dữ liệu điểm cá nhân không được lưu trong Sổ tay sinh viên K38. Hệ thống RAG không có quyền truy cập thông tin học bạ cá nhân. Sinh viên cần tra cứu qua cổng thông tin học vụ của TLU.",
+        "relevant_heading": "N/A"
+      },
+      "corrected": {
+        "id": "Q47",
+        "category": "out_of_scope",
+        "question": "Cho tôi biết điểm thi của tôi học kỳ vừa rồi.",
+        "ground_truth": "OUT_OF_SCOPE: Corpus K38 không cung cấp bằng chứng để trả lời câu hỏi này.",
+        "relevant_heading": "N/A",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q48",
+      "original": {
+        "id": "Q48",
+        "category": "direct",
+        "question": "Điểm xếp loại tốt nghiệp Xuất sắc yêu cầu GPA bao nhiêu?",
+        "ground_truth": "Tốt nghiệp loại Xuất sắc yêu cầu GPA toàn khóa đạt từ 3,60 trở lên (thang điểm 4) và không có học phần nào phải thi lại, không bị kỷ luật từ mức cảnh cáo trở lên trong toàn khóa học.",
+        "relevant_heading": "## **Điều 23. Xếp hạng tốt nghiệp**"
+      },
+      "corrected": {
+        "id": "Q48",
+        "category": "direct",
+        "question": "Ngưỡng GPA xếp loại xuất sắc là bao nhiêu và khi nào hạng tốt nghiệp bị giảm một mức?",
+        "ground_truth": "|Từ|3,6|đến|4,0:||Xuất sắc;|\n\na) Khối lượng của các học phần phải học lại vượt quá 5% so với tổng số tín chỉ quy định cho toàn chương trình;\n\nb) Sinh viên đã bị kỷ luật từ mức cảnh cáo trở lên trong thời gian học.",
+        "relevant_heading": "## **Điều 23. Xếp hạng tốt nghiệp**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1081,
+        1091,
+        1093
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q49",
+      "original": {
+        "id": "Q49",
+        "category": "reasoning",
+        "question": "Ngành Logistics TLU có các môn học liên quan đến chuỗi cung ứng và xuất nhập khẩu không?",
+        "ground_truth": "Có. Chương trình đào tạo ngành Logistics và Quản lý Chuỗi cung ứng tại TLU bao gồm các học phần về: Quản lý chuỗi cung ứng, Logistics quốc tế, Thương mại quốc tế, Xuất nhập khẩu và giao nhận hàng hóa theo danh mục học phần trong Sổ tay K38.",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH LOGISTICS VÀ QUẢN LÝ CHUỖI CUNG ỨNG**"
+      },
+      "corrected": {
+        "id": "Q49",
+        "category": "reasoning",
+        "question": "Ngành Logistics TLU có các môn học liên quan đến chuỗi cung ứng và xuất nhập khẩu không?",
+        "ground_truth": "|16|Các phương pháp phân tích định lượng trong Logistics<br>và quản lý chuỗi cung ứng|LSM1233|3|30||30|60|",
+        "relevant_heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH LOGISTICS VÀ QUẢN LÝ CHUỖI CUNG ỨNG**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        1898
+      ],
+      "review": "agent source check; not human adjudication"
+    },
+    {
+      "query_id": "Q50",
+      "original": {
+        "id": "Q50",
+        "category": "abbreviation",
+        "question": "Thông báo của TLU ghi '2TC bắt buộc' nghĩa là gì?",
+        "ground_truth": "2TC bắt buộc nghĩa là học phần có 2 Tín Chỉ (TC) và thuộc nhóm học phần bắt buộc trong chương trình đào tạo, sinh viên phải đăng ký và đạt để được tốt nghiệp.",
+        "relevant_heading": "## **Điều 2. Giải thích từ ngữ**"
+      },
+      "corrected": {
+        "id": "Q50",
+        "category": "abbreviation",
+        "question": "Thông báo của TLU ghi '2TC bắt buộc' nghĩa là gì?",
+        "ground_truth": "- Học phần bắt buộc là học phần chứa đựng những nội dung, kiến thức chính yếu của mỗi CTĐT bắt buộc sinh viên phải tích lũy;\n\n- Tín chỉ là đại lượng dùng để đo lường khối lượng học tập của sinh viên;",
+        "relevant_heading": "## **Điều 2. Giải thích từ ngữ**",
+        "annotation_status": "source_checked_by_agent; independent_human_review_pending"
+      },
+      "evidence_source_lines": [
+        345,
+        363
+      ],
+      "review": "agent source check; not human adjudication"
+    }
+  ]
+}

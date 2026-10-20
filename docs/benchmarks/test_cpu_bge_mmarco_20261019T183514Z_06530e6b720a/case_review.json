@@ -1,0 +1,2584 @@
+{
+  "run_id": "test_cpu_bge_mmarco_20261019T183514Z_06530e6b720a",
+  "max_length": 512,
+  "script_sha256": "00d0dd36e12d3a95bff40a3b1f1f036cbecda1d09ce3637878ce48b70938fe1a",
+  "cases": [
+    {
+      "query_id": "T001",
+      "question": "Trường Thăng Long thành lập vào năm nào và tên gọi ban đầu là gì?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:11:4ea346ea0128f772",
+          "heading": "## **LỊCH SỬ**",
+          "full_pair_tokens": 216,
+          "visible_document_end_char": 762,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "Đại học Thăng Long là trường ngoài công lập đào tạo bậc đại học đầu tiên tại Việt Nam, được thành lập năm 1988 theo Quyết định số 1687/KH - TV ngày 15 tháng 12 năm 1988 của Bộ Đại học, Trung học chuyên nghiệp và Dạy nghề (nay là Bộ Giáo dục và Đào tạo), với tên gọi lúc đầu là Trung tâm Đại học Dân lập Thăng Long.",
+              "start_char": 15,
+              "end_char": 329,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T002",
+      "question": "Quyết định thành lập Trung tâm Đại học Dân lập Thăng Long có số và ngày nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:11:4ea346ea0128f772",
+          "heading": "## **LỊCH SỬ**",
+          "full_pair_tokens": 218,
+          "visible_document_end_char": 762,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "Đại học Thăng Long là trường ngoài công lập đào tạo bậc đại học đầu tiên tại Việt Nam, được thành lập năm 1988 theo Quyết định số 1687/KH - TV ngày 15 tháng 12 năm 1988 của Bộ Đại học, Trung học chuyên nghiệp và Dạy nghề (nay là Bộ Giáo dục và Đào tạo), với tên gọi lúc đầu là Trung tâm Đại học Dân lập Thăng Long.",
+              "start_char": 15,
+              "end_char": 329,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T003",
+      "question": "Đến năm 1994 Trung tâm Đại học Dân lập Thăng Long chuyển thành đơn vị gì?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:11:4ea346ea0128f772",
+          "heading": "## **LỊCH SỬ**",
+          "full_pair_tokens": 217,
+          "visible_document_end_char": 762,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "Theo Quyết định số 411/TTg của Thủ tướng Chính phủ ngày 09 tháng 08 năm 1994, Trung tâm Đại học Dân lập Thăng Long trở thành Trường Đại học Dân lập Thăng Long.",
+              "start_char": 332,
+              "end_char": 491,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T004",
+      "question": "Việc chuyển Thăng Long sang loại hình tư thục được quyết định vào thời điểm nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:11:4ea346ea0128f772",
+          "heading": "## **LỊCH SỬ**",
+          "full_pair_tokens": 218,
+          "visible_document_end_char": 762,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "Theo Quyết định số 1888/QĐ - TTg của Thủ tướng Chính phủ ngày 31 tháng 12 năm 2007, Trường Đại học Dân lập Thăng Long chuyển sang loại hình trường đại học tư thục và mang tên là **Trường Đại học Thăng Long.**",
+              "start_char": 494,
+              "end_char": 702,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T005",
+      "question": "Triết lý giáo dục của Thăng Long nêu những giá trị nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": null,
+        "C": 9,
+        "D": 5,
+        "E": 5
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:16:7e933e3b94126546",
+          "heading": "## **TRIẾT LÝ GIÁO DỤC:**",
+          "full_pair_tokens": 53,
+          "visible_document_end_char": 97,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "Trung thực – Nhân ái – Trách nhiệm – Hợp tác quốc tế - Học tập suốt đời",
+              "start_char": 26,
+              "end_char": 97,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T006",
+      "question": "Giai đoạn 2008–2048 trong Chương trình 100 năm tập trung xây dựng điều gì?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:14:e63694235176513a",
+          "heading": "## _**Chương trình 100 năm**_",
+          "full_pair_tokens": 91,
+          "visible_document_end_char": 245,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giai đoạn 2: 40 năm tập trung xây dựng đội ngũ giảng viên (2008-2048).",
+              "start_char": 99,
+              "end_char": 171,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T007",
+      "question": "Chương trình 100 năm dành thời kỳ nào cho xây dựng đội ngũ nghiên cứu khoa học?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:14:e63694235176513a",
+          "heading": "## _**Chương trình 100 năm**_",
+          "full_pair_tokens": 90,
+          "visible_document_end_char": 245,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giai đoạn 3: 40 năm xây dựng đội ngũ nghiên cứu khoa học (2048-2088).",
+              "start_char": 174,
+              "end_char": 245,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T008",
+      "question": "Hai mươi năm đầu Chương trình 100 năm tập trung vào công việc gì?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:14:e63694235176513a",
+          "heading": "## _**Chương trình 100 năm**_",
+          "full_pair_tokens": 87,
+          "visible_document_end_char": 245,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giai đoạn 1: 20 năm tập trung xây dựng cơ sở Trường (1988-2008).",
+              "start_char": 30,
+              "end_char": 96,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T009",
+      "question": "Theo giá trị cốt lõi, giảng viên Thăng Long cần có những phẩm chất gì?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 2,
+        "E": 2
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:17:2055444b47b75e38",
+          "heading": "## **GIÁ TRỊ CỐT LÕI**",
+          "full_pair_tokens": 109,
+          "visible_document_end_char": 274,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giảng viên: Yêu nghề, có năng lực, có ý chí và khát vọng, có tư duy hiện đại.",
+              "start_char": 23,
+              "end_char": 102,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T010",
+      "question": "Những phẩm chất nào được nêu cho sinh viên trong giá trị cốt lõi của trường?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:17:2055444b47b75e38",
+          "heading": "## **GIÁ TRỊ CỐT LÕI**",
+          "full_pair_tokens": 108,
+          "visible_document_end_char": 274,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Sinh viên: Trở thành công dân có ích cho xã hội, yêu lao động, chăm chỉ, có trách nhiệm sâu sắc đối với công việc, có tinh thần cảm thông, bao dung, giúp đỡ mọi người.",
+              "start_char": 105,
+              "end_char": 274,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T011",
+      "question": "Fanpage câu lạc bộ Tiếng Anh EC tại TLU là địa chỉ nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:293:015bc56695b9e2ef",
+          "heading": "## **4. Câu lạc bộ Tiếng Anh (EC)**",
+          "full_pair_tokens": 148,
+          "visible_document_end_char": 467,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Fanpage: https://www.facebook.com/english.tlu",
+              "start_char": 60,
+              "end_char": 107,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T012",
+      "question": "Đội Sinh viên tình nguyện tổ chức sinh nhật vào tháng nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:291:e3f04c037505f814",
+          "heading": "## **2. Đội Sinh viên tình nguyện Trường Đại học Thăng Long (SVTN)**",
+          "full_pair_tokens": 257,
+          "visible_document_end_char": 918,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: chương trình Mùa Hè Xanh vào tháng 7 hàng năm; sinh nhật Đội vào tháng 11 hàng năm; kết hợp với các nhà tài trợ tổ chức chương trình Trung Thu cho các em nhỏ vùng cao và chương trình Ba Vì cho các bệnh nhân khiếm khuyết; nấu bánh chưng, phát bánh chưng và phát chăn cho người vô gia cư trên địa bàn Hà Nội và các xã vùng cao; kết hợp với các trường bạn tổ chức chương trình Xuân Tình Nguyện kéo dài 1 tháng với rất nhiều hoạt động; nấu cháo từ thiện cho các bệnh nhân tại các bệnh viện trên địa bàn.",
+              "start_char": 396,
+              "end_char": 918,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T013",
+      "question": "CLB Luật gia trẻ đưa sinh viên tham quan những cơ quan nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 4,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:294:661f2b98ff646c1d",
+          "heading": "## **5. Câu lạc bộ Luật gia trẻ (COLD)**",
+          "full_pair_tokens": 351,
+          "visible_document_end_char": 1182,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt tiêu biểu: tổ chức CALLIOPE - cuộc thi tranh biện; tổ chức chuỗi Talkshow Law Xa; tổ chức những buổi ngoại khóa, tham quan thực tế Tòa Án Nhân Dân, tòa nhà Quốc hội; Tổ chức PHIÊN TÒA GIẢ ĐỊNH SỐ 01 lần đầu tiên tại Trường Đại học Thăng Long.\"",
+              "start_char": 454,
+              "end_char": 704,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T014",
+      "question": "Một tín chỉ học lý thuyết yêu cầu tối thiểu bao nhiêu giờ giảng trên lớp?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:40:5920b9fc6786175a",
+          "heading": "## 5. Học phần:",
+          "full_pair_tokens": 284,
+          "visible_document_end_char": 1029,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Đối với hoạt động dạy học trên lớp một tín chỉ yêu cầu thực hiện tối thiểu 15 giờ giảng hoặc 30 giờ thực hành, thí nghiệm, thảo luận, trong đó 01 giờ lên lớp được tính bằng 50 phút. Đối với hoạt động thực hành ngoài trường, 1 tín chỉ yêu cầu thực hiện tối thiểu là 45 giờ thực hành.",
+              "start_char": 320,
+              "end_char": 604,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T015",
+      "question": "Một giờ lên lớp được quy định là bao nhiêu phút?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:40:5920b9fc6786175a",
+          "heading": "## 5. Học phần:",
+          "full_pair_tokens": 279,
+          "visible_document_end_char": 1029,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Đối với hoạt động dạy học trên lớp một tín chỉ yêu cầu thực hiện tối thiểu 15 giờ giảng hoặc 30 giờ thực hành, thí nghiệm, thảo luận, trong đó 01 giờ lên lớp được tính bằng 50 phút. Đối với hoạt động thực hành ngoài trường, 1 tín chỉ yêu cầu thực hiện tối thiểu là 45 giờ thực hành.",
+              "start_char": 320,
+              "end_char": 604,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T016",
+      "question": "Chỉ học hết môn tiên quyết nhưng chưa đạt có được đăng ký học phần sau không?",
+      "category": "reasoning",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:38:329d0460c2e5864b",
+          "heading": "## 5. Học phần:",
+          "full_pair_tokens": 233,
+          "visible_document_end_char": 865,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Học phần tiên quyết là học phần mà sinh viên phải tích lũy (điểm học phần đạt yêu cầu) mới được đăng ký học học phần tiếp theo và phải thực hiện đúng theo trình tự được quy định trong CTĐT;",
+              "start_char": 258,
+              "end_char": 449,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T017",
+      "question": "JC-TLU kết nối những bạn sinh viên có sở thích văn hóa nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 2,
+        "E": 2
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:297:fc41f974ac27e395",
+          "heading": "## **8. Câu lạc bộ Tiếng Nhật (JC-TLU)**",
+          "full_pair_tokens": 202,
+          "visible_document_end_char": 628,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Câu lạc bộ mong muốn lan tỏa một nét đẹp truyền thống trong văn hóa đất nước mặt trời mọc, đồng thời mang đến cho mọi người niềm vui và những tiếng cười đầy sảng khoái bất tận, là cầu nối giữa những người thích thú và muốn tìm hiểu và giao lưu văn hóa với nước Nhật.",
+              "start_char": 147,
+              "end_char": 435,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T018",
+      "question": "Các học phần song hành được tổ chức học trong cùng kỳ hay khác kỳ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:38:329d0460c2e5864b",
+          "heading": "## 5. Học phần:",
+          "full_pair_tokens": 231,
+          "visible_document_end_char": 865,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Học phần song hành là những học phần được thiết kế để được học cùng nhau trong một kỳ học, đây là các học phần có liên quan và bổ trợ kiến thức cho nhau;",
+              "start_char": 452,
+              "end_char": 607,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T019",
+      "question": "Hoạt động của Thăng Long Yosakoi hướng đến văn hóa truyền thống quốc gia nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:315:d1147866d3263e5f",
+          "heading": "## **23. Câu lạc bộ Thăng Long Yosakoi (TLY)**",
+          "full_pair_tokens": 259,
+          "visible_document_end_char": 940,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Với mong muốn lan tỏa một nét đẹp truyền thống trong văn hóa đất nước mặt trời mọc, đồng thời mang đến cho mọi người niềm vui và những tiếng cười đầy sảng khoái bất tận, chúng mình luôn cố gắng và nỗ lực không ngừng, không ngừng luyện tập, không ngừng bay nhảy và không ngừng cháy hết mình với từng phút giây trên sân khấu của đam mê và nhiệt huyết.",
+              "start_char": 148,
+              "end_char": 519,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T020",
+      "question": "CLB BOSS có hỗ trợ phát triển tinh thần doanh nhân không?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:292:62a128b9997500ec",
+          "heading": "## **3. Câu lạc bộ Kỹ năng mềm, Kỹ năng kinh doanh và Tổ chức sự kiện (BOSS)**",
+          "full_pair_tokens": 330,
+          "visible_document_end_char": 1231,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Câu lạc bộ chuyên về kỹ năng mềm, kỹ năng kinh doanh, tổ chức sự kiện. Tạo môi trường cho các bạn sinh viên giao lưu thiết lập mối quan hệ và cải thiện kỹ năng giao tiếp, thuyết trình teamwork,..đặc biệt là những chương trình đào tạo về tinh thần doanh nhân, thắp sáng nhiệt huyết đồng thời hiện thực hóa một phần bằng những hình thức kinh doanh thực tế.",
+              "start_char": 178,
+              "end_char": 554,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T021",
+      "question": "Trợ giảng có được phân công tự lên lớp giảng dạy lý thuyết không?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:70:5bdc3fa3632d3808",
+          "heading": "## **Điều 11. Dạy và học trực tuyến**",
+          "full_pair_tokens": 250,
+          "visible_document_end_char": 960,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Không phân công giảng viên trợ giảng lên lớp giảng dạy lý thuyết;",
+              "start_char": 893,
+              "end_char": 960,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:71:e3efcd9d2e94fedd",
+          "heading": "## **Điều 11. Dạy và học trực tuyến**",
+          "full_pair_tokens": 301,
+          "visible_document_end_char": 1183,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Không phân công giảng viên trợ giảng lên lớp giảng dạy lý thuyết;",
+              "start_char": 50,
+              "end_char": 117,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T022",
+      "question": "Một giảng viên được hướng dẫn tối đa bao nhiêu sinh viên làm khóa luận cùng lúc?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:71:e3efcd9d2e94fedd",
+          "heading": "## **Điều 11. Dạy và học trực tuyến**",
+          "full_pair_tokens": 303,
+          "visible_document_end_char": 1183,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giảng viên có kinh nghiệm giảng dạy từ đủ 02 năm trở lên được phân công hướng dẫn làm khóa luận tốt nghiệp. Mỗi giảng viên được hướng dẫn tối đa 15 sinh viên tại cùng thời điểm;",
+              "start_char": 1004,
+              "end_char": 1183,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:72:2be2fe9a360e47c4",
+          "heading": "## **Điều 11. Dạy và học trực tuyến**",
+          "full_pair_tokens": 278,
+          "visible_document_end_char": 1095,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giảng viên có kinh nghiệm giảng dạy từ đủ 02 năm trở lên được phân công hướng dẫn làm khóa luận tốt nghiệp. Mỗi giảng viên được hướng dẫn tối đa 15 sinh viên tại cùng thời điểm;",
+              "start_char": 50,
+              "end_char": 229,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T023",
+      "question": "Người hướng dẫn thực hành cần kinh nghiệm giảng dạy tối thiểu bao nhiêu năm?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 2,
+        "C": 2,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:71:e3efcd9d2e94fedd",
+          "heading": "## **Điều 11. Dạy và học trực tuyến**",
+          "full_pair_tokens": 301,
+          "visible_document_end_char": 1183,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Giảng viên có kinh nghiệm giảng dạy từ đủ 02 năm trở lên được phân công hướng dẫn thực hành, thực tập học phần; một giảng viên hướng dẫn thực hành, thực tập tốt nghiệp cho không quá 30 sinh viên tại cùng thời điểm;",
+              "start_char": 785,
+              "end_char": 1001,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T024",
+      "question": "Giảng viên ngoài trường được mời dạy phải có trình độ tối thiểu nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:71:e3efcd9d2e94fedd",
+          "heading": "## **Điều 11. Dạy và học trực tuyến**",
+          "full_pair_tokens": 301,
+          "visible_document_end_char": 1183,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Chỉ mời giảng viên ngoài Trường tham gia giảng dạy trong trường hợp giảng viên trong Trường không có chuyên môn về học phần đó và không đáp ứng được khối lượng công việc theo quy định (tối đa không quá 30% khối lượng của CTĐT). Giảng viên được mời phải có trình độ thạc sĩ trở lên đúng chuyên môn của học phần được mời giảng; ưu tiên người có trình độ tiến sĩ đúng chuyên môn.",
+              "start_char": 120,
+              "end_char": 498,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T025",
+      "question": "Bỏ thi không có lý do chính đáng thì nhận điểm gì?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 3,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:83:ce90c4de00fc29ad",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 233,
+          "visible_document_end_char": 875,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "3. Sinh viên vắng mặt trong buổi thi, đánh giá không có lý do chính đáng phải nhận điểm 0. Sinh viên vắng mặt có lý do chính đáng được dự thi, đánh giá ở một đợt thi khác và được tính là điểm lần đầu.",
+              "start_char": 675,
+              "end_char": 875,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:84:8ddb2fb52dfd96ea",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 322,
+          "visible_document_end_char": 1201,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "3. Sinh viên vắng mặt trong buổi thi, đánh giá không có lý do chính đáng phải nhận điểm 0. Sinh viên vắng mặt có lý do chính đáng được dự thi, đánh giá ở một đợt thi khác và được tính là điểm lần đầu.",
+              "start_char": 64,
+              "end_char": 264,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T026",
+      "question": "Nếu điểm thi kết thúc học phần bằng 0 thì điểm học phần được tính ra sao?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:86:fc3a3204d9a02ce7",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 327,
+          "visible_document_end_char": 1186,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "c) Nếu điểm thi kết thúc học phần bằng 0 thì điểm học phần được tính bằng 0.",
+              "start_char": 999,
+              "end_char": 1075,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T027",
+      "question": "Điểm chuyên cần chiếm tỷ trọng bao nhiêu trong điểm học phần?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:86:fc3a3204d9a02ce7",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 322,
+          "visible_document_end_char": 1186,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "a) Điểm học phần được tính từ tổng các điểm thành phần nhân với trọng số tương ứng và được làm tròn tới một chữ số thập phân. Trong đó, điểm chuyên cần (trọng số: 10%); điểm đánh giá thường xuyên (trọng số: 30% hoặc 40%); điểm thi kết thúc học phần (trọng số: 50% hoặc 60%) được quy định trong đề cương chi tiết học phần;",
+              "start_char": 370,
+              "end_char": 691,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T028",
+      "question": "Đánh giá trực tuyến được đóng góp tối đa bao nhiêu phần trăm trọng số điểm học phần?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:83:ce90c4de00fc29ad",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 238,
+          "visible_document_end_char": 875,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "2. Hình thức đánh giá: trực tiếp hoặc trực tuyến hoặc kết hợp hai hình thức này. Hình thức đánh giá trực tuyến được áp dụng khi đảm bảo trung thực, công bằng và khách quan như đánh giá trực tiếp, đồng thời đóng góp không quá 50% trọng số điểm học phần.",
+              "start_char": 420,
+              "end_char": 672,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T029",
+      "question": "Báo cáo thực tập tốt nghiệp do mấy giảng viên chấm?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:85:65e2c3981ef06ca5",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 363,
+          "visible_document_end_char": 1257,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "b) Báo cáo thực tập tốt nghiệp do 02 giảng viên chấm (bao gồm giảng viên hướng dẫn) vào phiếu đánh giá. Phiếu đánh giá thực hiện theo mẫu tại Phụ lục số 09 (kèm theo);",
+              "start_char": 1090,
+              "end_char": 1257,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:86:fc3a3204d9a02ce7",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 321,
+          "visible_document_end_char": 1186,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "b) Báo cáo thực tập tốt nghiệp do 02 giảng viên chấm (bao gồm giảng viên hướng dẫn) vào phiếu đánh giá. Phiếu đánh giá thực hiện theo mẫu tại Phụ lục số 09 (kèm theo);",
+              "start_char": 64,
+              "end_char": 231,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T030",
+      "question": "Sinh viên đạt giải nhất học thuật cấp quốc gia được cộng bao nhiêu điểm học phần tương ứng?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:88:5dbc4cb0389d34f3",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 300,
+          "visible_document_end_char": 1087,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "10. Sinh viên đạt thành tích trong nghiên cứu khoa học, đạt giải trong các kỳ thi học thuật cấp quốc tế, cấp quốc gia sẽ được xem xét cộng điểm, thưởng điểm vào các học phần có nội dung tương ứng với nội dung nghiên cứu khoa học/nội dung của các cuộc thi, cụ thể: Đạt giải trong các kỳ thi cấp quốc tế thì điểm học phần được tính là 10,0 điểm; Đạt giải trong các kỳ thi cấp quốc gia thì được cộng thêm vào điểm học phần (giải nhất: 2,0 điểm; giải nhì: 1,5 điểm; giải ba: 1,0 điểm; giải khuyến khích: 0,5 điểm).",
+              "start_char": 251,
+              "end_char": 761,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T031",
+      "question": "Đạt giải học thuật quốc tế có thể được tính điểm học phần tương ứng là bao nhiêu?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:88:5dbc4cb0389d34f3",
+          "heading": "## **Điều 14. Đánh giá và cách tính điểm học phần**",
+          "full_pair_tokens": 300,
+          "visible_document_end_char": 1087,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "10. Sinh viên đạt thành tích trong nghiên cứu khoa học, đạt giải trong các kỳ thi học thuật cấp quốc tế, cấp quốc gia sẽ được xem xét cộng điểm, thưởng điểm vào các học phần có nội dung tương ứng với nội dung nghiên cứu khoa học/nội dung của các cuộc thi, cụ thể: Đạt giải trong các kỳ thi cấp quốc tế thì điểm học phần được tính là 10,0 điểm; Đạt giải trong các kỳ thi cấp quốc gia thì được cộng thêm vào điểm học phần (giải nhất: 2,0 điểm; giải nhì: 1,5 điểm; giải ba: 1,0 điểm; giải khuyến khích: 0,5 điểm).",
+              "start_char": 251,
+              "end_char": 761,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T032",
+      "question": "Website chính thức của câu lạc bộ Marketing iM là gì?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:309:1e8cc271ce87790b",
+          "heading": "## **17. Câu lạc bộ Marketing (iM)**",
+          "full_pair_tokens": 348,
+          "visible_document_end_char": 1242,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Website: https://imclubtlu.com",
+              "start_char": 121,
+              "end_char": 153,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T033",
+      "question": "Sinh viên nhìn hoặc trao đổi bài lần đầu trong phòng thi bị trừ bao nhiêu phần trăm?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:130:ccdc665e05393c44",
+          "heading": "## **Điều 29. Xử lý vi phạm đối với sinh viên**",
+          "full_pair_tokens": 340,
+          "visible_document_end_char": 1212,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "a) Sinh viên nhìn bài hoặc trao đổi bài với bạn bị khiển trách trừ 25% số điểm của bài thi. Vi phạm lần thứ hai sẽ bị cảnh cáo trừ 50% số điểm của bài thi;",
+              "start_char": 420,
+              "end_char": 575,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T034",
+      "question": "Mang thiết bị truyền tin vào phòng thi không đúng quy định, tái phạm lần hai có thể bị xử lý thế nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:130:ccdc665e05393c44",
+          "heading": "## **Điều 29. Xử lý vi phạm đối với sinh viên**",
+          "full_pair_tokens": 346,
+          "visible_document_end_char": 1212,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "d) Sinh viên mang thiết bị truyền tin (điện thoại, máy nhắn tin, đồng hồ thông minh...) vào phòng thi không tắt nguồn và để không đúng nơi quy định, tùy mức độ vi phạm bị xử lý từ mức hủy kết quả thi học phần cho đến hủy kết quả học tập của học kỳ, vi phạm lần thứ 2 bị buộc thôi học.",
+              "start_char": 928,
+              "end_char": 1212,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:131:3ec3e81bbbf6d1fa",
+          "heading": "## **Điều 29. Xử lý vi phạm đối với sinh viên**",
+          "full_pair_tokens": 232,
+          "visible_document_end_char": 770,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "d) Sinh viên mang thiết bị truyền tin (điện thoại, máy nhắn tin, đồng hồ thông minh...) vào phòng thi không tắt nguồn và để không đúng nơi quy định, tùy mức độ vi phạm bị xử lý từ mức hủy kết quả thi học phần cho đến hủy kết quả học tập của học kỳ, vi phạm lần thứ 2 bị buộc thôi học.",
+              "start_char": 60,
+              "end_char": 344,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T035",
+      "question": "Sử dụng chứng chỉ giả làm điều kiện tốt nghiệp bị xử lý như thế nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:131:3ec3e81bbbf6d1fa",
+          "heading": "## **Điều 29. Xử lý vi phạm đối với sinh viên**",
+          "full_pair_tokens": 224,
+          "visible_document_end_char": 770,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "5. Sinh viên sử dụng hồ sơ, văn bằng, chứng chỉ giả làm điều kiện trúng tuyển hoặc điều kiện tốt nghiệp sẽ bị buộc thôi học; văn bằng tốt nghiệp nếu đã được cấp sẽ bị thu hồi, huỷ bỏ.",
+              "start_char": 587,
+              "end_char": 770,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T036",
+      "question": "Thi hộ hoặc nhờ thi hộ lần thứ hai bị xử lý ra sao?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:130:ccdc665e05393c44",
+          "heading": "## **Điều 29. Xử lý vi phạm đối với sinh viên**",
+          "full_pair_tokens": 336,
+          "visible_document_end_char": 1212,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "2. Sinh viên thi hộ hoặc nhờ người thi hộ tùy mức độ vi phạm bị xử lý từ mức hủy kết quả học tập của học kỳ đến đình chỉ học tập 01 năm, vi phạm lần thứ 2 bị buộc thôi học.",
+              "start_char": 213,
+              "end_char": 385,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T037",
+      "question": "Sổ tay có cho phép uống rượu bia trong khuôn viên trường không?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:211:7b140effb830beba",
+          "heading": "## **Điều 6. Các hành vi sinh viên không được làm**",
+          "full_pair_tokens": 327,
+          "visible_document_end_char": 1177,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "3. Hút thuốc, uống rượu, bia trong khuôn viên của trường; say rượu, bia khi đến lớp;",
+              "start_char": 231,
+              "end_char": 315,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T038",
+      "question": "Khi thay đổi nơi cư trú sinh viên phải báo địa chỉ mới cho đơn vị nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:206:6abef9b69f08a43f",
+          "heading": "## **Điều 4. Nhiệm vụ của sinh viên**",
+          "full_pair_tokens": 283,
+          "visible_document_end_char": 1046,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "10. Thực hiện thủ tục đăng ký thường trú hoặc tạm trú với công an phường theo quy định hiện hành của Chính phủ; khi có sự thay đổi về nơi cư trú theo quy định về công tác sinh viên ngoại trú và báo cáo với phòng Công tác sinh viên về địa chỉ cư trú mới. Chấp hành nghiêm chỉnh các quy định của địa phương.",
+              "start_char": 741,
+              "end_char": 1046,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:207:a7cd444b602eb33a",
+          "heading": "## **Điều 4. Nhiệm vụ của sinh viên**",
+          "full_pair_tokens": 324,
+          "visible_document_end_char": 1238,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "10. Thực hiện thủ tục đăng ký thường trú hoặc tạm trú với công an phường theo quy định hiện hành của Chính phủ; khi có sự thay đổi về nơi cư trú theo quy định về công tác sinh viên ngoại trú và báo cáo với phòng Công tác sinh viên về địa chỉ cư trú mới. Chấp hành nghiêm chỉnh các quy định của địa phương.",
+              "start_char": 50,
+              "end_char": 355,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T039",
+      "question": "Sinh viên có nghĩa vụ cập nhật thông tin cá nhân sau khi nhập học không?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:207:a7cd444b602eb33a",
+          "heading": "## **Điều 4. Nhiệm vụ của sinh viên**",
+          "full_pair_tokens": 323,
+          "visible_document_end_char": 1238,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "11. Có trách nhiệm khai báo đầy đủ thông tin liên quan đến cá nhân khi vào nhập học tại trường, cập nhật dữ liệu khi có những thay đổi trong quá trình học tập bằng các hình thức theo quy định của nhà trường.",
+              "start_char": 358,
+              "end_char": 565,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T040",
+      "question": "Phát hiện gian lận thi cử, sinh viên cần báo cho những ai?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 2,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:206:6abef9b69f08a43f",
+          "heading": "## **Điều 4. Nhiệm vụ của sinh viên**",
+          "full_pair_tokens": 281,
+          "visible_document_end_char": 1046,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "8. Tham gia phòng, chống các hành vi tiêu cực, gian lận trong học tập, thi cử và các hoạt động khác của sinh viên; kịp thời phát hiện và báo cáo với cố vấn học tập, các phòng chức năng, Hiệu trưởng nhà trường... khi phát hiện những hành vi tiêu cực, gian lận trong học tập, thi cử hoặc những hành vi vi phạm pháp luật, vi phạm nội quy, quy chế khác của sinh viên, giảng viên, cán bộ và nhân viên trong trường.",
+              "start_char": 183,
+              "end_char": 592,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T041",
+      "question": "CTĐT được rà soát định kỳ bao lâu một lần và điều chỉnh tổng thể theo chu kỳ nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:43:668cddbadf2d4a86",
+          "heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**",
+          "full_pair_tokens": 331,
+          "visible_document_end_char": 1210,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "c) Chương trình đào tạo, bản mô tả CTĐT được rà soát định kỳ hai năm một lần hoặc khi có sự thay đổi về chương trình đào tạo của Bộ Giáo dục và Đào tạo; được đối sánh với CTĐT của các cơ sở giáo dục đại học khác có cùng mã ngành; được đánh giá, điều chỉnh tổng thể 5 năm/1 lần, đồng thời được kiểm định chất lượng theo quy định của Bộ Giáo dục và Đào tạo;",
+              "start_char": 855,
+              "end_char": 1210,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:44:625bec22a87530a0",
+          "heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**",
+          "full_pair_tokens": 286,
+          "visible_document_end_char": 1004,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "c) Chương trình đào tạo, bản mô tả CTĐT được rà soát định kỳ hai năm một lần hoặc khi có sự thay đổi về chương trình đào tạo của Bộ Giáo dục và Đào tạo; được đối sánh với CTĐT của các cơ sở giáo dục đại học khác có cùng mã ngành; được đánh giá, điều chỉnh tổng thể 5 năm/1 lần, đồng thời được kiểm định chất lượng theo quy định của Bộ Giáo dục và Đào tạo;",
+              "start_char": 69,
+              "end_char": 424,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T042",
+      "question": "Những thay đổi về CTĐT phải được công bố trước thời điểm nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 15,
+        "B": 2,
+        "C": 3,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:43:668cddbadf2d4a86",
+          "heading": "## **Điều 3. Chương trình đào tạo và thời gian đào tạo**",
+          "full_pair_tokens": 324,
+          "visible_document_end_char": 1210,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "b) Chương trình đào tạo, bản mô tả CTĐT (bao gồm đề cương chi tiết học phần) phải được công khai đối với người học và xã hội trên Trang thông tin điện tử chính thức của Trường Đại học Thăng Long trước khi bắt đầu khóa học; những thay đổi, điều chỉnh liên quan đến mục tiêu đào tạo, chuẩn đầu ra và CTĐT được thực hiện theo quy định hiện hành và công bố trước khi sinh viên đăng ký học phần của năm học mới, không gây bất lợi cho sinh viên;",
+              "start_char": 413,
+              "end_char": 852,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T043",
+      "question": "Đội SVTN tổ chức Mùa Hè Xanh vào tháng mấy?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:291:e3f04c037505f814",
+          "heading": "## **2. Đội Sinh viên tình nguyện Trường Đại học Thăng Long (SVTN)**",
+          "full_pair_tokens": 258,
+          "visible_document_end_char": 918,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: chương trình Mùa Hè Xanh vào tháng 7 hàng năm; sinh nhật Đội vào tháng 11 hàng năm; kết hợp với các nhà tài trợ tổ chức chương trình Trung Thu cho các em nhỏ vùng cao và chương trình Ba Vì cho các bệnh nhân khiếm khuyết; nấu bánh chưng, phát bánh chưng và phát chăn cho người vô gia cư trên địa bàn Hà Nội và các xã vùng cao; kết hợp với các trường bạn tổ chức chương trình Xuân Tình Nguyện kéo dài 1 tháng với rất nhiều hoạt động; nấu cháo từ thiện cho các bệnh nhân tại các bệnh viện trên địa bàn.",
+              "start_char": 396,
+              "end_char": 918,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T044",
+      "question": "CLB BOSS giúp rèn những kỹ năng nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 3,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:292:62a128b9997500ec",
+          "heading": "## **3. Câu lạc bộ Kỹ năng mềm, Kỹ năng kinh doanh và Tổ chức sự kiện (BOSS)**",
+          "full_pair_tokens": 327,
+          "visible_document_end_char": 1231,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Câu lạc bộ chuyên về kỹ năng mềm, kỹ năng kinh doanh, tổ chức sự kiện. Tạo môi trường cho các bạn sinh viên giao lưu thiết lập mối quan hệ và cải thiện kỹ năng giao tiếp, thuyết trình teamwork,..đặc biệt là những chương trình đào tạo về tinh thần doanh nhân, thắp sáng nhiệt huyết đồng thời hiện thực hóa một phần bằng những hình thức kinh doanh thực tế.",
+              "start_char": 178,
+              "end_char": 554,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T045",
+      "question": "Sự kiện Halloween Fever thuộc câu lạc bộ nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:293:015bc56695b9e2ef",
+          "heading": "## **4. Câu lạc bộ Tiếng Anh (EC)**",
+          "full_pair_tokens": 143,
+          "visible_document_end_char": 467,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: hỗ trợ Bộ môn Tiếng Anh tổ chức sinh hoạt đầu khóa ngành Ngôn ngữ Anh; Halloween Fever - Sự kiện độc quyền của EC tổ chức dành cho các bạn sinh viên trong Trường\".",
+              "start_char": 281,
+              "end_char": 467,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T046",
+      "question": "Tôi muốn tham gia cuộc thi tranh biện CALLIOPE, CLB nào tổ chức?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": null,
+        "B": 1,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:294:661f2b98ff646c1d",
+          "heading": "## **5. Câu lạc bộ Luật gia trẻ (COLD)**",
+          "full_pair_tokens": 354,
+          "visible_document_end_char": 1182,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt tiêu biểu: tổ chức CALLIOPE - cuộc thi tranh biện; tổ chức chuỗi Talkshow Law Xa; tổ chức những buổi ngoại khóa, tham quan thực tế Tòa Án Nhân Dân, tòa nhà Quốc hội; Tổ chức PHIÊN TÒA GIẢ ĐỊNH SỐ 01 lần đầu tiên tại Trường Đại học Thăng Long.\"",
+              "start_char": 454,
+              "end_char": 704,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T047",
+      "question": "Đấu trường Logistics Thăng Long là hoạt động của câu lạc bộ nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 2,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:295:ab4811d3c543de58",
+          "heading": "## **5. Câu lạc bộ Luật gia trẻ (COLD)**",
+          "full_pair_tokens": 229,
+          "visible_document_end_char": 739,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tổ chức thành công 2 tọa đàm: “NEW LOG GEN 2022” và “EDA - E LOGISTICS IN THE DIGITAL AGE 2023”; tổ chức cuộc thi \"Đấu trường Logistics Thăng Long\" cho sv trên địa bàn Hà Nội; tham gia hỗ trợ hoạt động của trường, bộ môn: Ngày hội tuyển sinh, Job Fair, Chào Tân SV, hỗ trợ truyền thông Cuộc thi Tài năng trẻ Logistics Thăng Long.",
+              "start_char": 387,
+              "end_char": 739,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T048",
+      "question": "CLB tiếng Nhật tổ chức hoạt động nhập môn nào đầu năm?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:297:fc41f974ac27e395",
+          "heading": "## **8. Câu lạc bộ Tiếng Nhật (JC-TLU)**",
+          "full_pair_tokens": 198,
+          "visible_document_end_char": 628,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tổ chức dạy bảng chữ cái đầu năm; tham gia các hoạt động của trường: Job Fair, Tư vấn tuyển sinh Đại học,…; tổ chức các sự kiện trong clb: sinh nhật clb, noel, Tết,...",
+              "start_char": 438,
+              "end_char": 628,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T049",
+      "question": "Câu lạc bộ TLKC hướng tới kết nối người yêu văn hóa nước nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:298:06f75b182e78702f",
+          "heading": "## **9. Câu lạc bộ Tiếng Hàn (TLKC)**",
+          "full_pair_tokens": 160,
+          "visible_document_end_char": 497,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Câu lạc bộ mong muốn lan tỏa một nét đẹp truyền thống trong văn hóa đất nước Hàn Quốc, đồng thời mang sứ mệnh kết nối các bạn trẻ yêu thích văn hoá Hàn Quốc.",
+              "start_char": 129,
+              "end_char": 308,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T050",
+      "question": "CLB Du lịch TLTC trực thuộc khoa nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:299:2a73fb1d327503d2",
+          "heading": "## **10. Câu lạc bộ Du lịch (TLTC)**",
+          "full_pair_tokens": 357,
+          "visible_document_end_char": 1224,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Câu lạc bộ Du lịch Trường Đại học Thăng Long (TLTC) là CLB trực thuộc Khoa Du lịch của Trường Đại học Thăng Long. TLTC hoạt động dựa trên việc tổ chức, tham gia các hoạt động liên quan đến lĩnh vực du lịch, khách sạn, nhà hàng và các hoạt động sự kiện do Trường Đại học Thăng Long, Khoa Du lịch tổ chức. CLB hướng tới xây dựng một “ngôi nhà” lý tưởng để các thành viên giao lưu, phát triển các kỹ năng nghiệp vụ và mang tới cái nhìn mới mẻ, màu sắc về ngành dịch vụ.",
+              "start_char": 143,
+              "end_char": 631,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T051",
+      "question": "IEC tổ chức những chuyến trải nghiệm thực tế tới đâu?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:300:d69123313849f807",
+          "heading": "## **10. Câu lạc bộ Du lịch (TLTC)**",
+          "full_pair_tokens": 318,
+          "visible_document_end_char": 1071,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: hỗ trợ khoa Kinh tế - Quản Lý tổ chức Chào tân - Hướng nghiệp; tham gia hỗ trợ hoạt động của trường: Ngày hội tư vấn tuyển sinh, Job Fair, Clubday …\"; hỗ trợ khoa trong các chuyến đi thực tế đến doanh nghiệp: Office tour; Tổ chức các hoạt động trong CLB: sinh nhật CLB, Bonding Trip, Tết…",
+              "start_char": 649,
+              "end_char": 960,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T052",
+      "question": "CLB Tiếng Trung tham gia những cuộc thi Hán ngữ nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:301:b01c8a0420243ebf",
+          "heading": "## **10. Câu lạc bộ Du lịch (TLTC)**",
+          "full_pair_tokens": 285,
+          "visible_document_end_char": 923,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tích cực tham gia và đạt giải cao trong các cuộc thi như: Tài Năng Hán Ngữ, Tranh Biện Hán Ngữ….; tham gia biểu diễn hoạt động của trường: Job Fair, Chào Tân SV, Hội trường, …\"",
+              "start_char": 279,
+              "end_char": 478,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T053",
+      "question": "Slogan của CLB Lữ hành và Sự kiện TEC là gì?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:301:b01c8a0420243ebf",
+          "heading": "## **10. Câu lạc bộ Du lịch (TLTC)**",
+          "full_pair_tokens": 287,
+          "visible_document_end_char": 923,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Xây dựng, phát triển cộng đồng dành cho những bạn có đam mê và theo học ngành Lữ hành - Hướng dẫn. Slogan của CLB: “ Be all you can be”, TEC mong muốn các thành viên sẽ được khai phá tiềm năng, phát triển toàn bộ kỹ năng của mình. Hướng tới cung cấp nguồn nhân lực cho ngành Du lịch tương lai.",
+              "start_char": 608,
+              "end_char": 923,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:302:247cf79dd6c738dc",
+          "heading": "## **10. Câu lạc bộ Du lịch (TLTC)**",
+          "full_pair_tokens": 237,
+          "visible_document_end_char": 796,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: Xây dựng, phát triển cộng đồng dành cho những bạn có đam mê và theo học ngành Lữ hành - Hướng dẫn. Slogan của CLB: “ Be all you can be”, TEC mong muốn các thành viên sẽ được khai phá tiềm năng, phát triển toàn bộ kỹ năng của mình. Hướng tới cung cấp nguồn nhân lực cho ngành Du lịch tương lai.",
+              "start_char": 49,
+              "end_char": 364,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T054",
+      "question": "Những dự án nội bộ iNews và iMagazine thuộc câu lạc bộ nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:309:1e8cc271ce87790b",
+          "heading": "## **17. Câu lạc bộ Marketing (iM)**",
+          "full_pair_tokens": 352,
+          "visible_document_end_char": 1242,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Thực hiện nhiều dự án nội bộ: iNews, iMagazine, Project Tết, Project Giáng sinh,...",
+              "start_char": 881,
+              "end_char": 966,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T055",
+      "question": "CLB Điều dưỡng có những hình thức training và hoạt động về chăm sóc sức khỏe nào?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:310:b0fb32b12ca5a906",
+          "heading": "## **17. Câu lạc bộ Marketing (iM)**",
+          "full_pair_tokens": 234,
+          "visible_document_end_char": 762,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tổ chức workshop, sự kiện liên quan đến y tế, chăm sóc sức khỏe; tạo cơ hội kết nối và chia sẻ giữa các thành viên trong CLB; Training kỹ năng mềm và NCKH cho sinh viên, nội bộ CLB.",
+              "start_char": 558,
+              "end_char": 762,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T056",
+      "question": "TLFC tạo môi trường thực hành cho sinh viên đam mê bộ môn nghệ thuật nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:311:2d94c2e7d5e4fbe7",
+          "heading": "## **19. Câu lạc bộ Thang Long Film Channel (TLFC)**",
+          "full_pair_tokens": 160,
+          "visible_document_end_char": 478,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Mục đích hoạt động: TLFC là câu lạc bộ chuyên về kỹ thuật quay, dựng phim với sứ mệnh tạo ra một môi trường năng động, đầy sáng tạo để các bạn sinh viên có cơ hội thể hiện đam mê của mình với Bộ môn Nghệ thuật thứ 7",
+              "start_char": 130,
+              "end_char": 347,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T057",
+      "question": "CLB nhảy TLDC từng vô địch giải đấu đại học VUG bao nhiêu lần?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:312:0098b653cb436050",
+          "heading": "## **20. Câu lạc bộ Thang Long Dance Club (TLDC)**",
+          "full_pair_tokens": 255,
+          "visible_document_end_char": 842,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: 2 lần vô địch toàn quốc giải đấu nhảy đối kháng giữa các trường đại học (VUG); thực hiện những dự án quảng cáo cùng các nhãn hàng lớn, sản xuất các project và video viral triệu view,…; tổ chức các workshop dạy nhảy,...\".",
+              "start_char": 447,
+              "end_char": 690,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T058",
+      "question": "Muzik Club tổ chức show âm nhạc quy mô bao nhiêu khách hằng năm?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:313:82f885bbffbd8e8c",
+          "heading": "## **20. Câu lạc bộ Thang Long Dance Club (TLDC)**",
+          "full_pair_tokens": 348,
+          "visible_document_end_char": 1234,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tổ chức các show Âm nhạc với quy mô 100 khách hàng năm; tạo cơ hội cho các thành viên được biểu diễn tại các quán cafe, phòng trà; tham gia và kết hợp các tiết mục Văn nghệ tại các chương trình của các ngành và CLB học thuật; tham gia biểu diễn tại các sân khấu lớn của Trường Đại học Thăng Long như Chào K, Hội Trường, Job Fair, …; giao lưu biểu diễn tại các sân khấu chào K, Khai giảng của các trường Đại học khác ở Hà Nội; biểu diễn và giao lưu tại các chương trình tại các công ty và các địa phương khác",
+              "start_char": 549,
+              "end_char": 1079,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T059",
+      "question": "Các minishow của CLB Guitar có thể đạt quy mô bao nhiêu khách?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:314:5e1cf7bff90b09f6",
+          "heading": "## **20. Câu lạc bộ Thang Long Dance Club (TLDC)**",
+          "full_pair_tokens": 341,
+          "visible_document_end_char": 1244,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tổ chức các sự kiện truyền thống như Liveshow kỷ niệm thành lập CLB, Đêm Trắng, Minishow với quy mô lên tới 300 khách mời, cùng nhiều chương trình biểu diễn đặc sắc khác; biểu diễn và giao lưu âm nhạc qua các buổi Open Mic, Live Session; tham gia biểu diễn tại các chương trình trong trường như Chào Tân, cũng như nhiều sự kiện hợp tác cùng các đơn vị khác; tạo không gian học hỏi, trau dồi kỹ năng âm nhạc và kỹ năng biểu diễn cho các thành viên thông qua các buổi Workshop, Training nội bộ; giao lưu nghệ thuật sôi động với các CLB trong và ngoài trường, mở rộng cộng đồng yêu âm nhạc.",
+              "start_char": 634,
+              "end_char": 1244,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T060",
+      "question": "CLB Yosakoi tham gia những lễ hội giao lưu văn hóa Nhật nào?",
+      "category": "abbreviation",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:315:d1147866d3263e5f",
+          "heading": "## **23. Câu lạc bộ Thăng Long Yosakoi (TLY)**",
+          "full_pair_tokens": 257,
+          "visible_document_end_char": 940,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tham gia biểu diễn thường niên tại Vietnam Yosakoi Festival; tham gia biểu diễn thường niên tại Yosakoi Summer Festival; tham gia biểu diễn thường niên tại Japan Kanagawa Festival in Hanoi; tham gia biểu diễn thường niên tại sự kiện Chào Tân của Trường Đại học Thăng Long; tham gia biểu diễn tại các sự kiện và lễ hội giao lưu văn hóa Việt Nam - Nhật Bản ở Việt Nam nói chung và Hà Nội nói riêng",
+              "start_char": 522,
+              "end_char": 940,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T061",
+      "question": "CLB bóng đá có tập luyện cho cả đội tuyển nam và nữ không?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:316:2257f4e730cff4a3",
+          "heading": "## **24. Câu lạc bộ Bóng Đá (Thăng Long FC)**",
+          "full_pair_tokens": 365,
+          "visible_document_end_char": 1173,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: tổ chức các giải đấu nội bộ, giao hữu với các trường cho thành viên CLB; tham gia các giải đấu với quy mô lớn/nhỏ để trau dồi kinh nghiệm, cải thiện kỹ năng (Tham gia tứ kết HaNoi Students Champion League 2022, ThangLong Cup 2023, Collegiate Indoor Games 2023 - CIG...); mở lớp tập cơ bản, các buổi tập của đội tuyển Nam/Nữ, tập thể lực; series \"\"Bản tin Bóng đá\"\": Cập nhật các thông tin mới và đặc biệt trong thời gian qua về bóng đá thông qua trang mạng xã hội\".",
+              "start_char": 336,
+              "end_char": 824,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T062",
+      "question": "CLB Taekwondo có mở lớp tập cơ bản và giao lưu với các trường khác không?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:317:d1c19a84aee0f57e",
+          "heading": "## **24. Câu lạc bộ Bóng Đá (Thăng Long FC)**",
+          "full_pair_tokens": 296,
+          "visible_document_end_char": 976,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "- Hoạt động tiêu biểu: mở lớp tập cơ bản, các buổi tập cho thành viên; tổ chức các giải đấu nội bộ; giao lưu cùng các CLB Taekwondo trường khác.\"",
+              "start_char": 831,
+              "end_char": 976,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T063",
+      "question": "Chương trình ngành Thanh Nhạc khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 5,
+        "E": 5
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:141:29671f0117b96e57",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH THANH NHẠC**",
+          "full_pair_tokens": 682,
+          "visible_document_end_char": 858,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**127**|||||",
+              "start_char": 991,
+              "end_char": 1026,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T064",
+      "question": "Chương trình ngành Kinh Tế Quốc Tế khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:143:c6d9a0c2792ef466",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH KINH TẾ QUỐC TẾ**",
+          "full_pair_tokens": 1282,
+          "visible_document_end_char": 807,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**128**|||||",
+              "start_char": 2034,
+              "end_char": 2069,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T065",
+      "question": "Chương trình ngành Quản Trị Kinh Doanh khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:145:643859c87c683543",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH QUẢN TRỊ KINH DOANH**",
+          "full_pair_tokens": 1357,
+          "visible_document_end_char": 833,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**128**|||||",
+              "start_char": 2163,
+              "end_char": 2198,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T066",
+      "question": "Chương trình ngành Marketing khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:147:b0fc9008be69db65",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH MARKETING**",
+          "full_pair_tokens": 1408,
+          "visible_document_end_char": 850,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**128**|||||",
+              "start_char": 2273,
+              "end_char": 2308,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T067",
+      "question": "Chương trình ngành Tài Chính - Ngân Hàng khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 3,
+        "E": 3
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:150:dfb34525a895c19f",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH TÀI CHÍNH - NGÂN HÀNG**",
+          "full_pair_tokens": 634,
+          "visible_document_end_char": 960,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**134**|||||",
+              "start_char": 999,
+              "end_char": 1034,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T068",
+      "question": "Chương trình ngành Kế Toán khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:152:25bfff2f454d4b42",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH KẾ TOÁN**",
+          "full_pair_tokens": 1338,
+          "visible_document_end_char": 837,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**134**|||||",
+              "start_char": 2137,
+              "end_char": 2172,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T069",
+      "question": "Chương trình ngành Trí Tuệ Nhân Tạo khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:164:d757fe4319ed50d9",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH TRÍ TUỆ NHÂN TẠO**",
+          "full_pair_tokens": 1552,
+          "visible_document_end_char": 834,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**134**|||||",
+              "start_char": 2590,
+              "end_char": 2625,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:165:2fb87a845c293b9c",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH TRÍ TUỆ NHÂN TẠO**",
+          "full_pair_tokens": 308,
+          "visible_document_end_char": 483,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**134**|||||",
+              "start_char": 63,
+              "end_char": 98,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T070",
+      "question": "Chương trình ngành Hệ Thống Thông Tin khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 12,
+        "C": 3,
+        "D": 2,
+        "E": 2
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:167:a181b286aff1766e",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH HỆ THỐNG THÔNG TIN**",
+          "full_pair_tokens": 1481,
+          "visible_document_end_char": 838,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**132**|||||",
+              "start_char": 2375,
+              "end_char": 2410,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T071",
+      "question": "Chương trình ngành Mạng Máy Tính Và Truyền Thông Dữ Liệu khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 3,
+        "B": 2,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:169:e2f2e7fd15127eaf",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG DỮ LIỆU**",
+          "full_pair_tokens": 1549,
+          "visible_document_end_char": 799,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**132**|||||",
+              "start_char": 2499,
+              "end_char": 2534,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T072",
+      "question": "Chương trình ngành Ngôn Ngữ Anh khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 1,
+        "D": 5,
+        "E": 5
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:172:6505fe127c6498fb",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH NGÔN NGỮ ANH**",
+          "full_pair_tokens": 648,
+          "visible_document_end_char": 928,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**125**|||||",
+              "start_char": 991,
+              "end_char": 1026,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T073",
+      "question": "Chương trình ngành Ngôn Ngữ Trung Quốc khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:174:de3bb6f5ee778934",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH NGÔN NGỮ TRUNG QUỐC**",
+          "full_pair_tokens": 1658,
+          "visible_document_end_char": 871,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**128**|||||",
+              "start_char": 2843,
+              "end_char": 2878,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T074",
+      "question": "Chương trình ngành Ngôn Ngữ Nhật khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 2,
+        "D": 5,
+        "E": 5
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:177:f05d25d847498a94",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH NGÔN NGỮ NHẬT**",
+          "full_pair_tokens": 919,
+          "visible_document_end_char": 878,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**129**|||||",
+              "start_char": 1496,
+              "end_char": 1531,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T075",
+      "question": "Chương trình ngành Ngôn Ngữ Hàn Quốc khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 4,
+        "C": 1,
+        "D": 2,
+        "E": 2
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:179:fc6e50235447d83f",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH NGÔN NGỮ HÀN QUỐC**",
+          "full_pair_tokens": 1243,
+          "visible_document_end_char": 866,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**131**|||||",
+              "start_char": 2048,
+              "end_char": 2083,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T076",
+      "question": "Chương trình ngành Điều Dưỡng khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 3,
+        "B": 1,
+        "C": 2,
+        "D": 4,
+        "E": 4
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:181:eb1f641577aeba69",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH ĐIỀU DƯỠNG**",
+          "full_pair_tokens": 1125,
+          "visible_document_end_char": 875,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**134**|||||",
+              "start_char": 1823,
+              "end_char": 1858,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T077",
+      "question": "Chương trình ngành Việt Nam Học khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:183:54e7f4358b56727b",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH VIỆT NAM HỌC**",
+          "full_pair_tokens": 1572,
+          "visible_document_end_char": 869,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**128**|||||",
+              "start_char": 2683,
+              "end_char": 2718,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:184:01548ee4b5652826",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH VIỆT NAM HỌC**",
+          "full_pair_tokens": 297,
+          "visible_document_end_char": 473,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**128**|||||",
+              "start_char": 59,
+              "end_char": 94,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T078",
+      "question": "Chương trình ngành Truyền Thông Đa Phương Tiện khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 2,
+        "C": 1,
+        "D": 5,
+        "E": 5
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:187:3ba4c32d20ffce9e",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH TRUYỀN THÔNG ĐA PHƯƠNG TIỆN**",
+          "full_pair_tokens": 840,
+          "visible_document_end_char": 886,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**130**|||||",
+              "start_char": 1363,
+              "end_char": 1398,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T079",
+      "question": "Chương trình ngành Thiết Kế Đồ Họa khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 2,
+        "B": 1,
+        "C": 1,
+        "D": 3,
+        "E": 3
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:189:4aef938286ffcf4c",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH THIẾT KẾ ĐỒ HỌA**",
+          "full_pair_tokens": 1544,
+          "visible_document_end_char": 856,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**133**|||||",
+              "start_char": 2586,
+              "end_char": 2621,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "T080",
+      "question": "Chương trình ngành Luật Kinh Tế khóa 38 có tổng số bao nhiêu tín chỉ?",
+      "category": "direct",
+      "first_gold_ranks": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 3,
+        "E": 3
+      },
+      "gold_evidence": [
+        {
+          "chunk_id": "k38-v1:191:48d5f17a5c82bbde",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH LUẬT KINH TẾ**",
+          "full_pair_tokens": 1570,
+          "visible_document_end_char": 874,
+          "truncated": true,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**132**|||||",
+              "start_char": 2630,
+              "end_char": 2665,
+              "fully_visible": false,
+              "partly_visible": false
+            }
+          ]
+        },
+        {
+          "chunk_id": "k38-v1:192:f4c7d7aab3d32170",
+          "heading": "## **CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH LUẬT KINH TẾ**",
+          "full_pair_tokens": 301,
+          "visible_document_end_char": 473,
+          "truncated": false,
+          "spans": [
+            {
+              "source_quote": "||**Tổng số tín chỉ**||**132**|||||",
+              "start_char": 59,
+              "end_char": 94,
+              "fully_visible": true,
+              "partly_visible": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "caution": "A missing span is an observed input limitation; attribution requires a controlled counterfactual. Gold annotations remain incomplete and pending human review."
+}

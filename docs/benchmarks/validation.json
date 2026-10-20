@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "run": "dev_cpu_bge_mmarco_20261019T182346Z_375170cd0b45",
+      "query_config_rows": 250,
+      "coverage_complete": true,
+      "no_errors": true,
+      "metrics_bounded": true,
+      "oos_excluded": true,
+      "candidate_pool_controlled": true,
+      "current_core_source_hashes_match": true
+    },
+    {
+      "run": "test_cpu_bge_mmarco_20261019T183514Z_06530e6b720a",
+      "query_config_rows": 500,
+      "coverage_complete": true,
+      "no_errors": true,
+      "metrics_bounded": true,
+      "oos_excluded": true,
+      "candidate_pool_controlled": true,
+      "current_core_source_hashes_match": true
+    },
+    {
+      "run": "test_cpu_bge_rrf50_20261019T185355Z_c01c8ec61470",
+      "query_config_rows": 300,
+      "coverage_complete": true,
+      "no_errors": true,
+      "metrics_bounded": true,
+      "oos_excluded": true,
+      "candidate_pool_controlled": true,
+      "current_core_source_hashes_match": true
+    },
+    {
+      "run": "dev_cpu_bge_int8_20261019T185448Z_975b8d49d5fa",
+      "query_config_rows": 60,
+      "coverage_complete": true,
+      "no_errors": true,
+      "metrics_bounded": true,
+      "oos_excluded": true,
+      "candidate_pool_controlled": true,
+      "current_core_source_hashes_match": true
+    }
+  ],
+  "final_checks": {
+    "regression_tests_passed": 18,
+    "pip_check": "No broken requirements found.",
+    "python_compile": "passed",
+    "git_diff_check": "passed",
+    "latency_samples": 180,
+    "latency_coverage_complete": true,
+    "latency_current_core_source_hashes_match": true,
+    "latency_ann_variation": "recorded; not counted as independent quality samples",
+    "reviewed_document_links": "passed",
+    "plots_visually_reviewed": [
+      "quality_latency_overview.png"
+    ]
+  }
+}

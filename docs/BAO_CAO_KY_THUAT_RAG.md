@@ -1,4 +1,6 @@
 # Báo cáo kỹ thuật: Mô hình AI, Xử lý dữ liệu, Chunking, Embedding và RAG
+
+> Cập nhật kiểm toán 20/10/2026: các số ablation trong bản báo cáo cũ chưa có raw artifacts để xác minh và trùng bảng `ablation_placeholder.md` có nhãn `[RUN REQUIRED]`. Không dùng chúng như số liệu đã đo. Benchmark retrieval mới có nhãn nguồn, split và cutoff rõ ràng được mô tả tại [hướng dẫn benchmark](../services/rag-api/eval/README_RETRIEVAL.md); báo cáo chạy thật được xuất vào `docs/benchmarks/`.
 ## Đề tài: TLU AI Assistant — Hệ thống trợ lý AI học vụ tích hợp quản lý sinh viên
 
 > **Mục đích tài liệu:** Giải thích chi tiết mọi thứ đã làm ở phần AI/data trong project,

@@ -1,0 +1,352 @@
+{
+  "run_id": "dev_cpu_bge_mmarco_20261019T182056Z_81afc285bd41",
+  "annotation_status": "agent_authored_source_checked_pilot; human_review_pending",
+  "qrels_complete": false,
+  "configs": {
+    "A": {
+      "n_expected": 12,
+      "n_records": 12,
+      "n_ok": 12,
+      "n_answerable_ok": 10,
+      "n_oos_ok": 2,
+      "missing_ids": [],
+      "errors": 0,
+      "metrics": {
+        "all_evidence": 0.9,
+        "candidate_hit": 1.0,
+        "candidate_recall": 0.9333333333333333,
+        "evidence_coverage": 0.9333333333333333,
+        "hit@1": 0.9,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "mrr@5": 0.95,
+        "ndcg@5": 0.8897144584080451,
+        "precision@5": 0.24000000000000002,
+        "recall@5": 0.9333333333333333
+      },
+      "timing": {
+        "dense_search_ms": {
+          "mean": 12.028965439336995,
+          "p50": 6.506254430860281,
+          "p95": 38.297181809321
+        },
+        "bm25_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "fusion_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "rerank_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "total_ranking_ms": {
+          "mean": 12.028965439336995,
+          "p50": 6.506254430860281,
+          "p95": 38.297181809321
+        }
+      },
+      "truncated_pairs": 0,
+      "rerank_pairs": 0,
+      "unjudged_top5": 38,
+      "by_category": {
+        "abbreviation": {
+          "n": 3,
+          "ndcg@5": 0.7000694931980713,
+          "hit@5": 1.0
+        },
+        "direct": {
+          "n": 4,
+          "ndcg@5": 0.9492340261215593,
+          "hit@5": 1.0
+        },
+        "reasoning": {
+          "n": 3,
+          "ndcg@5": 1.0,
+          "hit@5": 1.0
+        }
+      }
+    },
+    "B": {
+      "n_expected": 12,
+      "n_records": 12,
+      "n_ok": 12,
+      "n_answerable_ok": 10,
+      "n_oos_ok": 2,
+      "missing_ids": [],
+      "errors": 0,
+      "metrics": {
+        "all_evidence": 0.7,
+        "candidate_hit": 0.9,
+        "candidate_recall": 0.8166666666666667,
+        "evidence_coverage": 0.7733333333333333,
+        "hit@1": 0.6,
+        "hit@3": 0.8,
+        "hit@5": 0.9,
+        "mrr@5": 0.7083333333333334,
+        "ndcg@5": 0.6620199655829889,
+        "precision@5": 0.18000000000000002,
+        "recall@5": 0.7333333333333333
+      },
+      "timing": {
+        "dense_search_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "bm25_ms": {
+          "mean": 3.881047130562365,
+          "p50": 3.7267617881298065,
+          "p95": 6.783866137266159
+        },
+        "fusion_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "rerank_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "total_ranking_ms": {
+          "mean": 3.881047130562365,
+          "p50": 3.7267617881298065,
+          "p95": 6.783866137266159
+        }
+      },
+      "truncated_pairs": 0,
+      "rerank_pairs": 0,
+      "unjudged_top5": 41,
+      "by_category": {
+        "abbreviation": {
+          "n": 3,
+          "ndcg@5": 0.32309290867425217,
+          "hit@5": 0.6666666666666666
+        },
+        "direct": {
+          "n": 4,
+          "ndcg@5": 0.6627302324517831,
+          "hit@5": 1.0
+        },
+        "reasoning": {
+          "n": 3,
+          "ndcg@5": 1.0,
+          "hit@5": 1.0
+        }
+      }
+    },
+    "C": {
+      "n_expected": 12,
+      "n_records": 12,
+      "n_ok": 12,
+      "n_answerable_ok": 10,
+      "n_oos_ok": 2,
+      "missing_ids": [],
+      "errors": 0,
+      "metrics": {
+        "all_evidence": 0.8,
+        "candidate_hit": 1.0,
+        "candidate_recall": 0.9333333333333333,
+        "evidence_coverage": 0.8333333333333334,
+        "hit@1": 0.8,
+        "hit@3": 0.9,
+        "hit@5": 0.9,
+        "mrr@5": 0.85,
+        "ndcg@5": 0.7997414971167939,
+        "precision@5": 0.22,
+        "recall@5": 0.8333333333333334
+      },
+      "timing": {
+        "dense_search_ms": {
+          "mean": 12.028965439336995,
+          "p50": 6.506254430860281,
+          "p95": 38.297181809321
+        },
+        "bm25_ms": {
+          "mean": 3.881047130562365,
+          "p50": 3.7267617881298065,
+          "p95": 6.783866137266159
+        },
+        "fusion_ms": {
+          "mean": 0.1412730198353529,
+          "p50": 0.11994922533631325,
+          "p95": 0.23391817230731238
+        },
+        "rerank_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "total_ranking_ms": {
+          "mean": 16.051285589734714,
+          "p50": 10.513608809560537,
+          "p95": 43.215626408345955
+        }
+      },
+      "truncated_pairs": 0,
+      "rerank_pairs": 0,
+      "unjudged_top5": 39,
+      "by_category": {
+        "abbreviation": {
+          "n": 3,
+          "ndcg@5": 0.48975957534091885,
+          "hit@5": 0.6666666666666666
+        },
+        "direct": {
+          "n": 4,
+          "ndcg@5": 0.8820340612862955,
+          "hit@5": 1.0
+        },
+        "reasoning": {
+          "n": 3,
+          "ndcg@5": 1.0,
+          "hit@5": 1.0
+        }
+      }
+    },
+    "D": {
+      "n_expected": 12,
+      "n_records": 12,
+      "n_ok": 12,
+      "n_answerable_ok": 10,
+      "n_oos_ok": 2,
+      "missing_ids": [],
+      "errors": 0,
+      "metrics": {
+        "all_evidence": 0.7,
+        "candidate_hit": 1.0,
+        "candidate_recall": 0.9333333333333333,
+        "evidence_coverage": 0.8133333333333334,
+        "hit@1": 0.6,
+        "hit@3": 0.8,
+        "hit@5": 0.9,
+        "mrr@5": 0.725,
+        "ndcg@5": 0.7015197531973938,
+        "precision@5": 0.2,
+        "recall@5": 0.7833333333333333
+      },
+      "timing": {
+        "dense_search_ms": {
+          "mean": 12.028965439336995,
+          "p50": 6.506254430860281,
+          "p95": 38.297181809321
+        },
+        "bm25_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "fusion_ms": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "rerank_ms": {
+          "mean": 6749.362828132386,
+          "p50": 6178.622749401256,
+          "p95": 8887.68931212835
+        },
+        "total_ranking_ms": {
+          "mean": 6761.391793571723,
+          "p50": 6217.259417520836,
+          "p95": 8894.23517875839
+        }
+      },
+      "truncated_pairs": 54,
+      "rerank_pairs": 240,
+      "unjudged_top5": 40,
+      "by_category": {
+        "abbreviation": {
+          "n": 3,
+          "ndcg@5": 0.36673615986473795,
+          "hit@5": 0.6666666666666666
+        },
+        "direct": {
+          "n": 4,
+          "ndcg@5": 0.7287472630949309,
+          "hit@5": 1.0
+        },
+        "reasoning": {
+          "n": 3,
+          "ndcg@5": 1.0,
+          "hit@5": 1.0
+        }
+      }
+    },
+    "E": {
+      "n_expected": 12,
+      "n_records": 12,
+      "n_ok": 12,
+      "n_answerable_ok": 10,
+      "n_oos_ok": 2,
+      "missing_ids": [],
+      "errors": 0,
+      "metrics": {
+        "all_evidence": 0.7,
+        "candidate_hit": 1.0,
+        "candidate_recall": 0.9333333333333333,
+        "evidence_coverage": 0.8133333333333334,
+        "hit@1": 0.6,
+        "hit@3": 0.8,
+        "hit@5": 0.9,
+        "mrr@5": 0.725,
+        "ndcg@5": 0.7015197531973938,
+        "precision@5": 0.2,
+        "recall@5": 0.7833333333333333
+      },
+      "timing": {
+        "dense_search_ms": {
+          "mean": 12.028965439336995,
+          "p50": 6.506254430860281,
+          "p95": 38.297181809321
+        },
+        "bm25_ms": {
+          "mean": 3.881047130562365,
+          "p50": 3.7267617881298065,
+          "p95": 6.783866137266159
+        },
+        "fusion_ms": {
+          "mean": 0.1412730198353529,
+          "p50": 0.11994922533631325,
+          "p95": 0.23391817230731238
+        },
+        "rerank_ms": {
+          "mean": 6454.144361855772,
+          "p50": 6289.174149977043,
+          "p95": 8461.34122244548
+        },
+        "total_ranking_ms": {
+          "mean": 6470.195647445507,
+          "p50": 6299.559684237465,
+          "p95": 8471.574463415891
+        }
+      },
+      "truncated_pairs": 54,
+      "rerank_pairs": 240,
+      "unjudged_top5": 40,
+      "by_category": {
+        "abbreviation": {
+          "n": 3,
+          "ndcg@5": 0.36673615986473795,
+          "hit@5": 0.6666666666666666
+        },
+        "direct": {
+          "n": 4,
+          "ndcg@5": 0.7287472630949309,
+          "hit@5": 1.0
+        },
+        "reasoning": {
+          "n": 3,
+          "ndcg@5": 1.0,
+          "hit@5": 1.0
+        }
+      }
+    }
+  }
+}

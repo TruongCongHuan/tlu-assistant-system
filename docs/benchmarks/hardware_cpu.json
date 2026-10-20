@@ -1,0 +1,14 @@
+{
+  "recorded_local": "2026-10-20T01:25:10.752293+07:00",
+  "cpu": "Intel(R) Core(TM) i3-5010U CPU @ 2.10GHz",
+  "logical_cpus": 4,
+  "memory": {
+    "MemTotal": "8033080 kB",
+    "SwapTotal": "4091900 kB"
+  },
+  "video": [
+    "00:02.0 VGA compatible controller: Intel Corporation HD Graphics 5500 (rev 09)"
+  ],
+  "platform": "Linux-6.17.0-35-generic-x86_64-with-glibc2.39",
+  "notes": "Hardware inventory; benchmark peak process RSS is recorded separately. Background desktop load is not controlled."
+}

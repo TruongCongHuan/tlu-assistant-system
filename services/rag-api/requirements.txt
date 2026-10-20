@@ -2,11 +2,13 @@ fastapi==0.115.6
 uvicorn[standard]==0.32.1
 python-multipart==0.0.17
 chromadb==0.5.23
+posthog==3.7.0
 google-generativeai==0.8.4
 pymupdf==1.25.2
 python-dotenv==1.0.1
 certifi>=2024.0.0
 numpy==1.26.4
+rank-bm25==0.2.2
 # Eval / ablation dependencies
 matplotlib==3.9.2
 pandas==2.2.3

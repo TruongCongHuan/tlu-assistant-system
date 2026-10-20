@@ -139,8 +139,8 @@ def compare_runs(
     label_b: str,
 ) -> dict[str, Any]:
     """Compare two paired runs (same question ids) — McNemar on hit@k + diff CI."""
-    by_a = {str(r["id"]): r for r in rows_a}
-    by_b = {str(r["id"]): r for r in rows_b}
+    by_a = {str(r["id"]): r for r in rows_a if r.get("category") != "out_of_scope"}
+    by_b = {str(r["id"]): r for r in rows_b if r.get("category") != "out_of_scope"}
     common = sorted(set(by_a) & set(by_b))
     if not common:
         return {"error": "no overlapping question ids"}

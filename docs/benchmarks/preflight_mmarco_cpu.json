@@ -1,0 +1,25 @@
+{
+  "total_s": 17.096197145059705,
+  "stats": {
+    "rerank_ms": 959.9218247458339,
+    "pairs": 3,
+    "truncated_pairs": 0,
+    "max_pair_tokens": 306,
+    "model_load_ms": 2342.452125623822
+  },
+  "peak_rss_mb": 804.10546875,
+  "scope": "CPU feasibility probe only; not retrieval quality",
+  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+  "quantize_int8": false,
+  "max_length": 512,
+  "batch_size": 2,
+  "threads": 2,
+  "cpu": "Intel Core i3-5010U",
+  "sample_chunk_indices": [
+    80,
+    81,
+    82
+  ],
+  "conditions": "Embedding job paused during probe; resumed afterwards. Different model/token/batch budget from BGE probe."
+}

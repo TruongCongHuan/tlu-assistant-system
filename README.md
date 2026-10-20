@@ -11,7 +11,7 @@
 | Trụ | Vai trò | Thành phần chính |
 |-----|---------|------------------|
 | **Hệ thống thông tin (MIS)** | Kênh tương tác sinh viên ↔ nhà trường | Chat phòng ban, thông báo FCM, nộp đơn/góp ý, Staff Console (RBAC, audit), Firebase Firestore |
-| **Trí tuệ nhân tạo (RAG)** | Hỏi đáp học vụ có căn cứ, giảm ảo giác LLM | Semantic chunking, query expansion, RAG on-device (Flutter) + server (FastAPI/ChromaDB), bộ eval 50 câu |
+| **Trí tuệ nhân tạo (RAG)** | Hỏi đáp học vụ có căn cứ, giảm ảo giác LLM | Semantic chunking, query expansion, RAG on-device (Flutter) + server (FastAPI/ChromaDB), bộ retrieval pilot 50 dev + 100 test |
 
 Hai trụ dùng chung một nền tảng: sinh viên dùng **một app Flutter**; cán bộ dùng **một web quản trị**; backend gom qua **Docker Compose**.
 
@@ -103,8 +103,10 @@ flowchart LR
 ### AI / RAG
 - Semantic Markdown Chunking + query expansion (viết tắt học vụ: HP, HK, GPA…)
 - Kiến trúc kép: RAG on-device (SQLite) và server (ChromaDB)
-- Eval harness 50 câu tiếng Việt: Context Precision, MRR, Faithfulness, Refusal Accuracy
-- Ablation 12 cấu hình — xem `services/rag-api/eval/`
+- Benchmark retrieval riêng: Dense, BM25, Hybrid RRF và Cross-Encoder; Hit/MRR/nDCG có cutoff, known-gold recall, latency và paired CI.
+- Bộ dữ liệu thử nghiệm 50 dev + 100 test có evidence nguồn; nhãn cần thẩm định độc lập. Xem [hướng dẫn chạy](services/rag-api/eval/README_RETRIEVAL.md).
+- Các số ablation cũ là placeholder chưa xác minh; kết quả mới luôn kèm manifest và per-query artifacts.
+- [Báo cáo retrieval ngày 20/10/2026](docs/benchmarks/BAO_CAO_RETRIEVAL_2026-10-20.md) — số đo local, CI, timing lặp lại và giới hạn bộ nhãn.
 
 ---
 

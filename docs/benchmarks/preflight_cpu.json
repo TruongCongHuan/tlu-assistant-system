@@ -1,0 +1,32 @@
+{
+  "total_s": 24.64794488204643,
+  "stats": {
+    "rerank_ms": 3416.886425111443,
+    "pairs": 3,
+    "truncated_pairs": 1,
+    "max_pair_tokens": 306,
+    "model_load_ms": 14221.39648720622
+  },
+  "peak_rss_mb": 1909.4453125,
+  "scores": [
+    0.007235961966216564,
+    0.003516988828778267,
+    0.0006400475976988673
+  ],
+  "scope": "CPU feasibility probe only; not retrieval quality evaluation",
+  "model": "BAAI/bge-reranker-v2-m3",
+  "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+  "quantize_int8": true,
+  "max_length": 256,
+  "batch_size": 1,
+  "threads": 2,
+  "cpu": "Intel Core i3-5010U",
+  "sample_chunk_indices": [
+    80,
+    81,
+    82
+  ],
+  "question": "Sinh viên đăng ký tối thiểu bao nhiêu tín chỉ?",
+  "conditions": "Embedding job paused during probe; resumed afterwards. Includes first inference overhead.",
+  "annotation_status": "not a benchmark on dev/test labels"
+}

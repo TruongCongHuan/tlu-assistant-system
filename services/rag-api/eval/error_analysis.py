@@ -31,7 +31,7 @@ def classify_row(row: dict[str, str]) -> list[str]:
     except ValueError:
         refusal = 0
 
-    if hit <= 0:
+    if hit <= 0 and category != "out_of_scope":
         tags.append("retrieval_miss")
     if faith >= 0 and faith < 0.5:
         tags.append("low_faithfulness")
@@ -39,7 +39,7 @@ def classify_row(row: dict[str, str]) -> list[str]:
         tags.append("low_context_precision")
     if category == "out_of_scope" and refusal == 0:
         tags.append("false_accept")
-    if category != "out_of_scope" and refusal == 1 and hit <= 0:
+    if category != "out_of_scope" and refusal == 0:
         tags.append("false_refusal")
 
     if not tags:
